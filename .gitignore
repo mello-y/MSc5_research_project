@@ -5,3 +5,7 @@ data/.ipynb_checkpoints
 
 # Ignore in main directory
 .DS_Store
+
+# Ignore mat files
+data/DTI_Dublin.mat
+data/DTI_Maastricht.mat
