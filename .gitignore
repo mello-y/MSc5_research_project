@@ -1,2 +1,7 @@
-DS_Store
-.ipynb_checkpoints
+# Ignore in Data
+data/.DS_Store
+data/.ipynb_checkpoints
+
+
+# Ignore in main directory
+.DS_Store
