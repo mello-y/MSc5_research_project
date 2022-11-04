@@ -22,3 +22,15 @@ To-do for next time working on the project:
 - research on the other questions
 - maintain github repo and notebook
 - briefly read the ML section (Morgan et al., 2019)
+
+## Friday, 04/11/2022
+What I did today:
+- went trough some more questions in the list to get a better understanding of the data at hand
+- went through the morphometric analyzes and diffusion MRI section on the course website
+- read the ML section (Morgan et al., 2019) and made some pointers re things to do further research on
+- updated github repo (added badges and requirements file)
+
+To-do for next time working on the project:
+- work on data exploration notebook
+- add more info re the project to the README.md
+
