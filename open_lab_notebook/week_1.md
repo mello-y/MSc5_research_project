@@ -10,4 +10,15 @@ To-do for next time working on the project:
 - read psychosis paper (ET Bullmore, S Frangou, and RM Murray. The dysplastic net hypothesis: an integration of developmental and dysconnectivity theories of schizophrenia. Schizophrenia Research, 28: 143–156, 1997.)
 - go through the list of questions regarding the data and research to get a better undestanding of the data
 - work on notebook and the data exploration section
-- briefly read the ML section (Morgan et al., 2019)g
+- briefly read the ML section (Morgan et al., 2019)
+
+## Thursday, 03/11/2022
+What I did today:
+- read the paper ET Bullmore, S Frangou, and RM Murray. The dysplastic net hypothesis: an integration of developmental and dysconnectivity theories of schizophrenia. Schizophrenia Research, 28: 143–156, 1997
+- went through some of the questions in the list 
+- went through the MRI section on the course website
+
+To-do for next time working on the project:
+- research on the other questions
+- maintain github repo and notebook
+- briefly read the ML section (Morgan et al., 2019)
