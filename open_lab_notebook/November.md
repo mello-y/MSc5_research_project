@@ -53,6 +53,7 @@ To-do next time working on the project:
 ## Friday, 18/11/2022
 What I did today:
  - found the files for the derived form of the Desikan-Killiany atlas with 308 cortical regions
+ - link for the repo: https://github.com/RafaelRomeroGarcia/subParcellation 
 
 To-do next time working on the project:
 - load the atlas in jupyter notebook
