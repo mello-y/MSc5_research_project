@@ -34,3 +34,35 @@ To-do for next time working on the project:
 - work on data exploration notebook
 - add more info re the project to the README.md
 
+## Saturday, 12/11/2022
+What I did today:
+- tried to find the derived atlas (from the Desikan-Killiany) that was used in the paper with 308 cortical regions
+- researched about how to plot brain atlases (FreeSurfer, Nilearn, ggseg R module)
+
+To-do next time working on the project:
+- find the atlas and load it in jupyter notebook
+
+## Wednesday, 16/11/2022
+What I did today:
+- tried to use the ggseg module and find a way how to use R within python since ggseg is a R module; to load the standard Desikan-Killiany atlas because I was not able to find the files for the derived atlas
+- ggseg module did not work, could not figure it out
+
+To-do next time working on the project:
+- find the atlas and load it in jupyter notebook without using ggseg
+
+## Friday, 18/11/2022
+What I did today:
+ - found the files for the derived form of the Desikan-Killiany atlas with 308 cortical regions
+
+To-do next time working on the project:
+- load the atlas in jupyter notebook
+
+## Monday, 21/11/2022
+What I did today:
+- loaded the atlas in jupyter notebook
+- provided more infos for github repo
+
+To-do next time working on the project:
+- provide more information regarding the atlas, other plotting tools, find out how to visualize the 308 cortical regions
+- provide more information for github repo
+- reorganize data exploration notebook
