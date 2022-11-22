@@ -78,4 +78,4 @@ What I did today:
 To-do next time working on the project:
 - explore demographic data for both CT and DWI data subsets, visualize the data
 - look for the .annot files, whether they provide more information regarding the regions in sense of visualizing the regions
-- start exploring the CT data
+- start exploring the CT data 
