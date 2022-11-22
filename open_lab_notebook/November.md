@@ -67,3 +67,15 @@ To-do next time working on the project:
 - provide more information regarding the atlas, other plotting tools, find out how to visualize the 308 cortical regions
 - provide more information for github repo
 - reorganize data exploration notebook
+
+## Tuesday, 22/11/2022
+What I did today:
+- tried other plotting tools (3D)
+- reorganized the structure of data exploration notebook
+- started to provide information regarding demographic data 
+- added more comments and descriptions in the notebook 
+
+To-do next time working on the project:
+- explore demographic data for both CT and DWI data subsets, visualize the data
+- look for the .annot files, whether they provide more information regarding the regions in sense of visualizing the regions
+- start exploring the CT data
