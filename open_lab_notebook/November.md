@@ -79,3 +79,13 @@ To-do next time working on the project:
 - explore demographic data for both CT and DWI data subsets, visualize the data
 - look for the .annot files, whether they provide more information regarding the regions in sense of visualizing the regions
 - start exploring the CT data 
+
+## Wednesday, 23/11/2022
+What I did today::
+- explored demographic data for both CT and DWI data subsets
+- tried to visualize the data but it did not work: my idea was to use a grouped bar chart to visualize the amount of participants in the control and patient group with respect to their gender, for that tried to use matplotlib and seaborn
+
+To-do next time working on the project:
+- visualize the demographic data
+- look for the .annot files, whether they provide more information regarding the regions in sense of visualizing the regions
+- start exploring the CT data 
