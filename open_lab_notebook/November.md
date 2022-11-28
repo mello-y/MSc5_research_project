@@ -89,3 +89,19 @@ To-do next time working on the project:
 - visualize the demographic data
 - look for the .annot files, whether they provide more information regarding the regions in sense of visualizing the regions
 - start exploring the CT data 
+
+## Monday, 28/11/2022
+What I did today:
+- loaded the atlas in jupyter notebook with respective labels
+- started CT data exploration section (explained what CT is and loaded data)
+- added information and comments to the notebook
+- after talking to my instructor, there is no need to visualize the demographic data
+- watched a video about [Gradient descent](https://www.youtube.com/watch?v=3XOe0LwJw1s) and [Backpropagation](https://www.youtube.com/watch?v=Ilg3gGewQ5U)
+
+To-do next time working on the project:
+- get a better idea of how to explore the CT data 
+        - what is the range of values in the data
+        - what is the distribution of the values
+        - separate for control and patient group?
+        - what does the values mean?
+- maintain github repo and notebook
