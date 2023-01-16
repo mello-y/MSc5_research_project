@@ -2,7 +2,7 @@
  
 [![Jupyter Book Badge](https://jupyterbook.org/badge.svg)](https://github.com/mello-y/MSc5_research_project)
 [![GitHub size](https://img.shields.io/github/repo-size/mello-y/MSc5_research_project)](https://github.com/mello-y/MSc5_research_project)
-![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/mello-y/MSc5_research_project)(https://github.com/mello-y/MSc5_research_project)
+[![GitHub size](https://github.com/ngryman/badge-size/main/MSc5_research_project)
 [![GitHub issues](https://img.shields.io/github/issues/mello-y/MSc5_research_project)](https://github.com/mello-y/MSc5_research_project/issues)
 [![GitHub PR](https://img.shields.io/github/issues-pr/mello-y/MSc5_research_project)](https://github.com/mello-y/MSc5_research_project/pulls)
 [![License](https://img.shields.io/github/license/mello-y/MSc5_research_project)](https://github.com/mello-y/MSc5_research_project)
