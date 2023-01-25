@@ -38,4 +38,10 @@ What I did today:
 To-do next time working on the project:
 - compute a logistic regression pipeline in python for the remaining brain regions
 - provide more information on SVM and Logistic Regression in the Data analysis notebook
-- 
+-
+
+## Wednesday, 25/01/2023
+What I did today:
+- merged content of main branch into update branch to now work on update branch
+- structured repo, moved notebooks into code folder
+
