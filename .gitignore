@@ -1,7 +1,6 @@
 # Ignore in Data
 data/.DS_Store
-data/.ipynb_checkpoints
-*/.ipynb_checkpoints/*
+data/MSc5_research_project/data/.ipynb_checkpoints
 
 
 # Ignore in main directory
