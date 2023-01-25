@@ -19,4 +19,23 @@ To-do next time working on the project:
 - apply the logic of SVC to my data 
 - read in about features and feature selection and apply to my data 
 - get an idea of how to implement linearSVC in python (the structure of the pipeline)
--
+
+
+## Wednesday, 18/01/2023
+What I did today:
+- wrote a SVM pipeline in python (still needs to be further developed)
+- read about Logistic Regression and understood the underlying concept and logic
+- thought about how to implement Logistic Regression in python (the structure of the pipeline)
+
+To-do next time working on the project:
+- compute a logistic regression pipeline in python
+
+
+## Friday, 20/01/2023
+What I did today:
+- computed a logistic regression pipeline in python for the first 5 brain regions
+
+To-do next time working on the project:
+- compute a logistic regression pipeline in python for the remaining brain regions
+- provide more information on SVM and Logistic Regression in the Data analysis notebook
+- 
