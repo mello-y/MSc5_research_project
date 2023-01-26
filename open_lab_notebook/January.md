@@ -44,4 +44,16 @@ To-do next time working on the project:
 What I did today:
 - merged content of main branch into update branch to now work on update branch
 - structured repo, moved notebooks into code folder
+- read in more on logistic regression 
 
+To-do next time working on the project:
+- compute a logistic regression pipeline in python 
+
+## Thursday, 26/01/2023
+What I did today:
+- computed a logistic regression pipeline in python, restructred it 
+
+To-do next time working on the project:
+- plot logistic regression resullts 
+- provide more information on logistic regression in the Data analysis notebook
+- restructre data analysis notebook
