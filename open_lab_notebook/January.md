@@ -57,3 +57,16 @@ To-do next time working on the project:
 - plot logistic regression resullts 
 - provide more information on logistic regression in the Data analysis notebook
 - restructre data analysis notebook
+
+## Friday, 27/01/2023
+What I did today:
+- provided more information on logistic regression in the Data analysis notebook
+- restructred data analysis notebook, specifically the logistic regression section
+- created ROC curve for logistic regression
+- failed to plot logistic regression results. The error message says that for the regplot function the input data must be 1-dimensional. For my y variable this was the case, for X it was not. I tried to reshape the X variable, but this did not work. I will try to fix this next time.
+
+To-do next time working on the project:
+- plot logistic regression results
+- interpret ROC curve
+- provide more information on logistic regression in the Data analysis notebook
+- start with the SVM section in the Data analysis notebook
