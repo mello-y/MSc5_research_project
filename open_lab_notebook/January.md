@@ -70,3 +70,14 @@ To-do next time working on the project:
 - interpret ROC curve
 - provide more information on logistic regression in the Data analysis notebook
 - start with the SVM section in the Data analysis notebook
+
+## Monday, 30/01/2023
+What I did today:
+- provided more information on logistic regression in the Data analysis notebook
+- interpreted confusion matrix and evaluation measures
+- failed to plit logistic regression results; since there is no need to plot the results, I will not try to fix this anymore
+
+To-do next time working on the project:
+- interpret ROC curve
+- finalise logistic regression section in the Data analysis notebook
+- start with the SVM section in the Data analysis notebook
