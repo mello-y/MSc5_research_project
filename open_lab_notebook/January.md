@@ -81,3 +81,14 @@ To-do next time working on the project:
 - interpret ROC curve
 - finalise logistic regression section in the Data analysis notebook
 - start with the SVM section in the Data analysis notebook
+
+
+## Monday, 06/02/2023
+What I did today:
+- adjusted file paths in the Data analysis notebook and Data exploration notebook and used relative paths and plat-form independent paths to ensure reproducibility 
+
+To-do next time working on the project:
+- interpret ROC curve
+- finalise logistic regression section in the Data analysis notebook
+- start with the SVM section in the Data analysis notebook
+- Work on Issue #2 on github 
