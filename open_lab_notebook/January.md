@@ -92,3 +92,15 @@ To-do next time working on the project:
 - finalise logistic regression section in the Data analysis notebook
 - start with the SVM section in the Data analysis notebook
 - Work on Issue #2 on github 
+
+## Monday, 13/02/2023
+What I did today:
+- computed logistic regression for microstructural data
+- plotted brain region differences between controls and patients for the macrostructural data and microstructural data
+
+To-do next time working on the project:
+- intepret ROC curve
+- provide more information on logistic regression section
+- compute SVM for macro and microstructural data
+- Read into Gridsearch to see how results differ whith different parameters
+- 
