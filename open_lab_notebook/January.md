@@ -103,4 +103,14 @@ To-do next time working on the project:
 - provide more information on logistic regression section
 - compute SVM for macro and microstructural data
 - Read into Gridsearch to see how results differ whith different parameters
-- 
+
+## Wednesday, 16/02/2023
+What I did today:
+- created new notebook for SVM and computed pipelines for macro- and microstructural data
+
+To-do next time working on the project:
+- Read into Gridsearch to see how results differ whith different parameters
+- provide more information on logistic regression and SVM section
+- intepret ROC curves
+
+
