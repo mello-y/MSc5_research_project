@@ -114,3 +114,14 @@ To-do next time working on the project:
 - intepret ROC curves
 
 
+## Thursday 23/02/2023
+What I did today:
+- provided more information on logistic regression and SVM notebook
+- intepreted ROC curve for macrostructural data
+- worked on the issue to standardise before splitting the data
+
+To-do next time working on the project:
+- intepret ROC curve for microstructural data
+- Read into Gridsearch to see how results differ whith different parameters
+- provide more information on logistic regression and SVM notebook for microstructual data
+- cross-validate SVM and logistic regression for macro- and microstructural data
