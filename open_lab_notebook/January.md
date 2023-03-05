@@ -125,3 +125,14 @@ To-do next time working on the project:
 - Read into Gridsearch to see how results differ whith different parameters
 - provide more information on logistic regression and SVM notebook for microstructual data
 - cross-validate SVM and logistic regression for macro- and microstructural data
+
+## Sunday 05/03/2023
+What I did today:
+- cross-validated logistic regression for macro- and microstructural data
+
+To-do next time working on the project:
+- cross-validate SVM for macro- and microstructural data
+- Apply Gridsearch to logistic regression and SVM for macro- and microstructural data
+- read into ROC-curve methdods proposed by Jack
+
+
