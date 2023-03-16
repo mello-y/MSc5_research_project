@@ -1,0 +1,4466 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Data exploration for MSc5_research_project &#8212; Course Template for ressources in higher education</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'data/Data_exploration';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../general_information/index.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../general_information/index.html">
+                    Welcome!
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../general_information/overview.html">Course overview &amp; procedure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../general_information/procedure.html">General procedure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../general_information/outline.html">General outline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../general_information/setup.html">Setup for the course</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../general_information/results_communication.html">Results communication</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../general_information/symposium.html">Symposium</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../general_information/CoC.html">Code of Conduct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../general_information/dei.html">Diversity, Equity and Inclusion</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/M-earnest/course_template_diler/master?urlpath=tree/lecture/data/Data_exploration.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/M-earnest/course_template_diler" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/M-earnest/course_template_diler/edit/master/lecture/data/Data_exploration.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/M-earnest/course_template_diler/issues/new?title=Issue%20on%20page%20%2Fdata/Data_exploration.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/data/Data_exploration.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Data exploration for MSc5_research_project</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-access">1. Data access</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-does-the-data-contain-general-overview">2. What does the data contain? General overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#demographic-data">3. Demographic data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exploring-the-different-modalities">3. Exploring the different modalities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#macro-structural-data-cortical-thickness-ct">3.1 Macro-structural data: cortical thickness (CT)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#micro-structural-data-mean-diffusivity-md-and-fractional-anisotropy-fa">3.1 Micro-structural data: mean diffusivity (MD) and fractional anisotropy (FA)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dti-networks">3.1 DTI Networks</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#download-the-mat-files">3.1.1 Download the .mat files</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#read-the-mat-files">3.1.2 Read the .mat files</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="data-exploration-for-msc5-research-project">
+<h1>Data exploration for MSc5_research_project<a class="headerlink" href="#data-exploration-for-msc5-research-project" title="Permalink to this heading">#</a></h1>
+<p>This jupyter notebook deals with exploring the data for my research project within the MSc05 course in the Neurocognitive Psychology lab at Goethe University Frankfurt within the psychology master degree program.</p>
+<p>The main idea of the project is to use machine learning in order to predict whether a person can be classified either as a healthy control or a patient with psychotic disorder based on different MRI metrics and to see which of them provides more accuracy.</p>
+<section id="data-access">
+<h2>1. Data access<a class="headerlink" href="#data-access" title="Permalink to this heading">#</a></h2>
+<p>The data I am going to use for the project is available on <a class="reference external" href="https://figshare.com/articles/dataset/Data_for_Functional_MRI_connectivity_accurately_distinguishes_cases_with_psychotic_disorders_from_healthy_controls_based_on_cortical_features_associated_with_brain_network_development_/12361550">figshare</a> and originates from the paper “Functional MRI connectivity accurately distinguishes cases with psychotic disorders from healthy controls, based on cortical features associated with brain network development” by <a class="reference external" href="https://doi.org/10.1101/19009894">Young et al. (2020)</a>. The github repository for the study can be accessed <a class="reference external" href="https://github.com/jmyoung36/fMRI_connectivity_accurately_distinguishes_cases">here</a>.</p>
+</section>
+<section id="what-does-the-data-contain-general-overview">
+<h2>2. What does the data contain? General overview<a class="headerlink" href="#what-does-the-data-contain-general-overview" title="Permalink to this heading">#</a></h2>
+<p>The already pre-processed data contains different metrics for three different locations being Dublin, Maastricht and Cobre.</p>
+<p>For the <strong>macro-structural</strong> data <em><strong>cortical thickness (CT)</strong></em> was estimated for 308 cortical regions according to a derived version of the Desikian-Killiany atlas <a class="reference external" href="https://www.sciencedirect.com/science/article/abs/pii/S1053811906000437?via%3Dihub">(Desikan et al, 2006)</a>. The files for the derived and adjusted atlas can be found in this <a class="reference external" href="https://github.com/RafaelRomeroGarcia/subParcellation">github repository</a>, the respective paper <a class="reference external" href="https://doi.org/10.1016/j.neuroimage.2011.10.086">here</a>.</p>
+<p>The <strong>micro-structural</strong> data contains diffusion weighted images (DWI) from which regional cortical measures such as <em><strong>mean diffusivity (MD)</strong></em> and <em><strong>fractional anisotropy (FA)</strong></em> were estimated.</p>
+<p>There are further metrics such as <em><strong>functional magnet resonance imaging data (fMRI), fMRI connectivity and network data</strong></em> and <em><strong>structural connectivity</strong></em> and <em><strong>DWI tractography</strong></em>. For project purposes, only the <strong>macro and micro-structural</strong> data will be used. On top of that, the data for only Dublin is going to be explored since it provides the best image quality (see Table 1 in <a class="reference external" href="https://doi.org/10.1101/19009894">Young et al., 2020)</a> and not every modality was measured for the Cobre dataset.</p>
+<p>Demographic data such as Age and Gender is also provided.</p>
+</section>
+<section id="demographic-data">
+<h2>3. Demographic data<a class="headerlink" href="#demographic-data" title="Permalink to this heading">#</a></h2>
+<p>First of all, I am going to explore the demographic data to get a better understanding of the sample. In the Dublin dataset, there is a different subset of patients with <strong>DWI</strong> data compared to those with <strong>CT</strong> data. Both “subsets” are loaded and compared with regard to basic demographic variables.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#import module to read the CT and DWI data</span>
+
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="c1">#store CT data in variable &quot;CT_Dublin&quot;</span>
+
+<span class="n">CT_Dublin</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;/Users/mello/Desktop/Dataset/PARC_500.aparc_thickness_Dublin.csv&#39;</span><span class="p">,</span> <span class="n">delimiter</span> <span class="o">=</span> <span class="s1">&#39;,&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#get columns of pandas dataframe</span>
+
+<span class="n">CT_Dublin</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;Subject ID&#39;, &#39;Age&#39;, &#39;Sex&#39;, &#39;Group&#39;, &#39;lh_bankssts_part1_thickness&#39;,
+       &#39;lh_bankssts_part2_thickness&#39;,
+       &#39;lh_caudalanteriorcingulate_part1_thickness&#39;,
+       &#39;lh_caudalmiddlefrontal_part1_thickness&#39;,
+       &#39;lh_caudalmiddlefrontal_part2_thickness&#39;,
+       &#39;lh_caudalmiddlefrontal_part3_thickness&#39;,
+       ...
+       &#39;rh_supramarginal_part5_thickness&#39;, &#39;rh_supramarginal_part6_thickness&#39;,
+       &#39;rh_supramarginal_part7_thickness&#39;, &#39;rh_frontalpole_part1_thickness&#39;,
+       &#39;rh_temporalpole_part1_thickness&#39;,
+       &#39;rh_transversetemporal_part1_thickness&#39;, &#39;rh_insula_part1_thickness&#39;,
+       &#39;rh_insula_part2_thickness&#39;, &#39;rh_insula_part3_thickness&#39;,
+       &#39;rh_insula_part4_thickness&#39;],
+      dtype=&#39;object&#39;, length=312)
+</pre></div>
+</div>
+</div>
+</div>
+<p>As we can see, besides the different brain regions there are columns that indicate the demographic data that we are interested in for now.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#select a subset of the CT data</span>
+
+<span class="n">demographic_CT</span> <span class="o">=</span> <span class="n">CT_Dublin</span><span class="p">[[</span><span class="s2">&quot;Subject ID&quot;</span><span class="p">,</span> <span class="s2">&quot;Age&quot;</span><span class="p">,</span> <span class="s2">&quot;Sex&quot;</span><span class="p">,</span> <span class="s2">&quot;Group&quot;</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#view demographic data of CT data</span>
+
+<span class="n">demographic_CT</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Subject ID</th>
+      <th>Age</th>
+      <th>Sex</th>
+      <th>Group</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>CON9225</td>
+      <td>21</td>
+      <td>2</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>CON9229</td>
+      <td>28</td>
+      <td>2</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>CON9231</td>
+      <td>29</td>
+      <td>2</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>GASP3037</td>
+      <td>61</td>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>GASP3040</td>
+      <td>47</td>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>103</th>
+      <td>RPG9019</td>
+      <td>31</td>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>104</th>
+      <td>RPG9102</td>
+      <td>42</td>
+      <td>2</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>105</th>
+      <td>RPG9119</td>
+      <td>41</td>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>106</th>
+      <td>RPG9121</td>
+      <td>51</td>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>107</th>
+      <td>RPG9126</td>
+      <td>56</td>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+  </tbody>
+</table>
+<p>108 rows × 4 columns</p>
+</div></div></div>
+</div>
+<p>As it can be seen, for the <strong>CT</strong> data there is a total of N=108 participants.</p>
+<p>Having the subset of demographic information for the <strong>CT</strong> data, there is an excel file for the demographic information for the <strong>DWI</strong> data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#read an Excel file as pandas data frame</span>
+
+<span class="n">demographic_DWI</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;/Users/mello/data/MSc5_research_project/data/DTI_demographics_Dublin.xls&#39;</span><span class="p">)</span>
+<span class="n">demographic_DWI</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Subject ID</th>
+      <th>Age</th>
+      <th>Sex</th>
+      <th>Group</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>con11</td>
+      <td>34</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>con12</td>
+      <td>26</td>
+      <td>2</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>con18</td>
+      <td>27</td>
+      <td>2</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>con19</td>
+      <td>36</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>con20</td>
+      <td>23</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>118</th>
+      <td>pat92</td>
+      <td>26</td>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>119</th>
+      <td>pat94</td>
+      <td>27</td>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>120</th>
+      <td>pat96</td>
+      <td>23</td>
+      <td>2</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>121</th>
+      <td>pat98</td>
+      <td>32</td>
+      <td>2</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>122</th>
+      <td>pat9</td>
+      <td>25</td>
+      <td>2</td>
+      <td>2</td>
+    </tr>
+  </tbody>
+</table>
+<p>123 rows × 4 columns</p>
+</div></div></div>
+</div>
+<p>For the <strong>DWI</strong> data there is a total of N=123 participants.</p>
+<p><font color='red'><strong>NOTE:</strong></font> <strong>In my case, the excel file format had to be in “xls” for it to be converted into a pandas data frame. The formats “xlsm” and “xlsx” did not work for me. In case you get an import error saying “Missing optional dependency “xlrd””, run the following code below in bash. For further help, click <a class="reference external" href="https://datatofish.com/read_excel/">here</a>.</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#use ! to run command in bash</span>
+<span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>xlrd
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: xlrd in /Users/mello/miniconda3/envs/neuro_ai/lib/python3.7/site-packages (2.0.1)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now, having demographic data subsets of both <strong>CT</strong> and <strong>DWI</strong> data, they can be explored. The documentation on <a class="reference external" href="https://figshare.com/articles/dataset/Data_for_Functional_MRI_connectivity_accurately_distinguishes_cases_with_psychotic_disorders_from_healthy_controls_based_on_cortical_features_associated_with_brain_network_development_/12361550">figshare</a> provides label information for Sex (1=male, 2=female) and Group (1=control, 2=case).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#n of control and patients</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">demographic_CT</span><span class="p">[</span><span class="s1">&#39;Group&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">())</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1    80
+2    28
+Name: Group, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#n of males and females</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">demographic_CT</span><span class="p">[</span><span class="s1">&#39;Sex&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">())</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1    60
+2    48
+Name: Sex, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#get age information</span>
+<span class="n">demographic_CT</span><span class="p">[</span><span class="s1">&#39;Age&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>count    108.000000
+mean      31.231481
+std       10.911373
+min       18.000000
+25%       22.000000
+50%       29.000000
+75%       38.250000
+max       64.000000
+Name: Age, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>To sum up the demographic data, for the <strong>CT</strong> data within the Dublin sample there is n=80 controls and n=28 patients, a total of N=108 participants of which n=60 are males and n=48 females. The mean age is M=31.23 years with a standard deviation of SD=10.91 years. The age ranges from min=18 years to max=64 years.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#n of control and patients</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">demographic_DWI</span><span class="p">[</span><span class="s1">&#39;Group&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">())</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2    64
+1    59
+Name: Group, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#n of males and females</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">demographic_DWI</span><span class="p">[</span><span class="s1">&#39;Sex&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">())</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1    66
+2    57
+Name: Sex, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#get age information</span>
+<span class="n">demographic_DWI</span><span class="p">[</span><span class="s1">&#39;Age&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>count    123.000000
+mean      28.455285
+std        8.518304
+min       17.000000
+25%       22.000000
+50%       27.000000
+75%       32.000000
+max       50.000000
+Name: Age, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>The <strong>DWI data</strong> subset for the Dublin sample consists of a total of N=123 particpants with n=56 being control and n=64 patients. There are n=66 males and n=57 females. The mean age is M=28.46 years with a standard deviation of SD=8.52 years. The age ranges from min=17 years to max=50 years.</p>
+<section id="exploring-the-different-modalities">
+<h3>3. Exploring the different modalities<a class="headerlink" href="#exploring-the-different-modalities" title="Permalink to this heading">#</a></h3>
+<p>In the following chapter, the different modalities are explored. Before getting a deeper look at the data, the derived form of the Desikan-Killiany Atlas with 308 cortical regions that is used for the <strong>macro- and micro-structural data</strong> is visualized.
+As already mentioned above, there is a <a class="reference external" href="https://github.com/RafaelRomeroGarcia/subParcellation">github repository</a> for that specific atlas with the required files therein. Since there is a poor documentation of the files and their content, it might be confusing which of them is actually required for visualization purposes.</p>
+<p>If you click on the repository link, the first folder with the title “500mm parcellation (308 regions)” is the relevant one. In the folder itself, there are two text files (.txt) with the coordinates and names of the 308 regions and two NIFTI files (.nii.gz). These are the files, that I used for visualization. For that, I used the nibabel and nilearn modules.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#import relevant modules</span>
+
+<span class="kn">import</span> <span class="nn">nibabel</span> <span class="k">as</span> <span class="nn">nb</span>
+<span class="kn">from</span> <span class="nn">nilearn</span> <span class="kn">import</span> <span class="n">plotting</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#load NIFTI files</span>
+<span class="n">f_one</span> <span class="o">=</span> <span class="n">nb</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;/Users/mello/data/MSc5_research_project/data/atlas/500.aparc_cortical_consecutive.nii&#39;</span><span class="p">)</span>
+<span class="n">f_two</span> <span class="o">=</span> <span class="n">nb</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;/Users/mello/data/MSc5_research_project/data/atlas/500.aparc.nii&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#plot atlas</span>
+<span class="n">plotting</span><span class="o">.</span><span class="n">plot_roi</span><span class="p">(</span><span class="n">f_one</span><span class="p">,</span> <span class="n">draw_cross</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">annotate</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">colorbar</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Paired&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Cortical parcellation with 308 cortical regions&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/mello/miniconda3/envs/neuro_ai/lib/python3.7/site-packages/nilearn/plotting/img_plotting.py:348: FutureWarning: Default resolution of the MNI template will change from 2mm to 1mm in version 0.10.0
+  anat_img = load_mni152_template()
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;nilearn.plotting.displays._slicers.OrthoSlicer at 0x7f9c914b36a0&gt;
+</pre></div>
+</div>
+<img alt="../_images/074844bb19b1a8358bca92fcb6a7d864aa00f62140ce810462bd5b5c164a723f.png" src="../_images/074844bb19b1a8358bca92fcb6a7d864aa00f62140ce810462bd5b5c164a723f.png" />
+</div>
+</div>
+<p>There is also a.txt file that contains all the 308 cortical region names. In the following, the .txt file is read.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#read the .txt files with region names</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;/Users/mello/data/MSc5_research_project/data/atlas/308_regions_names.txt&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">lines</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#region names</span>
+<span class="n">lines</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;lh_bankssts_part1\n&#39;,
+ &#39;lh_bankssts_part2\n&#39;,
+ &#39;lh_caudalanteriorcingulate_part1\n&#39;,
+ &#39;lh_caudalmiddlefrontal_part1\n&#39;,
+ &#39;lh_caudalmiddlefrontal_part2\n&#39;,
+ &#39;lh_caudalmiddlefrontal_part3\n&#39;,
+ &#39;lh_caudalmiddlefrontal_part4\n&#39;,
+ &#39;lh_cuneus_part1\n&#39;,
+ &#39;lh_cuneus_part2\n&#39;,
+ &#39;lh_entorhinal_part1\n&#39;,
+ &#39;lh_fusiform_part1\n&#39;,
+ &#39;lh_fusiform_part2\n&#39;,
+ &#39;lh_fusiform_part3\n&#39;,
+ &#39;lh_fusiform_part4\n&#39;,
+ &#39;lh_fusiform_part5\n&#39;,
+ &#39;lh_inferiorparietal_part1\n&#39;,
+ &#39;lh_inferiorparietal_part2\n&#39;,
+ &#39;lh_inferiorparietal_part3\n&#39;,
+ &#39;lh_inferiorparietal_part4\n&#39;,
+ &#39;lh_inferiorparietal_part5\n&#39;,
+ &#39;lh_inferiorparietal_part6\n&#39;,
+ &#39;lh_inferiorparietal_part7\n&#39;,
+ &#39;lh_inferiorparietal_part8\n&#39;,
+ &#39;lh_inferiortemporal_part1\n&#39;,
+ &#39;lh_inferiortemporal_part2\n&#39;,
+ &#39;lh_inferiortemporal_part3\n&#39;,
+ &#39;lh_inferiortemporal_part4\n&#39;,
+ &#39;lh_inferiortemporal_part5\n&#39;,
+ &#39;lh_inferiortemporal_part6\n&#39;,
+ &#39;lh_isthmuscingulate_part1\n&#39;,
+ &#39;lh_isthmuscingulate_part2\n&#39;,
+ &#39;lh_lateraloccipital_part1\n&#39;,
+ &#39;lh_lateraloccipital_part2\n&#39;,
+ &#39;lh_lateraloccipital_part3\n&#39;,
+ &#39;lh_lateraloccipital_part4\n&#39;,
+ &#39;lh_lateraloccipital_part5\n&#39;,
+ &#39;lh_lateraloccipital_part6\n&#39;,
+ &#39;lh_lateraloccipital_part7\n&#39;,
+ &#39;lh_lateraloccipital_part8\n&#39;,
+ &#39;lh_lateraloccipital_part9\n&#39;,
+ &#39;lh_lateralorbitofrontal_part1\n&#39;,
+ &#39;lh_lateralorbitofrontal_part2\n&#39;,
+ &#39;lh_lateralorbitofrontal_part3\n&#39;,
+ &#39;lh_lateralorbitofrontal_part4\n&#39;,
+ &#39;lh_lingual_part1\n&#39;,
+ &#39;lh_lingual_part2\n&#39;,
+ &#39;lh_lingual_part3\n&#39;,
+ &#39;lh_lingual_part4\n&#39;,
+ &#39;lh_lingual_part5\n&#39;,
+ &#39;lh_lingual_part6\n&#39;,
+ &#39;lh_medialorbitofrontal_part1\n&#39;,
+ &#39;lh_medialorbitofrontal_part2\n&#39;,
+ &#39;lh_medialorbitofrontal_part3\n&#39;,
+ &#39;lh_middletemporal_part1\n&#39;,
+ &#39;lh_middletemporal_part2\n&#39;,
+ &#39;lh_middletemporal_part3\n&#39;,
+ &#39;lh_middletemporal_part4\n&#39;,
+ &#39;lh_middletemporal_part5\n&#39;,
+ &#39;lh_parahippocampal_part1\n&#39;,
+ &#39;lh_parahippocampal_part2\n&#39;,
+ &#39;lh_paracentral_part1\n&#39;,
+ &#39;lh_paracentral_part2\n&#39;,
+ &#39;lh_paracentral_part3\n&#39;,
+ &#39;lh_parsopercularis_part1\n&#39;,
+ &#39;lh_parsopercularis_part2\n&#39;,
+ &#39;lh_parsopercularis_part3\n&#39;,
+ &#39;lh_parsorbitalis_part1\n&#39;,
+ &#39;lh_parstriangularis_part1\n&#39;,
+ &#39;lh_parstriangularis_part2\n&#39;,
+ &#39;lh_pericalcarine_part1\n&#39;,
+ &#39;lh_pericalcarine_part2\n&#39;,
+ &#39;lh_postcentral_part1\n&#39;,
+ &#39;lh_postcentral_part2\n&#39;,
+ &#39;lh_postcentral_part3\n&#39;,
+ &#39;lh_postcentral_part4\n&#39;,
+ &#39;lh_postcentral_part5\n&#39;,
+ &#39;lh_postcentral_part6\n&#39;,
+ &#39;lh_postcentral_part7\n&#39;,
+ &#39;lh_postcentral_part8\n&#39;,
+ &#39;lh_posteriorcingulate_part1\n&#39;,
+ &#39;lh_posteriorcingulate_part2\n&#39;,
+ &#39;lh_precentral_part1\n&#39;,
+ &#39;lh_precentral_part2\n&#39;,
+ &#39;lh_precentral_part3\n&#39;,
+ &#39;lh_precentral_part4\n&#39;,
+ &#39;lh_precentral_part5\n&#39;,
+ &#39;lh_precentral_part6\n&#39;,
+ &#39;lh_precentral_part7\n&#39;,
+ &#39;lh_precentral_part8\n&#39;,
+ &#39;lh_precentral_part9\n&#39;,
+ &#39;lh_precuneus_part1\n&#39;,
+ &#39;lh_precuneus_part2\n&#39;,
+ &#39;lh_precuneus_part3\n&#39;,
+ &#39;lh_precuneus_part4\n&#39;,
+ &#39;lh_precuneus_part5\n&#39;,
+ &#39;lh_precuneus_part6\n&#39;,
+ &#39;lh_precuneus_part7\n&#39;,
+ &#39;lh_rostralanteriorcingulate_part1\n&#39;,
+ &#39;lh_rostralmiddlefrontal_part1\n&#39;,
+ &#39;lh_rostralmiddlefrontal_part2\n&#39;,
+ &#39;lh_rostralmiddlefrontal_part3\n&#39;,
+ &#39;lh_rostralmiddlefrontal_part4\n&#39;,
+ &#39;lh_rostralmiddlefrontal_part5\n&#39;,
+ &#39;lh_rostralmiddlefrontal_part6\n&#39;,
+ &#39;lh_rostralmiddlefrontal_part7\n&#39;,
+ &#39;lh_rostralmiddlefrontal_part8\n&#39;,
+ &#39;lh_rostralmiddlefrontal_part9\n&#39;,
+ &#39;lh_rostralmiddlefrontal_part10\n&#39;,
+ &#39;lh_superiorfrontal_part1\n&#39;,
+ &#39;lh_superiorfrontal_part2\n&#39;,
+ &#39;lh_superiorfrontal_part3\n&#39;,
+ &#39;lh_superiorfrontal_part4\n&#39;,
+ &#39;lh_superiorfrontal_part5\n&#39;,
+ &#39;lh_superiorfrontal_part6\n&#39;,
+ &#39;lh_superiorfrontal_part7\n&#39;,
+ &#39;lh_superiorfrontal_part8\n&#39;,
+ &#39;lh_superiorfrontal_part9\n&#39;,
+ &#39;lh_superiorfrontal_part10\n&#39;,
+ &#39;lh_superiorfrontal_part11\n&#39;,
+ &#39;lh_superiorfrontal_part12\n&#39;,
+ &#39;lh_superiorfrontal_part13\n&#39;,
+ &#39;lh_superiorparietal_part1\n&#39;,
+ &#39;lh_superiorparietal_part2\n&#39;,
+ &#39;lh_superiorparietal_part3\n&#39;,
+ &#39;lh_superiorparietal_part4\n&#39;,
+ &#39;lh_superiorparietal_part5\n&#39;,
+ &#39;lh_superiorparietal_part6\n&#39;,
+ &#39;lh_superiorparietal_part7\n&#39;,
+ &#39;lh_superiorparietal_part8\n&#39;,
+ &#39;lh_superiorparietal_part9\n&#39;,
+ &#39;lh_superiorparietal_part10\n&#39;,
+ &#39;lh_superiortemporal_part1\n&#39;,
+ &#39;lh_superiortemporal_part2\n&#39;,
+ &#39;lh_superiortemporal_part3\n&#39;,
+ &#39;lh_superiortemporal_part4\n&#39;,
+ &#39;lh_superiortemporal_part5\n&#39;,
+ &#39;lh_superiortemporal_part6\n&#39;,
+ &#39;lh_superiortemporal_part7\n&#39;,
+ &#39;lh_supramarginal_part1\n&#39;,
+ &#39;lh_supramarginal_part2\n&#39;,
+ &#39;lh_supramarginal_part3\n&#39;,
+ &#39;lh_supramarginal_part4\n&#39;,
+ &#39;lh_supramarginal_part5\n&#39;,
+ &#39;lh_supramarginal_part6\n&#39;,
+ &#39;lh_supramarginal_part7\n&#39;,
+ &#39;lh_frontalpole_part1\n&#39;,
+ &#39;lh_temporalpole_part1\n&#39;,
+ &#39;lh_transversetemporal_part1\n&#39;,
+ &#39;lh_insula_part1\n&#39;,
+ &#39;lh_insula_part2\n&#39;,
+ &#39;lh_insula_part3\n&#39;,
+ &#39;lh_insula_part4\n&#39;,
+ &#39;rh_bankssts_part1\n&#39;,
+ &#39;rh_bankssts_part2\n&#39;,
+ &#39;rh_caudalanteriorcingulate_part1\n&#39;,
+ &#39;rh_caudalmiddlefrontal_part1\n&#39;,
+ &#39;rh_caudalmiddlefrontal_part2\n&#39;,
+ &#39;rh_caudalmiddlefrontal_part3\n&#39;,
+ &#39;rh_caudalmiddlefrontal_part4\n&#39;,
+ &#39;rh_cuneus_part1\n&#39;,
+ &#39;rh_cuneus_part2\n&#39;,
+ &#39;rh_cuneus_part3\n&#39;,
+ &#39;rh_entorhinal_part1\n&#39;,
+ &#39;rh_fusiform_part1\n&#39;,
+ &#39;rh_fusiform_part2\n&#39;,
+ &#39;rh_fusiform_part3\n&#39;,
+ &#39;rh_fusiform_part4\n&#39;,
+ &#39;rh_fusiform_part5\n&#39;,
+ &#39;rh_inferiorparietal_part1\n&#39;,
+ &#39;rh_inferiorparietal_part2\n&#39;,
+ &#39;rh_inferiorparietal_part3\n&#39;,
+ &#39;rh_inferiorparietal_part4\n&#39;,
+ &#39;rh_inferiorparietal_part5\n&#39;,
+ &#39;rh_inferiorparietal_part6\n&#39;,
+ &#39;rh_inferiorparietal_part7\n&#39;,
+ &#39;rh_inferiorparietal_part8\n&#39;,
+ &#39;rh_inferiorparietal_part9\n&#39;,
+ &#39;rh_inferiorparietal_part10\n&#39;,
+ &#39;rh_inferiortemporal_part1\n&#39;,
+ &#39;rh_inferiortemporal_part2\n&#39;,
+ &#39;rh_inferiortemporal_part3\n&#39;,
+ &#39;rh_inferiortemporal_part4\n&#39;,
+ &#39;rh_inferiortemporal_part5\n&#39;,
+ &#39;rh_isthmuscingulate_part1\n&#39;,
+ &#39;rh_isthmuscingulate_part2\n&#39;,
+ &#39;rh_lateraloccipital_part1\n&#39;,
+ &#39;rh_lateraloccipital_part2\n&#39;,
+ &#39;rh_lateraloccipital_part3\n&#39;,
+ &#39;rh_lateraloccipital_part4\n&#39;,
+ &#39;rh_lateraloccipital_part5\n&#39;,
+ &#39;rh_lateraloccipital_part6\n&#39;,
+ &#39;rh_lateraloccipital_part7\n&#39;,
+ &#39;rh_lateraloccipital_part8\n&#39;,
+ &#39;rh_lateraloccipital_part9\n&#39;,
+ &#39;rh_lateralorbitofrontal_part1\n&#39;,
+ &#39;rh_lateralorbitofrontal_part2\n&#39;,
+ &#39;rh_lateralorbitofrontal_part3\n&#39;,
+ &#39;rh_lateralorbitofrontal_part4\n&#39;,
+ &#39;rh_lingual_part1\n&#39;,
+ &#39;rh_lingual_part2\n&#39;,
+ &#39;rh_lingual_part3\n&#39;,
+ &#39;rh_lingual_part4\n&#39;,
+ &#39;rh_lingual_part5\n&#39;,
+ &#39;rh_lingual_part6\n&#39;,
+ &#39;rh_medialorbitofrontal_part1\n&#39;,
+ &#39;rh_medialorbitofrontal_part2\n&#39;,
+ &#39;rh_medialorbitofrontal_part3\n&#39;,
+ &#39;rh_middletemporal_part1\n&#39;,
+ &#39;rh_middletemporal_part2\n&#39;,
+ &#39;rh_middletemporal_part3\n&#39;,
+ &#39;rh_middletemporal_part4\n&#39;,
+ &#39;rh_middletemporal_part5\n&#39;,
+ &#39;rh_middletemporal_part6\n&#39;,
+ &#39;rh_parahippocampal_part1\n&#39;,
+ &#39;rh_parahippocampal_part2\n&#39;,
+ &#39;rh_paracentral_part1\n&#39;,
+ &#39;rh_paracentral_part2\n&#39;,
+ &#39;rh_paracentral_part3\n&#39;,
+ &#39;rh_parsopercularis_part1\n&#39;,
+ &#39;rh_parsopercularis_part2\n&#39;,
+ &#39;rh_parsopercularis_part3\n&#39;,
+ &#39;rh_parsorbitalis_part1\n&#39;,
+ &#39;rh_parstriangularis_part1\n&#39;,
+ &#39;rh_parstriangularis_part2\n&#39;,
+ &#39;rh_parstriangularis_part3\n&#39;,
+ &#39;rh_pericalcarine_part1\n&#39;,
+ &#39;rh_pericalcarine_part2\n&#39;,
+ &#39;rh_pericalcarine_part3\n&#39;,
+ &#39;rh_postcentral_part1\n&#39;,
+ &#39;rh_postcentral_part2\n&#39;,
+ &#39;rh_postcentral_part3\n&#39;,
+ &#39;rh_postcentral_part4\n&#39;,
+ &#39;rh_postcentral_part5\n&#39;,
+ &#39;rh_postcentral_part6\n&#39;,
+ &#39;rh_postcentral_part7\n&#39;,
+ &#39;rh_postcentral_part8\n&#39;,
+ &#39;rh_posteriorcingulate_part1\n&#39;,
+ &#39;rh_posteriorcingulate_part2\n&#39;,
+ &#39;rh_precentral_part1\n&#39;,
+ &#39;rh_precentral_part2\n&#39;,
+ &#39;rh_precentral_part3\n&#39;,
+ &#39;rh_precentral_part4\n&#39;,
+ &#39;rh_precentral_part5\n&#39;,
+ &#39;rh_precentral_part6\n&#39;,
+ &#39;rh_precentral_part7\n&#39;,
+ &#39;rh_precentral_part8\n&#39;,
+ &#39;rh_precentral_part9\n&#39;,
+ &#39;rh_precuneus_part1\n&#39;,
+ &#39;rh_precuneus_part2\n&#39;,
+ &#39;rh_precuneus_part3\n&#39;,
+ &#39;rh_precuneus_part4\n&#39;,
+ &#39;rh_precuneus_part5\n&#39;,
+ &#39;rh_precuneus_part6\n&#39;,
+ &#39;rh_precuneus_part7\n&#39;,
+ &#39;rh_rostralanteriorcingulate_part1\n&#39;,
+ &#39;rh_rostralmiddlefrontal_part1\n&#39;,
+ &#39;rh_rostralmiddlefrontal_part2\n&#39;,
+ &#39;rh_rostralmiddlefrontal_part3\n&#39;,
+ &#39;rh_rostralmiddlefrontal_part4\n&#39;,
+ &#39;rh_rostralmiddlefrontal_part5\n&#39;,
+ &#39;rh_rostralmiddlefrontal_part6\n&#39;,
+ &#39;rh_rostralmiddlefrontal_part7\n&#39;,
+ &#39;rh_rostralmiddlefrontal_part8\n&#39;,
+ &#39;rh_rostralmiddlefrontal_part9\n&#39;,
+ &#39;rh_rostralmiddlefrontal_part10\n&#39;,
+ &#39;rh_superiorfrontal_part1\n&#39;,
+ &#39;rh_superiorfrontal_part2\n&#39;,
+ &#39;rh_superiorfrontal_part3\n&#39;,
+ &#39;rh_superiorfrontal_part4\n&#39;,
+ &#39;rh_superiorfrontal_part5\n&#39;,
+ &#39;rh_superiorfrontal_part6\n&#39;,
+ &#39;rh_superiorfrontal_part7\n&#39;,
+ &#39;rh_superiorfrontal_part8\n&#39;,
+ &#39;rh_superiorfrontal_part9\n&#39;,
+ &#39;rh_superiorfrontal_part10\n&#39;,
+ &#39;rh_superiorfrontal_part11\n&#39;,
+ &#39;rh_superiorfrontal_part12\n&#39;,
+ &#39;rh_superiorfrontal_part13\n&#39;,
+ &#39;rh_superiorparietal_part1\n&#39;,
+ &#39;rh_superiorparietal_part2\n&#39;,
+ &#39;rh_superiorparietal_part3\n&#39;,
+ &#39;rh_superiorparietal_part4\n&#39;,
+ &#39;rh_superiorparietal_part5\n&#39;,
+ &#39;rh_superiorparietal_part6\n&#39;,
+ &#39;rh_superiorparietal_part7\n&#39;,
+ &#39;rh_superiorparietal_part8\n&#39;,
+ &#39;rh_superiorparietal_part9\n&#39;,
+ &#39;rh_superiorparietal_part10\n&#39;,
+ &#39;rh_superiortemporal_part1\n&#39;,
+ &#39;rh_superiortemporal_part2\n&#39;,
+ &#39;rh_superiortemporal_part3\n&#39;,
+ &#39;rh_superiortemporal_part4\n&#39;,
+ &#39;rh_superiortemporal_part5\n&#39;,
+ &#39;rh_superiortemporal_part6\n&#39;,
+ &#39;rh_supramarginal_part1\n&#39;,
+ &#39;rh_supramarginal_part2\n&#39;,
+ &#39;rh_supramarginal_part3\n&#39;,
+ &#39;rh_supramarginal_part4\n&#39;,
+ &#39;rh_supramarginal_part5\n&#39;,
+ &#39;rh_supramarginal_part6\n&#39;,
+ &#39;rh_supramarginal_part7\n&#39;,
+ &#39;rh_frontalpole_part1\n&#39;,
+ &#39;rh_temporalpole_part1\n&#39;,
+ &#39;rh_transversetemporal_part1\n&#39;,
+ &#39;rh_insula_part1\n&#39;,
+ &#39;rh_insula_part2\n&#39;,
+ &#39;rh_insula_part3\n&#39;,
+ &#39;rh_insula_part4&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#proving 308 regions </span>
+<span class="nb">len</span><span class="p">(</span><span class="n">lines</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>308
+</pre></div>
+</div>
+</div>
+</div>
+<p>As we can see above, the 308 cortical region names are displayed in a chronological order from 1 to 308 for both left and right hemisphere. Each of the regions mostly consists of several parts as the names indicate.
+Now, having visualized the used atlas with its regions and according labels, we can explore our first modality.</p>
+</section>
+<section id="macro-structural-data-cortical-thickness-ct">
+<h3>3.1 Macro-structural data: cortical thickness (CT)<a class="headerlink" href="#macro-structural-data-cortical-thickness-ct" title="Permalink to this heading">#</a></h3>
+<p>For the <strong>macro-structural data</strong>, T1-weighted MPRAGE images were used. The images were aquired with MPRAGE sequences, capturing high tissue contrast and providing high spatial resolution with whole brain coverage in a short scan time <a class="reference external" href="https://doi.org/10.1371/journal.pone.0096899">(Wang et al.,2014)</a>. These were already preprocessed by a prior pipeline <a class="reference external" href="https://pubmed.ncbi.nlm.nih.gov/27457931/">(Withtaker et al., 2016)</a>, using the command from FreeSurfer called “recon-all” <a class="reference external" href="https://pubmed.ncbi.nlm.nih.gov/9931268/">(Dale et al., 1999)</a>. The surface was parcellated according to the above displayed atlas into 308 regions. For each of those regions cortical thickness was estimated.</p>
+<p><strong>Cortical thickness (CT)</strong> is a measurement of the <em>width of gray matter</em> of the cerebral cortex, whereas <em>gray matter</em> marks the area from the pial surface to the internal surface (where <em>white matter</em> begins). It has been shown that <strong>CT</strong> correlates with the diagnosis and prognosis of several psychiatric and neurological conditions <a class="reference external" href="https://translational-medicine.biomedcentral.com/articles/10.1186/s12967-020-02317-9">(Tahedl, 2020)</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#load estimated CT data</span>
+
+<span class="n">CT_Dublin</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;/Users/mello/Desktop/Dataset/PARC_500.aparc_thickness_Dublin.csv&#39;</span><span class="p">,</span> <span class="n">delimiter</span> <span class="o">=</span> <span class="s1">&#39;,&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">CT_Dublin</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Subject ID</th>
+      <th>Age</th>
+      <th>Sex</th>
+      <th>Group</th>
+      <th>lh_bankssts_part1_thickness</th>
+      <th>lh_bankssts_part2_thickness</th>
+      <th>lh_caudalanteriorcingulate_part1_thickness</th>
+      <th>lh_caudalmiddlefrontal_part1_thickness</th>
+      <th>lh_caudalmiddlefrontal_part2_thickness</th>
+      <th>lh_caudalmiddlefrontal_part3_thickness</th>
+      <th>...</th>
+      <th>rh_supramarginal_part5_thickness</th>
+      <th>rh_supramarginal_part6_thickness</th>
+      <th>rh_supramarginal_part7_thickness</th>
+      <th>rh_frontalpole_part1_thickness</th>
+      <th>rh_temporalpole_part1_thickness</th>
+      <th>rh_transversetemporal_part1_thickness</th>
+      <th>rh_insula_part1_thickness</th>
+      <th>rh_insula_part2_thickness</th>
+      <th>rh_insula_part3_thickness</th>
+      <th>rh_insula_part4_thickness</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>CON9225</td>
+      <td>21</td>
+      <td>2</td>
+      <td>1</td>
+      <td>2.180</td>
+      <td>2.382</td>
+      <td>2.346</td>
+      <td>2.526</td>
+      <td>2.747</td>
+      <td>2.544</td>
+      <td>...</td>
+      <td>2.817</td>
+      <td>2.325</td>
+      <td>2.430</td>
+      <td>3.004</td>
+      <td>3.979</td>
+      <td>2.329</td>
+      <td>3.620</td>
+      <td>2.776</td>
+      <td>3.282</td>
+      <td>3.347</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>CON9229</td>
+      <td>28</td>
+      <td>2</td>
+      <td>1</td>
+      <td>2.394</td>
+      <td>1.973</td>
+      <td>2.534</td>
+      <td>2.439</td>
+      <td>2.485</td>
+      <td>2.435</td>
+      <td>...</td>
+      <td>2.611</td>
+      <td>2.418</td>
+      <td>2.317</td>
+      <td>2.794</td>
+      <td>3.851</td>
+      <td>2.034</td>
+      <td>3.588</td>
+      <td>2.654</td>
+      <td>3.124</td>
+      <td>3.214</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>CON9231</td>
+      <td>29</td>
+      <td>2</td>
+      <td>1</td>
+      <td>2.551</td>
+      <td>2.567</td>
+      <td>1.954</td>
+      <td>2.439</td>
+      <td>2.428</td>
+      <td>2.190</td>
+      <td>...</td>
+      <td>2.777</td>
+      <td>2.309</td>
+      <td>2.390</td>
+      <td>2.365</td>
+      <td>4.039</td>
+      <td>2.337</td>
+      <td>3.657</td>
+      <td>2.495</td>
+      <td>2.669</td>
+      <td>2.886</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>GASP3037</td>
+      <td>61</td>
+      <td>1</td>
+      <td>2</td>
+      <td>2.187</td>
+      <td>1.923</td>
+      <td>2.160</td>
+      <td>2.410</td>
+      <td>2.381</td>
+      <td>2.277</td>
+      <td>...</td>
+      <td>2.265</td>
+      <td>2.306</td>
+      <td>2.129</td>
+      <td>2.281</td>
+      <td>3.505</td>
+      <td>2.275</td>
+      <td>3.121</td>
+      <td>2.333</td>
+      <td>2.604</td>
+      <td>2.731</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>GASP3040</td>
+      <td>47</td>
+      <td>1</td>
+      <td>2</td>
+      <td>1.862</td>
+      <td>1.750</td>
+      <td>2.129</td>
+      <td>2.516</td>
+      <td>2.244</td>
+      <td>2.169</td>
+      <td>...</td>
+      <td>2.582</td>
+      <td>2.314</td>
+      <td>2.047</td>
+      <td>2.389</td>
+      <td>3.272</td>
+      <td>2.445</td>
+      <td>3.171</td>
+      <td>2.216</td>
+      <td>2.659</td>
+      <td>2.657</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>103</th>
+      <td>RPG9019</td>
+      <td>31</td>
+      <td>1</td>
+      <td>2</td>
+      <td>2.240</td>
+      <td>2.150</td>
+      <td>1.995</td>
+      <td>2.254</td>
+      <td>2.164</td>
+      <td>2.008</td>
+      <td>...</td>
+      <td>2.273</td>
+      <td>2.288</td>
+      <td>2.395</td>
+      <td>2.105</td>
+      <td>3.267</td>
+      <td>2.257</td>
+      <td>3.231</td>
+      <td>2.574</td>
+      <td>2.920</td>
+      <td>2.899</td>
+    </tr>
+    <tr>
+      <th>104</th>
+      <td>RPG9102</td>
+      <td>42</td>
+      <td>2</td>
+      <td>2</td>
+      <td>2.269</td>
+      <td>2.124</td>
+      <td>2.531</td>
+      <td>2.502</td>
+      <td>2.250</td>
+      <td>2.183</td>
+      <td>...</td>
+      <td>2.302</td>
+      <td>2.182</td>
+      <td>2.182</td>
+      <td>2.327</td>
+      <td>2.881</td>
+      <td>2.124</td>
+      <td>3.159</td>
+      <td>2.450</td>
+      <td>2.753</td>
+      <td>2.791</td>
+    </tr>
+    <tr>
+      <th>105</th>
+      <td>RPG9119</td>
+      <td>41</td>
+      <td>1</td>
+      <td>2</td>
+      <td>2.273</td>
+      <td>2.559</td>
+      <td>2.578</td>
+      <td>2.463</td>
+      <td>2.463</td>
+      <td>2.053</td>
+      <td>...</td>
+      <td>2.534</td>
+      <td>2.604</td>
+      <td>2.449</td>
+      <td>2.370</td>
+      <td>3.111</td>
+      <td>2.190</td>
+      <td>3.480</td>
+      <td>2.294</td>
+      <td>2.571</td>
+      <td>2.875</td>
+    </tr>
+    <tr>
+      <th>106</th>
+      <td>RPG9121</td>
+      <td>51</td>
+      <td>1</td>
+      <td>2</td>
+      <td>1.940</td>
+      <td>2.438</td>
+      <td>2.272</td>
+      <td>2.272</td>
+      <td>2.610</td>
+      <td>2.099</td>
+      <td>...</td>
+      <td>2.638</td>
+      <td>2.225</td>
+      <td>2.013</td>
+      <td>2.115</td>
+      <td>3.853</td>
+      <td>2.231</td>
+      <td>3.187</td>
+      <td>2.510</td>
+      <td>2.759</td>
+      <td>2.838</td>
+    </tr>
+    <tr>
+      <th>107</th>
+      <td>RPG9126</td>
+      <td>56</td>
+      <td>1</td>
+      <td>2</td>
+      <td>2.108</td>
+      <td>2.269</td>
+      <td>2.145</td>
+      <td>2.192</td>
+      <td>2.443</td>
+      <td>1.977</td>
+      <td>...</td>
+      <td>2.013</td>
+      <td>2.251</td>
+      <td>2.021</td>
+      <td>2.419</td>
+      <td>3.679</td>
+      <td>1.970</td>
+      <td>3.192</td>
+      <td>2.551</td>
+      <td>2.855</td>
+      <td>2.985</td>
+    </tr>
+  </tbody>
+</table>
+<p>108 rows × 312 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#compute mean for patients and control in each brain region</span>
+
+<span class="n">df_mean</span> <span class="o">=</span> <span class="n">CT_Dublin_ad</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Group&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_mean</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>lh_bankssts_part1_thickness</th>
+      <th>lh_bankssts_part2_thickness</th>
+      <th>lh_caudalanteriorcingulate_part1_thickness</th>
+      <th>lh_caudalmiddlefrontal_part1_thickness</th>
+      <th>lh_caudalmiddlefrontal_part2_thickness</th>
+      <th>lh_caudalmiddlefrontal_part3_thickness</th>
+      <th>lh_caudalmiddlefrontal_part4_thickness</th>
+      <th>lh_cuneus_part1_thickness</th>
+      <th>lh_cuneus_part2_thickness</th>
+      <th>lh_entorhinal_part1_thickness</th>
+      <th>...</th>
+      <th>rh_supramarginal_part5_thickness</th>
+      <th>rh_supramarginal_part6_thickness</th>
+      <th>rh_supramarginal_part7_thickness</th>
+      <th>rh_frontalpole_part1_thickness</th>
+      <th>rh_temporalpole_part1_thickness</th>
+      <th>rh_transversetemporal_part1_thickness</th>
+      <th>rh_insula_part1_thickness</th>
+      <th>rh_insula_part2_thickness</th>
+      <th>rh_insula_part3_thickness</th>
+      <th>rh_insula_part4_thickness</th>
+    </tr>
+    <tr>
+      <th>Group</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>2.401038</td>
+      <td>2.373775</td>
+      <td>2.446513</td>
+      <td>2.578638</td>
+      <td>2.585075</td>
+      <td>2.295387</td>
+      <td>2.621975</td>
+      <td>1.837425</td>
+      <td>1.860138</td>
+      <td>3.277575</td>
+      <td>...</td>
+      <td>2.691400</td>
+      <td>2.599250</td>
+      <td>2.426575</td>
+      <td>2.539175</td>
+      <td>3.707100</td>
+      <td>2.419613</td>
+      <td>3.501175</td>
+      <td>2.693612</td>
+      <td>3.026488</td>
+      <td>3.112950</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2.209143</td>
+      <td>2.197500</td>
+      <td>2.332000</td>
+      <td>2.361286</td>
+      <td>2.409857</td>
+      <td>2.116714</td>
+      <td>2.442500</td>
+      <td>1.738429</td>
+      <td>1.775964</td>
+      <td>3.128000</td>
+      <td>...</td>
+      <td>2.454321</td>
+      <td>2.413071</td>
+      <td>2.260607</td>
+      <td>2.255821</td>
+      <td>3.483464</td>
+      <td>2.255679</td>
+      <td>3.302893</td>
+      <td>2.521464</td>
+      <td>2.874179</td>
+      <td>2.923357</td>
+    </tr>
+  </tbody>
+</table>
+<p>2 rows × 308 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#mean of cortical thickness for control and patients</span>
+
+<span class="n">df_mean</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Group
+1    2.419537
+2    2.264815
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>As the mean values indicate, the control group has higher mean in <strong>CT</strong> over all brain areas compared to the patients group. Although the difference does not seem too big at first glance, visualization might help to have a better imagination of the data. Before visualizing the difference in mean values for control and patients, it might be helpful to reshape the dataframe as the columns indicate the respective groups and the rows each brain region.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#switch colums and rows</span>
+
+<span class="n">df_trans</span> <span class="o">=</span> <span class="n">df_mean</span><span class="o">.</span><span class="n">T</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_trans</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Group</th>
+      <th>1</th>
+      <th>2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>lh_bankssts_part1_thickness</th>
+      <td>2.401038</td>
+      <td>2.209143</td>
+    </tr>
+    <tr>
+      <th>lh_bankssts_part2_thickness</th>
+      <td>2.373775</td>
+      <td>2.197500</td>
+    </tr>
+    <tr>
+      <th>lh_caudalanteriorcingulate_part1_thickness</th>
+      <td>2.446513</td>
+      <td>2.332000</td>
+    </tr>
+    <tr>
+      <th>lh_caudalmiddlefrontal_part1_thickness</th>
+      <td>2.578638</td>
+      <td>2.361286</td>
+    </tr>
+    <tr>
+      <th>lh_caudalmiddlefrontal_part2_thickness</th>
+      <td>2.585075</td>
+      <td>2.409857</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>rh_transversetemporal_part1_thickness</th>
+      <td>2.419613</td>
+      <td>2.255679</td>
+    </tr>
+    <tr>
+      <th>rh_insula_part1_thickness</th>
+      <td>3.501175</td>
+      <td>3.302893</td>
+    </tr>
+    <tr>
+      <th>rh_insula_part2_thickness</th>
+      <td>2.693612</td>
+      <td>2.521464</td>
+    </tr>
+    <tr>
+      <th>rh_insula_part3_thickness</th>
+      <td>3.026488</td>
+      <td>2.874179</td>
+    </tr>
+    <tr>
+      <th>rh_insula_part4_thickness</th>
+      <td>3.112950</td>
+      <td>2.923357</td>
+    </tr>
+  </tbody>
+</table>
+<p>308 rows × 2 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#import modules for visualization</span>
+
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sb</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#plot the CT</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">sb</span><span class="o">.</span><span class="n">violinplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df_trans</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Groups&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Cortical Thickness&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Distribution of means of Cortical Thickness for Controls vs. Patients&quot;</span><span class="p">,</span> <span class="n">pad</span> <span class="o">=</span> <span class="s1">&#39;20&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Distribution of means of Cortical Thickness for Controls vs. Patients&#39;)
+</pre></div>
+</div>
+<img alt="../_images/8680663b5abaa1ea13a000d1e74f6ed8296a4ebcca5ff9b538067331268e32fc.png" src="../_images/8680663b5abaa1ea13a000d1e74f6ed8296a4ebcca5ff9b538067331268e32fc.png" />
+</div>
+</div>
+</section>
+<section id="micro-structural-data-mean-diffusivity-md-and-fractional-anisotropy-fa">
+<h3>3.1 Micro-structural data: mean diffusivity (MD) and fractional anisotropy (FA)<a class="headerlink" href="#micro-structural-data-mean-diffusivity-md-and-fractional-anisotropy-fa" title="Permalink to this heading">#</a></h3>
+<p>The <strong>micro-structural</strong> data contains diffusion weighted images (DWI) from which regional cortical measures such as <em><strong>mean diffusivity (MD)</strong></em> and <em><strong>fractional anisotropy (FA)</strong></em> were estimated.</p>
+<p>In general, Diffusion MRI measures white matter fibres which makes it feasible to examine connections between different regions. For that, we look at how water diffuses in the brain which again provides information of the brain itself. The diffusion of water can be visualized as cloud if points which again can be approximated with a tensor model. Since there is a distinction in isotropic (characteristics are similar in all directions) vs anisotropic (characteristics e.g. faster in a given direction) diffusion, the tensor model might differ.</p>
+<p><strong>MD</strong> and <strong>FA</strong> are central characteristics of tensors. <strong>MD</strong> indicates how much diffusion there is inside a voxel. <strong>FA</strong> is a measurement of the anisotropy of diffusion with a value range between 0 and 1. While the a <strong>FA</strong> value of 0 stands for isotropic diffusion, the <strong>FA</strong> value of 1 indicates anisotropic diffusion.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#read MD and FA datasets</span>
+
+<span class="n">MD_Dublin</span><span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;/Users/mello/Desktop/Dataset/PARC_500.aparc_MD_cortexAv_mean_Dublin.csv&#39;</span><span class="p">,</span> <span class="n">delimiter</span> <span class="o">=</span> <span class="s1">&#39;,&#39;</span><span class="p">)</span>
+<span class="n">FA_Dublin</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;/Users/mello/Desktop/Dataset/PARC_500.aparc_FA_cortexAv_mean_Dublin.csv&#39;</span><span class="p">,</span> <span class="n">delimiter</span> <span class="o">=</span> <span class="s1">&#39;,&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">MD_Dublin</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Subject ID</th>
+      <th>Age</th>
+      <th>Sex</th>
+      <th>Group</th>
+      <th>lh_bankssts_part1_thickness</th>
+      <th>lh_bankssts_part2_thickness</th>
+      <th>lh_caudalanteriorcingulate_part1_thickness</th>
+      <th>lh_caudalmiddlefrontal_part1_thickness</th>
+      <th>lh_caudalmiddlefrontal_part2_thickness</th>
+      <th>lh_caudalmiddlefrontal_part3_thickness</th>
+      <th>...</th>
+      <th>rh_supramarginal_part5_thickness</th>
+      <th>rh_supramarginal_part6_thickness</th>
+      <th>rh_supramarginal_part7_thickness</th>
+      <th>rh_frontalpole_part1_thickness</th>
+      <th>rh_temporalpole_part1_thickness</th>
+      <th>rh_transversetemporal_part1_thickness</th>
+      <th>rh_insula_part1_thickness</th>
+      <th>rh_insula_part2_thickness</th>
+      <th>rh_insula_part3_thickness</th>
+      <th>rh_insula_part4_thickness</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>CON3140</td>
+      <td>37</td>
+      <td>2</td>
+      <td>1</td>
+      <td>0.911</td>
+      <td>0.931</td>
+      <td>0.891</td>
+      <td>1.048</td>
+      <td>0.881</td>
+      <td>0.939</td>
+      <td>...</td>
+      <td>0.928</td>
+      <td>1.067</td>
+      <td>1.096</td>
+      <td>0.892</td>
+      <td>1.238</td>
+      <td>1.021</td>
+      <td>1.166</td>
+      <td>0.900</td>
+      <td>0.907</td>
+      <td>0.937</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>CON3891</td>
+      <td>33</td>
+      <td>2</td>
+      <td>1</td>
+      <td>0.861</td>
+      <td>0.913</td>
+      <td>0.846</td>
+      <td>0.927</td>
+      <td>0.888</td>
+      <td>0.894</td>
+      <td>...</td>
+      <td>0.878</td>
+      <td>0.985</td>
+      <td>1.045</td>
+      <td>1.001</td>
+      <td>1.196</td>
+      <td>1.083</td>
+      <td>1.143</td>
+      <td>0.917</td>
+      <td>0.923</td>
+      <td>0.960</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>CON4664</td>
+      <td>40</td>
+      <td>2</td>
+      <td>1</td>
+      <td>0.817</td>
+      <td>0.827</td>
+      <td>0.828</td>
+      <td>0.828</td>
+      <td>0.780</td>
+      <td>0.843</td>
+      <td>...</td>
+      <td>0.847</td>
+      <td>0.849</td>
+      <td>0.819</td>
+      <td>0.952</td>
+      <td>0.933</td>
+      <td>0.942</td>
+      <td>1.059</td>
+      <td>0.794</td>
+      <td>0.834</td>
+      <td>0.860</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>CON7009</td>
+      <td>21</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0.887</td>
+      <td>0.905</td>
+      <td>0.878</td>
+      <td>0.932</td>
+      <td>0.820</td>
+      <td>0.888</td>
+      <td>...</td>
+      <td>0.957</td>
+      <td>0.985</td>
+      <td>0.989</td>
+      <td>1.075</td>
+      <td>1.150</td>
+      <td>1.017</td>
+      <td>0.986</td>
+      <td>0.888</td>
+      <td>0.916</td>
+      <td>0.928</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>CON7024</td>
+      <td>59</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0.887</td>
+      <td>0.854</td>
+      <td>0.905</td>
+      <td>1.011</td>
+      <td>0.946</td>
+      <td>0.922</td>
+      <td>...</td>
+      <td>0.871</td>
+      <td>0.952</td>
+      <td>0.987</td>
+      <td>1.325</td>
+      <td>0.996</td>
+      <td>1.094</td>
+      <td>1.064</td>
+      <td>0.966</td>
+      <td>0.989</td>
+      <td>0.977</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>110</th>
+      <td>RPG9102</td>
+      <td>42</td>
+      <td>2</td>
+      <td>2</td>
+      <td>0.843</td>
+      <td>0.855</td>
+      <td>0.940</td>
+      <td>1.017</td>
+      <td>0.954</td>
+      <td>0.840</td>
+      <td>...</td>
+      <td>0.938</td>
+      <td>1.062</td>
+      <td>1.143</td>
+      <td>0.903</td>
+      <td>1.364</td>
+      <td>1.284</td>
+      <td>1.218</td>
+      <td>1.017</td>
+      <td>0.972</td>
+      <td>1.028</td>
+    </tr>
+    <tr>
+      <th>111</th>
+      <td>RPG9103</td>
+      <td>37</td>
+      <td>1</td>
+      <td>2</td>
+      <td>0.911</td>
+      <td>0.914</td>
+      <td>0.926</td>
+      <td>1.001</td>
+      <td>0.918</td>
+      <td>1.115</td>
+      <td>...</td>
+      <td>0.957</td>
+      <td>1.085</td>
+      <td>1.098</td>
+      <td>1.059</td>
+      <td>1.268</td>
+      <td>1.089</td>
+      <td>1.173</td>
+      <td>0.990</td>
+      <td>1.065</td>
+      <td>1.021</td>
+    </tr>
+    <tr>
+      <th>112</th>
+      <td>RPG9119</td>
+      <td>41</td>
+      <td>1</td>
+      <td>2</td>
+      <td>0.890</td>
+      <td>0.899</td>
+      <td>0.886</td>
+      <td>0.930</td>
+      <td>0.883</td>
+      <td>0.882</td>
+      <td>...</td>
+      <td>0.916</td>
+      <td>1.010</td>
+      <td>0.974</td>
+      <td>0.968</td>
+      <td>1.305</td>
+      <td>1.168</td>
+      <td>1.265</td>
+      <td>0.981</td>
+      <td>0.975</td>
+      <td>0.972</td>
+    </tr>
+    <tr>
+      <th>113</th>
+      <td>RPG9121</td>
+      <td>51</td>
+      <td>1</td>
+      <td>2</td>
+      <td>0.920</td>
+      <td>0.986</td>
+      <td>0.883</td>
+      <td>0.879</td>
+      <td>0.794</td>
+      <td>0.983</td>
+      <td>...</td>
+      <td>0.942</td>
+      <td>0.985</td>
+      <td>0.990</td>
+      <td>1.199</td>
+      <td>1.353</td>
+      <td>1.187</td>
+      <td>1.444</td>
+      <td>0.947</td>
+      <td>1.047</td>
+      <td>1.085</td>
+    </tr>
+    <tr>
+      <th>114</th>
+      <td>RPG9126</td>
+      <td>56</td>
+      <td>1</td>
+      <td>2</td>
+      <td>0.970</td>
+      <td>0.868</td>
+      <td>0.940</td>
+      <td>0.967</td>
+      <td>0.930</td>
+      <td>1.022</td>
+      <td>...</td>
+      <td>1.074</td>
+      <td>1.122</td>
+      <td>1.215</td>
+      <td>0.891</td>
+      <td>1.333</td>
+      <td>1.295</td>
+      <td>1.284</td>
+      <td>1.125</td>
+      <td>1.110</td>
+      <td>1.139</td>
+    </tr>
+  </tbody>
+</table>
+<p>115 rows × 312 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#adjust data frame</span>
+<span class="n">MD_Dublin_ad</span> <span class="o">=</span> <span class="n">MD_Dublin</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;Subject ID&#39;</span><span class="p">,</span><span class="s1">&#39;Age&#39;</span><span class="p">,</span> <span class="s1">&#39;Sex&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">MD_Dublin_ad</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Group</th>
+      <th>lh_bankssts_part1_thickness</th>
+      <th>lh_bankssts_part2_thickness</th>
+      <th>lh_caudalanteriorcingulate_part1_thickness</th>
+      <th>lh_caudalmiddlefrontal_part1_thickness</th>
+      <th>lh_caudalmiddlefrontal_part2_thickness</th>
+      <th>lh_caudalmiddlefrontal_part3_thickness</th>
+      <th>lh_caudalmiddlefrontal_part4_thickness</th>
+      <th>lh_cuneus_part1_thickness</th>
+      <th>lh_cuneus_part2_thickness</th>
+      <th>...</th>
+      <th>rh_supramarginal_part5_thickness</th>
+      <th>rh_supramarginal_part6_thickness</th>
+      <th>rh_supramarginal_part7_thickness</th>
+      <th>rh_frontalpole_part1_thickness</th>
+      <th>rh_temporalpole_part1_thickness</th>
+      <th>rh_transversetemporal_part1_thickness</th>
+      <th>rh_insula_part1_thickness</th>
+      <th>rh_insula_part2_thickness</th>
+      <th>rh_insula_part3_thickness</th>
+      <th>rh_insula_part4_thickness</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>0.911</td>
+      <td>0.931</td>
+      <td>0.891</td>
+      <td>1.048</td>
+      <td>0.881</td>
+      <td>0.939</td>
+      <td>1.124</td>
+      <td>0.986</td>
+      <td>1.045</td>
+      <td>...</td>
+      <td>0.928</td>
+      <td>1.067</td>
+      <td>1.096</td>
+      <td>0.892</td>
+      <td>1.238</td>
+      <td>1.021</td>
+      <td>1.166</td>
+      <td>0.900</td>
+      <td>0.907</td>
+      <td>0.937</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>0.861</td>
+      <td>0.913</td>
+      <td>0.846</td>
+      <td>0.927</td>
+      <td>0.888</td>
+      <td>0.894</td>
+      <td>0.924</td>
+      <td>1.040</td>
+      <td>1.093</td>
+      <td>...</td>
+      <td>0.878</td>
+      <td>0.985</td>
+      <td>1.045</td>
+      <td>1.001</td>
+      <td>1.196</td>
+      <td>1.083</td>
+      <td>1.143</td>
+      <td>0.917</td>
+      <td>0.923</td>
+      <td>0.960</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+      <td>0.817</td>
+      <td>0.827</td>
+      <td>0.828</td>
+      <td>0.828</td>
+      <td>0.780</td>
+      <td>0.843</td>
+      <td>0.825</td>
+      <td>0.848</td>
+      <td>0.838</td>
+      <td>...</td>
+      <td>0.847</td>
+      <td>0.849</td>
+      <td>0.819</td>
+      <td>0.952</td>
+      <td>0.933</td>
+      <td>0.942</td>
+      <td>1.059</td>
+      <td>0.794</td>
+      <td>0.834</td>
+      <td>0.860</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1</td>
+      <td>0.887</td>
+      <td>0.905</td>
+      <td>0.878</td>
+      <td>0.932</td>
+      <td>0.820</td>
+      <td>0.888</td>
+      <td>0.970</td>
+      <td>0.918</td>
+      <td>0.900</td>
+      <td>...</td>
+      <td>0.957</td>
+      <td>0.985</td>
+      <td>0.989</td>
+      <td>1.075</td>
+      <td>1.150</td>
+      <td>1.017</td>
+      <td>0.986</td>
+      <td>0.888</td>
+      <td>0.916</td>
+      <td>0.928</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1</td>
+      <td>0.887</td>
+      <td>0.854</td>
+      <td>0.905</td>
+      <td>1.011</td>
+      <td>0.946</td>
+      <td>0.922</td>
+      <td>1.034</td>
+      <td>1.126</td>
+      <td>1.114</td>
+      <td>...</td>
+      <td>0.871</td>
+      <td>0.952</td>
+      <td>0.987</td>
+      <td>1.325</td>
+      <td>0.996</td>
+      <td>1.094</td>
+      <td>1.064</td>
+      <td>0.966</td>
+      <td>0.989</td>
+      <td>0.977</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>110</th>
+      <td>2</td>
+      <td>0.843</td>
+      <td>0.855</td>
+      <td>0.940</td>
+      <td>1.017</td>
+      <td>0.954</td>
+      <td>0.840</td>
+      <td>1.128</td>
+      <td>1.012</td>
+      <td>0.997</td>
+      <td>...</td>
+      <td>0.938</td>
+      <td>1.062</td>
+      <td>1.143</td>
+      <td>0.903</td>
+      <td>1.364</td>
+      <td>1.284</td>
+      <td>1.218</td>
+      <td>1.017</td>
+      <td>0.972</td>
+      <td>1.028</td>
+    </tr>
+    <tr>
+      <th>111</th>
+      <td>2</td>
+      <td>0.911</td>
+      <td>0.914</td>
+      <td>0.926</td>
+      <td>1.001</td>
+      <td>0.918</td>
+      <td>1.115</td>
+      <td>1.036</td>
+      <td>1.026</td>
+      <td>1.001</td>
+      <td>...</td>
+      <td>0.957</td>
+      <td>1.085</td>
+      <td>1.098</td>
+      <td>1.059</td>
+      <td>1.268</td>
+      <td>1.089</td>
+      <td>1.173</td>
+      <td>0.990</td>
+      <td>1.065</td>
+      <td>1.021</td>
+    </tr>
+    <tr>
+      <th>112</th>
+      <td>2</td>
+      <td>0.890</td>
+      <td>0.899</td>
+      <td>0.886</td>
+      <td>0.930</td>
+      <td>0.883</td>
+      <td>0.882</td>
+      <td>0.883</td>
+      <td>1.190</td>
+      <td>1.101</td>
+      <td>...</td>
+      <td>0.916</td>
+      <td>1.010</td>
+      <td>0.974</td>
+      <td>0.968</td>
+      <td>1.305</td>
+      <td>1.168</td>
+      <td>1.265</td>
+      <td>0.981</td>
+      <td>0.975</td>
+      <td>0.972</td>
+    </tr>
+    <tr>
+      <th>113</th>
+      <td>2</td>
+      <td>0.920</td>
+      <td>0.986</td>
+      <td>0.883</td>
+      <td>0.879</td>
+      <td>0.794</td>
+      <td>0.983</td>
+      <td>1.029</td>
+      <td>1.076</td>
+      <td>1.053</td>
+      <td>...</td>
+      <td>0.942</td>
+      <td>0.985</td>
+      <td>0.990</td>
+      <td>1.199</td>
+      <td>1.353</td>
+      <td>1.187</td>
+      <td>1.444</td>
+      <td>0.947</td>
+      <td>1.047</td>
+      <td>1.085</td>
+    </tr>
+    <tr>
+      <th>114</th>
+      <td>2</td>
+      <td>0.970</td>
+      <td>0.868</td>
+      <td>0.940</td>
+      <td>0.967</td>
+      <td>0.930</td>
+      <td>1.022</td>
+      <td>0.957</td>
+      <td>1.112</td>
+      <td>1.004</td>
+      <td>...</td>
+      <td>1.074</td>
+      <td>1.122</td>
+      <td>1.215</td>
+      <td>0.891</td>
+      <td>1.333</td>
+      <td>1.295</td>
+      <td>1.284</td>
+      <td>1.125</td>
+      <td>1.110</td>
+      <td>1.139</td>
+    </tr>
+  </tbody>
+</table>
+<p>115 rows × 309 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">MD_Dublin_ad</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Group</th>
+      <th>lh_bankssts_part1_thickness</th>
+      <th>lh_bankssts_part2_thickness</th>
+      <th>lh_caudalanteriorcingulate_part1_thickness</th>
+      <th>lh_caudalmiddlefrontal_part1_thickness</th>
+      <th>lh_caudalmiddlefrontal_part2_thickness</th>
+      <th>lh_caudalmiddlefrontal_part3_thickness</th>
+      <th>lh_caudalmiddlefrontal_part4_thickness</th>
+      <th>lh_cuneus_part1_thickness</th>
+      <th>lh_cuneus_part2_thickness</th>
+      <th>...</th>
+      <th>rh_supramarginal_part5_thickness</th>
+      <th>rh_supramarginal_part6_thickness</th>
+      <th>rh_supramarginal_part7_thickness</th>
+      <th>rh_frontalpole_part1_thickness</th>
+      <th>rh_temporalpole_part1_thickness</th>
+      <th>rh_transversetemporal_part1_thickness</th>
+      <th>rh_insula_part1_thickness</th>
+      <th>rh_insula_part2_thickness</th>
+      <th>rh_insula_part3_thickness</th>
+      <th>rh_insula_part4_thickness</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>115.000000</td>
+      <td>115.000000</td>
+      <td>115.000000</td>
+      <td>115.000000</td>
+      <td>115.000000</td>
+      <td>115.000000</td>
+      <td>115.000000</td>
+      <td>115.000000</td>
+      <td>115.000000</td>
+      <td>115.000000</td>
+      <td>...</td>
+      <td>115.000000</td>
+      <td>115.000000</td>
+      <td>115.000000</td>
+      <td>115.000000</td>
+      <td>115.000000</td>
+      <td>115.000000</td>
+      <td>115.000000</td>
+      <td>115.000000</td>
+      <td>115.000000</td>
+      <td>115.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>1.286957</td>
+      <td>0.896339</td>
+      <td>0.898983</td>
+      <td>0.882922</td>
+      <td>0.932548</td>
+      <td>0.864400</td>
+      <td>0.901139</td>
+      <td>0.958783</td>
+      <td>0.974148</td>
+      <td>0.973139</td>
+      <td>...</td>
+      <td>0.920835</td>
+      <td>0.977243</td>
+      <td>0.988322</td>
+      <td>0.940774</td>
+      <td>1.124322</td>
+      <td>1.071852</td>
+      <td>1.111496</td>
+      <td>0.927052</td>
+      <td>0.933983</td>
+      <td>0.952965</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>0.454321</td>
+      <td>0.046601</td>
+      <td>0.054973</td>
+      <td>0.044997</td>
+      <td>0.066024</td>
+      <td>0.052443</td>
+      <td>0.062069</td>
+      <td>0.074826</td>
+      <td>0.080287</td>
+      <td>0.077571</td>
+      <td>...</td>
+      <td>0.044606</td>
+      <td>0.067147</td>
+      <td>0.078820</td>
+      <td>0.129566</td>
+      <td>0.163160</td>
+      <td>0.095283</td>
+      <td>0.113531</td>
+      <td>0.069964</td>
+      <td>0.064912</td>
+      <td>0.065180</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>1.000000</td>
+      <td>0.812000</td>
+      <td>0.804000</td>
+      <td>0.736000</td>
+      <td>0.797000</td>
+      <td>0.757000</td>
+      <td>0.792000</td>
+      <td>0.795000</td>
+      <td>0.837000</td>
+      <td>0.826000</td>
+      <td>...</td>
+      <td>0.820000</td>
+      <td>0.849000</td>
+      <td>0.819000</td>
+      <td>0.552000</td>
+      <td>0.857000</td>
+      <td>0.921000</td>
+      <td>0.929000</td>
+      <td>0.794000</td>
+      <td>0.812000</td>
+      <td>0.839000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>1.000000</td>
+      <td>0.867000</td>
+      <td>0.862500</td>
+      <td>0.857500</td>
+      <td>0.887500</td>
+      <td>0.826000</td>
+      <td>0.866500</td>
+      <td>0.903500</td>
+      <td>0.921000</td>
+      <td>0.909500</td>
+      <td>...</td>
+      <td>0.895500</td>
+      <td>0.929500</td>
+      <td>0.933000</td>
+      <td>0.866000</td>
+      <td>1.006000</td>
+      <td>1.005000</td>
+      <td>1.029000</td>
+      <td>0.882500</td>
+      <td>0.892500</td>
+      <td>0.913000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>1.000000</td>
+      <td>0.890000</td>
+      <td>0.889000</td>
+      <td>0.879000</td>
+      <td>0.926000</td>
+      <td>0.860000</td>
+      <td>0.888000</td>
+      <td>0.949000</td>
+      <td>0.960000</td>
+      <td>0.975000</td>
+      <td>...</td>
+      <td>0.915000</td>
+      <td>0.970000</td>
+      <td>0.983000</td>
+      <td>0.930000</td>
+      <td>1.103000</td>
+      <td>1.057000</td>
+      <td>1.079000</td>
+      <td>0.916000</td>
+      <td>0.921000</td>
+      <td>0.942000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>2.000000</td>
+      <td>0.918000</td>
+      <td>0.924000</td>
+      <td>0.903500</td>
+      <td>0.965500</td>
+      <td>0.894500</td>
+      <td>0.921000</td>
+      <td>1.005500</td>
+      <td>1.009500</td>
+      <td>1.024000</td>
+      <td>...</td>
+      <td>0.940000</td>
+      <td>1.011500</td>
+      <td>1.045500</td>
+      <td>1.008500</td>
+      <td>1.205000</td>
+      <td>1.126500</td>
+      <td>1.173500</td>
+      <td>0.963500</td>
+      <td>0.957000</td>
+      <td>0.975000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>2.000000</td>
+      <td>1.066000</td>
+      <td>1.155000</td>
+      <td>1.033000</td>
+      <td>1.181000</td>
+      <td>1.043000</td>
+      <td>1.141000</td>
+      <td>1.228000</td>
+      <td>1.235000</td>
+      <td>1.168000</td>
+      <td>...</td>
+      <td>1.125000</td>
+      <td>1.223000</td>
+      <td>1.215000</td>
+      <td>1.462000</td>
+      <td>1.728000</td>
+      <td>1.391000</td>
+      <td>1.456000</td>
+      <td>1.201000</td>
+      <td>1.174000</td>
+      <td>1.214000</td>
+    </tr>
+  </tbody>
+</table>
+<p>8 rows × 309 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#compute mean for patients and control in each brain region</span>
+
+<span class="n">MD_df_mean</span> <span class="o">=</span> <span class="n">MD_Dublin_ad</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Group&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">MD_df_mean</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>lh_bankssts_part1_thickness</th>
+      <th>lh_bankssts_part2_thickness</th>
+      <th>lh_caudalanteriorcingulate_part1_thickness</th>
+      <th>lh_caudalmiddlefrontal_part1_thickness</th>
+      <th>lh_caudalmiddlefrontal_part2_thickness</th>
+      <th>lh_caudalmiddlefrontal_part3_thickness</th>
+      <th>lh_caudalmiddlefrontal_part4_thickness</th>
+      <th>lh_cuneus_part1_thickness</th>
+      <th>lh_cuneus_part2_thickness</th>
+      <th>lh_entorhinal_part1_thickness</th>
+      <th>...</th>
+      <th>rh_supramarginal_part5_thickness</th>
+      <th>rh_supramarginal_part6_thickness</th>
+      <th>rh_supramarginal_part7_thickness</th>
+      <th>rh_frontalpole_part1_thickness</th>
+      <th>rh_temporalpole_part1_thickness</th>
+      <th>rh_transversetemporal_part1_thickness</th>
+      <th>rh_insula_part1_thickness</th>
+      <th>rh_insula_part2_thickness</th>
+      <th>rh_insula_part3_thickness</th>
+      <th>rh_insula_part4_thickness</th>
+    </tr>
+    <tr>
+      <th>Group</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>0.886598</td>
+      <td>0.890146</td>
+      <td>0.873439</td>
+      <td>0.919476</td>
+      <td>0.858488</td>
+      <td>0.888854</td>
+      <td>0.943110</td>
+      <td>0.953671</td>
+      <td>0.960768</td>
+      <td>0.927415</td>
+      <td>...</td>
+      <td>0.913402</td>
+      <td>0.969293</td>
+      <td>0.976659</td>
+      <td>0.921305</td>
+      <td>1.074159</td>
+      <td>1.046293</td>
+      <td>1.073183</td>
+      <td>0.911683</td>
+      <td>0.914988</td>
+      <td>0.933293</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.920545</td>
+      <td>0.920939</td>
+      <td>0.906485</td>
+      <td>0.965030</td>
+      <td>0.879091</td>
+      <td>0.931667</td>
+      <td>0.997727</td>
+      <td>1.025030</td>
+      <td>1.003879</td>
+      <td>0.985485</td>
+      <td>...</td>
+      <td>0.939303</td>
+      <td>0.997000</td>
+      <td>1.017303</td>
+      <td>0.989152</td>
+      <td>1.248970</td>
+      <td>1.135364</td>
+      <td>1.206697</td>
+      <td>0.965242</td>
+      <td>0.981182</td>
+      <td>1.001848</td>
+    </tr>
+  </tbody>
+</table>
+<p>2 rows × 308 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#mean of mean diffusivity for control and patients</span>
+
+<span class="n">MD_df_mean</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Group
+1    0.937044
+2    0.974837
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>The values indicate descriptively that the control group has a lower average mean diffusivity compared to patients.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#switch colums and rows</span>
+
+<span class="n">MD_df_trans</span> <span class="o">=</span> <span class="n">MD_df_mean</span><span class="o">.</span><span class="n">T</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">MD_df_trans</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Group</th>
+      <th>1</th>
+      <th>2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>lh_bankssts_part1_thickness</th>
+      <td>0.886598</td>
+      <td>0.920545</td>
+    </tr>
+    <tr>
+      <th>lh_bankssts_part2_thickness</th>
+      <td>0.890146</td>
+      <td>0.920939</td>
+    </tr>
+    <tr>
+      <th>lh_caudalanteriorcingulate_part1_thickness</th>
+      <td>0.873439</td>
+      <td>0.906485</td>
+    </tr>
+    <tr>
+      <th>lh_caudalmiddlefrontal_part1_thickness</th>
+      <td>0.919476</td>
+      <td>0.965030</td>
+    </tr>
+    <tr>
+      <th>lh_caudalmiddlefrontal_part2_thickness</th>
+      <td>0.858488</td>
+      <td>0.879091</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>rh_transversetemporal_part1_thickness</th>
+      <td>1.046293</td>
+      <td>1.135364</td>
+    </tr>
+    <tr>
+      <th>rh_insula_part1_thickness</th>
+      <td>1.073183</td>
+      <td>1.206697</td>
+    </tr>
+    <tr>
+      <th>rh_insula_part2_thickness</th>
+      <td>0.911683</td>
+      <td>0.965242</td>
+    </tr>
+    <tr>
+      <th>rh_insula_part3_thickness</th>
+      <td>0.914988</td>
+      <td>0.981182</td>
+    </tr>
+    <tr>
+      <th>rh_insula_part4_thickness</th>
+      <td>0.933293</td>
+      <td>1.001848</td>
+    </tr>
+  </tbody>
+</table>
+<p>308 rows × 2 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#plot the MD</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">sb</span><span class="o">.</span><span class="n">violinplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">MD_df_trans</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Groups&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Mean Diffusivity&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Distribution of Mean Diffusivity Means for Controls vs. Patients&quot;</span><span class="p">,</span> <span class="n">pad</span> <span class="o">=</span> <span class="s1">&#39;20&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Distribution of Mean Diffusivity Means for Controls vs. Patients&#39;)
+</pre></div>
+</div>
+<img alt="../_images/7ffcfb6bde918eeb07a8a9eb084b5b5a78f8d1a4e10e9f56ef1d22c9032991e9.png" src="../_images/7ffcfb6bde918eeb07a8a9eb084b5b5a78f8d1a4e10e9f56ef1d22c9032991e9.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">FA_Dublin</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Subject ID</th>
+      <th>Age</th>
+      <th>Sex</th>
+      <th>Group</th>
+      <th>lh_bankssts_part1_thickness</th>
+      <th>lh_bankssts_part2_thickness</th>
+      <th>lh_caudalanteriorcingulate_part1_thickness</th>
+      <th>lh_caudalmiddlefrontal_part1_thickness</th>
+      <th>lh_caudalmiddlefrontal_part2_thickness</th>
+      <th>lh_caudalmiddlefrontal_part3_thickness</th>
+      <th>...</th>
+      <th>rh_supramarginal_part5_thickness</th>
+      <th>rh_supramarginal_part6_thickness</th>
+      <th>rh_supramarginal_part7_thickness</th>
+      <th>rh_frontalpole_part1_thickness</th>
+      <th>rh_temporalpole_part1_thickness</th>
+      <th>rh_transversetemporal_part1_thickness</th>
+      <th>rh_insula_part1_thickness</th>
+      <th>rh_insula_part2_thickness</th>
+      <th>rh_insula_part3_thickness</th>
+      <th>rh_insula_part4_thickness</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>CON3140</td>
+      <td>37</td>
+      <td>2</td>
+      <td>1</td>
+      <td>0.322</td>
+      <td>0.147</td>
+      <td>0.200</td>
+      <td>0.143</td>
+      <td>0.189</td>
+      <td>0.133</td>
+      <td>...</td>
+      <td>0.171</td>
+      <td>0.150</td>
+      <td>0.127</td>
+      <td>0.218</td>
+      <td>0.163</td>
+      <td>0.158</td>
+      <td>0.147</td>
+      <td>0.157</td>
+      <td>0.147</td>
+      <td>0.137</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>CON3891</td>
+      <td>33</td>
+      <td>2</td>
+      <td>1</td>
+      <td>0.302</td>
+      <td>0.155</td>
+      <td>0.234</td>
+      <td>0.139</td>
+      <td>0.164</td>
+      <td>0.145</td>
+      <td>...</td>
+      <td>0.155</td>
+      <td>0.139</td>
+      <td>0.121</td>
+      <td>0.185</td>
+      <td>0.173</td>
+      <td>0.126</td>
+      <td>0.151</td>
+      <td>0.152</td>
+      <td>0.148</td>
+      <td>0.152</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>CON4664</td>
+      <td>40</td>
+      <td>2</td>
+      <td>1</td>
+      <td>0.324</td>
+      <td>0.180</td>
+      <td>0.226</td>
+      <td>0.197</td>
+      <td>0.206</td>
+      <td>0.142</td>
+      <td>...</td>
+      <td>0.176</td>
+      <td>0.143</td>
+      <td>0.150</td>
+      <td>0.173</td>
+      <td>0.228</td>
+      <td>0.144</td>
+      <td>0.150</td>
+      <td>0.171</td>
+      <td>0.174</td>
+      <td>0.143</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>CON7009</td>
+      <td>21</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0.323</td>
+      <td>0.139</td>
+      <td>0.219</td>
+      <td>0.154</td>
+      <td>0.200</td>
+      <td>0.147</td>
+      <td>...</td>
+      <td>0.146</td>
+      <td>0.128</td>
+      <td>0.147</td>
+      <td>0.195</td>
+      <td>0.174</td>
+      <td>0.134</td>
+      <td>0.171</td>
+      <td>0.164</td>
+      <td>0.159</td>
+      <td>0.131</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>CON7024</td>
+      <td>59</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0.295</td>
+      <td>0.143</td>
+      <td>0.168</td>
+      <td>0.139</td>
+      <td>0.173</td>
+      <td>0.171</td>
+      <td>...</td>
+      <td>0.156</td>
+      <td>0.140</td>
+      <td>0.135</td>
+      <td>0.325</td>
+      <td>0.168</td>
+      <td>0.162</td>
+      <td>0.167</td>
+      <td>0.144</td>
+      <td>0.138</td>
+      <td>0.157</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>110</th>
+      <td>RPG9102</td>
+      <td>42</td>
+      <td>2</td>
+      <td>2</td>
+      <td>0.294</td>
+      <td>0.168</td>
+      <td>0.238</td>
+      <td>0.142</td>
+      <td>0.167</td>
+      <td>0.162</td>
+      <td>...</td>
+      <td>0.144</td>
+      <td>0.117</td>
+      <td>0.105</td>
+      <td>0.199</td>
+      <td>0.157</td>
+      <td>0.127</td>
+      <td>0.136</td>
+      <td>0.143</td>
+      <td>0.147</td>
+      <td>0.134</td>
+    </tr>
+    <tr>
+      <th>111</th>
+      <td>RPG9103</td>
+      <td>37</td>
+      <td>1</td>
+      <td>2</td>
+      <td>0.293</td>
+      <td>0.140</td>
+      <td>0.257</td>
+      <td>0.151</td>
+      <td>0.170</td>
+      <td>0.125</td>
+      <td>...</td>
+      <td>0.132</td>
+      <td>0.106</td>
+      <td>0.114</td>
+      <td>0.257</td>
+      <td>0.164</td>
+      <td>0.134</td>
+      <td>0.153</td>
+      <td>0.157</td>
+      <td>0.144</td>
+      <td>0.140</td>
+    </tr>
+    <tr>
+      <th>112</th>
+      <td>RPG9119</td>
+      <td>41</td>
+      <td>1</td>
+      <td>2</td>
+      <td>0.323</td>
+      <td>0.173</td>
+      <td>0.278</td>
+      <td>0.171</td>
+      <td>0.188</td>
+      <td>0.170</td>
+      <td>...</td>
+      <td>0.167</td>
+      <td>0.139</td>
+      <td>0.143</td>
+      <td>0.172</td>
+      <td>0.170</td>
+      <td>0.157</td>
+      <td>0.150</td>
+      <td>0.181</td>
+      <td>0.143</td>
+      <td>0.151</td>
+    </tr>
+    <tr>
+      <th>113</th>
+      <td>RPG9121</td>
+      <td>51</td>
+      <td>1</td>
+      <td>2</td>
+      <td>0.311</td>
+      <td>0.174</td>
+      <td>0.226</td>
+      <td>0.153</td>
+      <td>0.178</td>
+      <td>0.127</td>
+      <td>...</td>
+      <td>0.145</td>
+      <td>0.126</td>
+      <td>0.136</td>
+      <td>0.158</td>
+      <td>0.270</td>
+      <td>0.135</td>
+      <td>0.140</td>
+      <td>0.162</td>
+      <td>0.145</td>
+      <td>0.123</td>
+    </tr>
+    <tr>
+      <th>114</th>
+      <td>RPG9126</td>
+      <td>56</td>
+      <td>1</td>
+      <td>2</td>
+      <td>0.294</td>
+      <td>0.164</td>
+      <td>0.207</td>
+      <td>0.154</td>
+      <td>0.134</td>
+      <td>0.111</td>
+      <td>...</td>
+      <td>0.130</td>
+      <td>0.121</td>
+      <td>0.119</td>
+      <td>0.249</td>
+      <td>0.172</td>
+      <td>0.130</td>
+      <td>0.139</td>
+      <td>0.145</td>
+      <td>0.147</td>
+      <td>0.127</td>
+    </tr>
+  </tbody>
+</table>
+<p>115 rows × 312 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#adjust data frame</span>
+
+<span class="n">FA_Dublin_ad</span> <span class="o">=</span> <span class="n">FA_Dublin</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;Subject ID&#39;</span><span class="p">,</span><span class="s1">&#39;Age&#39;</span><span class="p">,</span> <span class="s1">&#39;Sex&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">FA_Dublin_ad</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Group</th>
+      <th>lh_bankssts_part1_thickness</th>
+      <th>lh_bankssts_part2_thickness</th>
+      <th>lh_caudalanteriorcingulate_part1_thickness</th>
+      <th>lh_caudalmiddlefrontal_part1_thickness</th>
+      <th>lh_caudalmiddlefrontal_part2_thickness</th>
+      <th>lh_caudalmiddlefrontal_part3_thickness</th>
+      <th>lh_caudalmiddlefrontal_part4_thickness</th>
+      <th>lh_cuneus_part1_thickness</th>
+      <th>lh_cuneus_part2_thickness</th>
+      <th>...</th>
+      <th>rh_supramarginal_part5_thickness</th>
+      <th>rh_supramarginal_part6_thickness</th>
+      <th>rh_supramarginal_part7_thickness</th>
+      <th>rh_frontalpole_part1_thickness</th>
+      <th>rh_temporalpole_part1_thickness</th>
+      <th>rh_transversetemporal_part1_thickness</th>
+      <th>rh_insula_part1_thickness</th>
+      <th>rh_insula_part2_thickness</th>
+      <th>rh_insula_part3_thickness</th>
+      <th>rh_insula_part4_thickness</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>0.322</td>
+      <td>0.147</td>
+      <td>0.200</td>
+      <td>0.143</td>
+      <td>0.189</td>
+      <td>0.133</td>
+      <td>0.124</td>
+      <td>0.151</td>
+      <td>0.133</td>
+      <td>...</td>
+      <td>0.171</td>
+      <td>0.150</td>
+      <td>0.127</td>
+      <td>0.218</td>
+      <td>0.163</td>
+      <td>0.158</td>
+      <td>0.147</td>
+      <td>0.157</td>
+      <td>0.147</td>
+      <td>0.137</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>0.302</td>
+      <td>0.155</td>
+      <td>0.234</td>
+      <td>0.139</td>
+      <td>0.164</td>
+      <td>0.145</td>
+      <td>0.147</td>
+      <td>0.141</td>
+      <td>0.144</td>
+      <td>...</td>
+      <td>0.155</td>
+      <td>0.139</td>
+      <td>0.121</td>
+      <td>0.185</td>
+      <td>0.173</td>
+      <td>0.126</td>
+      <td>0.151</td>
+      <td>0.152</td>
+      <td>0.148</td>
+      <td>0.152</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+      <td>0.324</td>
+      <td>0.180</td>
+      <td>0.226</td>
+      <td>0.197</td>
+      <td>0.206</td>
+      <td>0.142</td>
+      <td>0.151</td>
+      <td>0.157</td>
+      <td>0.144</td>
+      <td>...</td>
+      <td>0.176</td>
+      <td>0.143</td>
+      <td>0.150</td>
+      <td>0.173</td>
+      <td>0.228</td>
+      <td>0.144</td>
+      <td>0.150</td>
+      <td>0.171</td>
+      <td>0.174</td>
+      <td>0.143</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1</td>
+      <td>0.323</td>
+      <td>0.139</td>
+      <td>0.219</td>
+      <td>0.154</td>
+      <td>0.200</td>
+      <td>0.147</td>
+      <td>0.145</td>
+      <td>0.155</td>
+      <td>0.153</td>
+      <td>...</td>
+      <td>0.146</td>
+      <td>0.128</td>
+      <td>0.147</td>
+      <td>0.195</td>
+      <td>0.174</td>
+      <td>0.134</td>
+      <td>0.171</td>
+      <td>0.164</td>
+      <td>0.159</td>
+      <td>0.131</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1</td>
+      <td>0.295</td>
+      <td>0.143</td>
+      <td>0.168</td>
+      <td>0.139</td>
+      <td>0.173</td>
+      <td>0.171</td>
+      <td>0.152</td>
+      <td>0.115</td>
+      <td>0.145</td>
+      <td>...</td>
+      <td>0.156</td>
+      <td>0.140</td>
+      <td>0.135</td>
+      <td>0.325</td>
+      <td>0.168</td>
+      <td>0.162</td>
+      <td>0.167</td>
+      <td>0.144</td>
+      <td>0.138</td>
+      <td>0.157</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>110</th>
+      <td>2</td>
+      <td>0.294</td>
+      <td>0.168</td>
+      <td>0.238</td>
+      <td>0.142</td>
+      <td>0.167</td>
+      <td>0.162</td>
+      <td>0.120</td>
+      <td>0.117</td>
+      <td>0.115</td>
+      <td>...</td>
+      <td>0.144</td>
+      <td>0.117</td>
+      <td>0.105</td>
+      <td>0.199</td>
+      <td>0.157</td>
+      <td>0.127</td>
+      <td>0.136</td>
+      <td>0.143</td>
+      <td>0.147</td>
+      <td>0.134</td>
+    </tr>
+    <tr>
+      <th>111</th>
+      <td>2</td>
+      <td>0.293</td>
+      <td>0.140</td>
+      <td>0.257</td>
+      <td>0.151</td>
+      <td>0.170</td>
+      <td>0.125</td>
+      <td>0.146</td>
+      <td>0.125</td>
+      <td>0.139</td>
+      <td>...</td>
+      <td>0.132</td>
+      <td>0.106</td>
+      <td>0.114</td>
+      <td>0.257</td>
+      <td>0.164</td>
+      <td>0.134</td>
+      <td>0.153</td>
+      <td>0.157</td>
+      <td>0.144</td>
+      <td>0.140</td>
+    </tr>
+    <tr>
+      <th>112</th>
+      <td>2</td>
+      <td>0.323</td>
+      <td>0.173</td>
+      <td>0.278</td>
+      <td>0.171</td>
+      <td>0.188</td>
+      <td>0.170</td>
+      <td>0.167</td>
+      <td>0.104</td>
+      <td>0.156</td>
+      <td>...</td>
+      <td>0.167</td>
+      <td>0.139</td>
+      <td>0.143</td>
+      <td>0.172</td>
+      <td>0.170</td>
+      <td>0.157</td>
+      <td>0.150</td>
+      <td>0.181</td>
+      <td>0.143</td>
+      <td>0.151</td>
+    </tr>
+    <tr>
+      <th>113</th>
+      <td>2</td>
+      <td>0.311</td>
+      <td>0.174</td>
+      <td>0.226</td>
+      <td>0.153</td>
+      <td>0.178</td>
+      <td>0.127</td>
+      <td>0.133</td>
+      <td>0.100</td>
+      <td>0.119</td>
+      <td>...</td>
+      <td>0.145</td>
+      <td>0.126</td>
+      <td>0.136</td>
+      <td>0.158</td>
+      <td>0.270</td>
+      <td>0.135</td>
+      <td>0.140</td>
+      <td>0.162</td>
+      <td>0.145</td>
+      <td>0.123</td>
+    </tr>
+    <tr>
+      <th>114</th>
+      <td>2</td>
+      <td>0.294</td>
+      <td>0.164</td>
+      <td>0.207</td>
+      <td>0.154</td>
+      <td>0.134</td>
+      <td>0.111</td>
+      <td>0.131</td>
+      <td>0.115</td>
+      <td>0.125</td>
+      <td>...</td>
+      <td>0.130</td>
+      <td>0.121</td>
+      <td>0.119</td>
+      <td>0.249</td>
+      <td>0.172</td>
+      <td>0.130</td>
+      <td>0.139</td>
+      <td>0.145</td>
+      <td>0.147</td>
+      <td>0.127</td>
+    </tr>
+  </tbody>
+</table>
+<p>115 rows × 309 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">FA_Dublin_ad</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Group</th>
+      <th>lh_bankssts_part1_thickness</th>
+      <th>lh_bankssts_part2_thickness</th>
+      <th>lh_caudalanteriorcingulate_part1_thickness</th>
+      <th>lh_caudalmiddlefrontal_part1_thickness</th>
+      <th>lh_caudalmiddlefrontal_part2_thickness</th>
+      <th>lh_caudalmiddlefrontal_part3_thickness</th>
+      <th>lh_caudalmiddlefrontal_part4_thickness</th>
+      <th>lh_cuneus_part1_thickness</th>
+      <th>lh_cuneus_part2_thickness</th>
+      <th>...</th>
+      <th>rh_supramarginal_part5_thickness</th>
+      <th>rh_supramarginal_part6_thickness</th>
+      <th>rh_supramarginal_part7_thickness</th>
+      <th>rh_frontalpole_part1_thickness</th>
+      <th>rh_temporalpole_part1_thickness</th>
+      <th>rh_transversetemporal_part1_thickness</th>
+      <th>rh_insula_part1_thickness</th>
+      <th>rh_insula_part2_thickness</th>
+      <th>rh_insula_part3_thickness</th>
+      <th>rh_insula_part4_thickness</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>115.000000</td>
+      <td>115.000000</td>
+      <td>115.000000</td>
+      <td>115.000000</td>
+      <td>115.000000</td>
+      <td>115.000000</td>
+      <td>115.000000</td>
+      <td>115.000000</td>
+      <td>115.000000</td>
+      <td>115.000000</td>
+      <td>...</td>
+      <td>115.000000</td>
+      <td>115.000000</td>
+      <td>115.000000</td>
+      <td>115.000000</td>
+      <td>115.000000</td>
+      <td>115.000000</td>
+      <td>115.000000</td>
+      <td>115.000000</td>
+      <td>115.000000</td>
+      <td>115.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>1.286957</td>
+      <td>0.314870</td>
+      <td>0.157548</td>
+      <td>0.219122</td>
+      <td>0.157113</td>
+      <td>0.175617</td>
+      <td>0.147278</td>
+      <td>0.144287</td>
+      <td>0.132426</td>
+      <td>0.146165</td>
+      <td>...</td>
+      <td>0.150209</td>
+      <td>0.136339</td>
+      <td>0.135704</td>
+      <td>0.225574</td>
+      <td>0.193504</td>
+      <td>0.137374</td>
+      <td>0.154452</td>
+      <td>0.156061</td>
+      <td>0.150061</td>
+      <td>0.143174</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>0.454321</td>
+      <td>0.017583</td>
+      <td>0.013954</td>
+      <td>0.026340</td>
+      <td>0.020100</td>
+      <td>0.020631</td>
+      <td>0.014497</td>
+      <td>0.016244</td>
+      <td>0.016366</td>
+      <td>0.016939</td>
+      <td>...</td>
+      <td>0.013803</td>
+      <td>0.013994</td>
+      <td>0.015891</td>
+      <td>0.074857</td>
+      <td>0.032147</td>
+      <td>0.016594</td>
+      <td>0.015699</td>
+      <td>0.015335</td>
+      <td>0.013595</td>
+      <td>0.012983</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>1.000000</td>
+      <td>0.243000</td>
+      <td>0.122000</td>
+      <td>0.141000</td>
+      <td>0.117000</td>
+      <td>0.134000</td>
+      <td>0.111000</td>
+      <td>0.107000</td>
+      <td>0.095000</td>
+      <td>0.108000</td>
+      <td>...</td>
+      <td>0.114000</td>
+      <td>0.106000</td>
+      <td>0.103000</td>
+      <td>0.115000</td>
+      <td>0.141000</td>
+      <td>0.107000</td>
+      <td>0.128000</td>
+      <td>0.126000</td>
+      <td>0.120000</td>
+      <td>0.113000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>1.000000</td>
+      <td>0.303000</td>
+      <td>0.147000</td>
+      <td>0.201500</td>
+      <td>0.145500</td>
+      <td>0.163500</td>
+      <td>0.137500</td>
+      <td>0.135000</td>
+      <td>0.122000</td>
+      <td>0.134000</td>
+      <td>...</td>
+      <td>0.141500</td>
+      <td>0.126000</td>
+      <td>0.124000</td>
+      <td>0.186000</td>
+      <td>0.172000</td>
+      <td>0.125500</td>
+      <td>0.143000</td>
+      <td>0.144000</td>
+      <td>0.142000</td>
+      <td>0.134500</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>1.000000</td>
+      <td>0.316000</td>
+      <td>0.158000</td>
+      <td>0.221000</td>
+      <td>0.154000</td>
+      <td>0.173000</td>
+      <td>0.148000</td>
+      <td>0.143000</td>
+      <td>0.130000</td>
+      <td>0.146000</td>
+      <td>...</td>
+      <td>0.151000</td>
+      <td>0.136000</td>
+      <td>0.134000</td>
+      <td>0.211000</td>
+      <td>0.184000</td>
+      <td>0.136000</td>
+      <td>0.153000</td>
+      <td>0.156000</td>
+      <td>0.148000</td>
+      <td>0.143000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>2.000000</td>
+      <td>0.326000</td>
+      <td>0.167000</td>
+      <td>0.235000</td>
+      <td>0.167000</td>
+      <td>0.184500</td>
+      <td>0.156500</td>
+      <td>0.151500</td>
+      <td>0.144500</td>
+      <td>0.158500</td>
+      <td>...</td>
+      <td>0.159000</td>
+      <td>0.145500</td>
+      <td>0.147000</td>
+      <td>0.241500</td>
+      <td>0.208000</td>
+      <td>0.148000</td>
+      <td>0.165500</td>
+      <td>0.164000</td>
+      <td>0.159000</td>
+      <td>0.151000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>2.000000</td>
+      <td>0.355000</td>
+      <td>0.195000</td>
+      <td>0.312000</td>
+      <td>0.245000</td>
+      <td>0.247000</td>
+      <td>0.182000</td>
+      <td>0.230000</td>
+      <td>0.174000</td>
+      <td>0.188000</td>
+      <td>...</td>
+      <td>0.181000</td>
+      <td>0.181000</td>
+      <td>0.177000</td>
+      <td>0.593000</td>
+      <td>0.328000</td>
+      <td>0.192000</td>
+      <td>0.204000</td>
+      <td>0.210000</td>
+      <td>0.188000</td>
+      <td>0.179000</td>
+    </tr>
+  </tbody>
+</table>
+<p>8 rows × 309 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#compute mean for patients and control in each brain region</span>
+
+<span class="n">FA_df_mean</span> <span class="o">=</span> <span class="n">FA_Dublin_ad</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Group&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">FA_df_mean</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>lh_bankssts_part1_thickness</th>
+      <th>lh_bankssts_part2_thickness</th>
+      <th>lh_caudalanteriorcingulate_part1_thickness</th>
+      <th>lh_caudalmiddlefrontal_part1_thickness</th>
+      <th>lh_caudalmiddlefrontal_part2_thickness</th>
+      <th>lh_caudalmiddlefrontal_part3_thickness</th>
+      <th>lh_caudalmiddlefrontal_part4_thickness</th>
+      <th>lh_cuneus_part1_thickness</th>
+      <th>lh_cuneus_part2_thickness</th>
+      <th>lh_entorhinal_part1_thickness</th>
+      <th>...</th>
+      <th>rh_supramarginal_part5_thickness</th>
+      <th>rh_supramarginal_part6_thickness</th>
+      <th>rh_supramarginal_part7_thickness</th>
+      <th>rh_frontalpole_part1_thickness</th>
+      <th>rh_temporalpole_part1_thickness</th>
+      <th>rh_transversetemporal_part1_thickness</th>
+      <th>rh_insula_part1_thickness</th>
+      <th>rh_insula_part2_thickness</th>
+      <th>rh_insula_part3_thickness</th>
+      <th>rh_insula_part4_thickness</th>
+    </tr>
+    <tr>
+      <th>Group</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>0.318866</td>
+      <td>0.157451</td>
+      <td>0.218463</td>
+      <td>0.157512</td>
+      <td>0.174805</td>
+      <td>0.147061</td>
+      <td>0.144451</td>
+      <td>0.135451</td>
+      <td>0.148573</td>
+      <td>0.213183</td>
+      <td>...</td>
+      <td>0.151720</td>
+      <td>0.137244</td>
+      <td>0.136427</td>
+      <td>0.223732</td>
+      <td>0.193293</td>
+      <td>0.135671</td>
+      <td>0.156598</td>
+      <td>0.155098</td>
+      <td>0.151024</td>
+      <td>0.143634</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.304939</td>
+      <td>0.157788</td>
+      <td>0.220758</td>
+      <td>0.156121</td>
+      <td>0.177636</td>
+      <td>0.147818</td>
+      <td>0.143879</td>
+      <td>0.124909</td>
+      <td>0.140182</td>
+      <td>0.212152</td>
+      <td>...</td>
+      <td>0.146455</td>
+      <td>0.134091</td>
+      <td>0.133909</td>
+      <td>0.230152</td>
+      <td>0.194030</td>
+      <td>0.141606</td>
+      <td>0.149121</td>
+      <td>0.158455</td>
+      <td>0.147667</td>
+      <td>0.142030</td>
+    </tr>
+  </tbody>
+</table>
+<p>2 rows × 308 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#mean of fractional anisotropy for control and patients</span>
+
+<span class="n">FA_df_mean</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Group
+1    0.166799
+2    0.164951
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>The values seem to indicate an isotropic diffusion in both control and patient groups.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#switch colums and rows</span>
+
+<span class="n">FA_df_trans</span> <span class="o">=</span> <span class="n">FA_df_mean</span><span class="o">.</span><span class="n">T</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">FA_df_trans</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Group</th>
+      <th>1</th>
+      <th>2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>lh_bankssts_part1_thickness</th>
+      <td>0.318866</td>
+      <td>0.304939</td>
+    </tr>
+    <tr>
+      <th>lh_bankssts_part2_thickness</th>
+      <td>0.157451</td>
+      <td>0.157788</td>
+    </tr>
+    <tr>
+      <th>lh_caudalanteriorcingulate_part1_thickness</th>
+      <td>0.218463</td>
+      <td>0.220758</td>
+    </tr>
+    <tr>
+      <th>lh_caudalmiddlefrontal_part1_thickness</th>
+      <td>0.157512</td>
+      <td>0.156121</td>
+    </tr>
+    <tr>
+      <th>lh_caudalmiddlefrontal_part2_thickness</th>
+      <td>0.174805</td>
+      <td>0.177636</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>rh_transversetemporal_part1_thickness</th>
+      <td>0.135671</td>
+      <td>0.141606</td>
+    </tr>
+    <tr>
+      <th>rh_insula_part1_thickness</th>
+      <td>0.156598</td>
+      <td>0.149121</td>
+    </tr>
+    <tr>
+      <th>rh_insula_part2_thickness</th>
+      <td>0.155098</td>
+      <td>0.158455</td>
+    </tr>
+    <tr>
+      <th>rh_insula_part3_thickness</th>
+      <td>0.151024</td>
+      <td>0.147667</td>
+    </tr>
+    <tr>
+      <th>rh_insula_part4_thickness</th>
+      <td>0.143634</td>
+      <td>0.142030</td>
+    </tr>
+  </tbody>
+</table>
+<p>308 rows × 2 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#plot the FA</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">sb</span><span class="o">.</span><span class="n">violinplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">FA_df_trans</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Groups&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Fractional Anisotropy&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Distribution of Fractional Anisotropy Means for Controls vs. Patients&quot;</span><span class="p">,</span> <span class="n">pad</span> <span class="o">=</span> <span class="s1">&#39;20&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Distribution of Fractional Anisotropy Means for Controls vs. Patients&#39;)
+</pre></div>
+</div>
+<img alt="../_images/113ce2979783cdafccb358c055a468cff64723d19e91d4f29da92768939b9952.png" src="../_images/113ce2979783cdafccb358c055a468cff64723d19e91d4f29da92768939b9952.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="dti-networks">
+<h2>3.1 DTI Networks<a class="headerlink" href="#dti-networks" title="Permalink to this heading">#</a></h2>
+<p>First of all, I am going to explore the DTI network data, followed by the regional MD and FA values and lastly the CT data.</p>
+<p>The data that contains the DTI networks are available as matlab files. In the following, it is depicted how the matlab files can be downloaded and read.</p>
+<section id="download-the-mat-files">
+<h3>3.1.1 Download the .mat files<a class="headerlink" href="#download-the-mat-files" title="Permalink to this heading">#</a></h3>
+<p>If you click on the name of the matlab datafile on figshare , it then only shows you the preview of the matlab file and the link of that is for the respective preview. If you want to copy the link of the matlab file itself, you have to right-click on the datafile name and then copy the link.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">urllib.request</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Beginning file download with urllib2...&#39;</span><span class="p">)</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://figshare.com/ndownloader/files/22782440&quot;</span>
+<span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlretrieve</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="s1">&#39;/Users/mello/data/Msc5_research_project/data/DTI_Dublin.mat&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Beginning file download with urllib2...
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(&#39;/Users/mello/data/Msc5_research_project/data/DTI_Dublin.mat&#39;,
+ &lt;http.client.HTTPMessage at 0x7f9c725fa908&gt;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Beginning file download with urllib2...&#39;</span><span class="p">)</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://figshare.com/articles/dataset/Data_for_Functional_MRI_connectivity_accurately_distinguishes_cases_with_psychotic_disorders_from_healthy_controls_based_on_cortical_features_associated_with_brain_network_development_/12361550?file=22782443&quot;</span> 
+<span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlretrieve</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="s1">&#39;/Users/mello/data/Msc5_research_project/data/DTI_Maastricht.mat&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Beginning file download with urllib2...
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(&#39;/Users/mello/data/Msc5_research_project/data/DTI_Maastricht.mat&#39;,
+ &lt;http.client.HTTPMessage at 0x7f9c725fae80&gt;)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="read-the-mat-files">
+<h3>3.1.2 Read the .mat files<a class="headerlink" href="#read-the-mat-files" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">scipy.io</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Dublin</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">DTI_Dublin</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">loadmat</span><span class="p">(</span><span class="s1">&#39;/Users/mello/data/Msc5_research_project/data/DTI_Dublin.mat&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">DTI_Dublin</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict_keys([&#39;__header__&#39;, &#39;__version__&#39;, &#39;__globals__&#39;, &#39;nostreamlines_new&#39;])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">DTI_Dublin</span><span class="p">[</span><span class="s1">&#39;nostreamlines_new&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1, 123)
+</pre></div>
+</div>
+</div>
+</div>
+<p>123 Probanden mit DTI Matrizen.
+Wie sehen DTI Matrizen aus?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">DTI_Dublin</span><span class="p">[</span><span class="s1">&#39;nostreamlines_new&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(123,)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">DTI_Dublin</span><span class="p">[</span><span class="s1">&#39;nostreamlines_new&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(308, 308)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Zwischen 308 Regionen basierend auf DTI Daten Werte (siehe course website, nochmal durchlesen!!)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">7</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">DTI_Dublin</span><span class="p">[</span><span class="s1">&#39;nostreamlines_new&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">xticklabels</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;rocket&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
+</pre></div>
+</div>
+<img alt="../_images/b14fa0745efd83209b7c3e544a76fb847e48960035d285efacac6c404de4c65c.png" src="../_images/b14fa0745efd83209b7c3e544a76fb847e48960035d285efacac6c404de4c65c.png" />
+</div>
+</div>
+<p><strong>Maastricht</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">DTI_Maastricht</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">loadmat</span><span class="p">(</span><span class="s1">&#39;/Users/mello/Desktop/Dataset//DTI_Maastricht.mat&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">DTI_Maastricht</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict_keys([&#39;__header__&#39;, &#39;__version__&#39;, &#39;__globals__&#39;, &#39;nostreamlines_new&#39;])
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./data"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-access">1. Data access</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-does-the-data-contain-general-overview">2. What does the data contain? General overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#demographic-data">3. Demographic data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exploring-the-different-modalities">3. Exploring the different modalities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#macro-structural-data-cortical-thickness-ct">3.1 Macro-structural data: cortical thickness (CT)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#micro-structural-data-mean-diffusivity-md-and-fractional-anisotropy-fa">3.1 Micro-structural data: mean diffusivity (MD) and fractional anisotropy (FA)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dti-networks">3.1 DTI Networks</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#download-the-mat-files">3.1.1 Download the .mat files</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#read-the-mat-files">3.1.2 Read the .mat files</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            <div class="bd-footer-content__inner">
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Michael Ernst, Felix Körber based on the Gorella template by Peer Herholz, José C. García Alanis, Christoph Vogelbacher
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div></div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
