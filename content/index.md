@@ -7,7 +7,7 @@ titlesonly: true
 ---
 ```
 
-![course_logo]()
+![course_logo](static/brain.png)
 
 
 # Welcome!
