@@ -7,7 +7,7 @@ titlesonly: true
 ---
 ```
 
-![course_logo](cog_com_neuro_ml_dl_logo.png)
+![course_logo]()
 
 
 # Welcome!
