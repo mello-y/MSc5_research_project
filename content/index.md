@@ -7,7 +7,7 @@ titlesonly: true
 ---
 ```
 
-![diler logo](static/logo.png)
+![brain_logo](static/brain.jpeg)
 
 
 # Welcome!
@@ -26,7 +26,7 @@ This report contains different sections that are supposed to guide you through t
 
 You can use the following sections to navigate through the content of the lecture:
 
-* [Theoretical Background](mello-y.github.io/MSc5_research_project/general_information/TheoreticalBackground.html)
+* [Theoretical Background](https://mello-y.github.io/MSc5_research_project/general_information/TheoreticalBackground.html)
 
    What's this course all about? How are things implemented and supposed to work?
 
@@ -34,16 +34,16 @@ You can use the following sections to navigate through the content of the lectur
 
    What are the specific topics and aspects taught?
 
-* [Data Exploration](mello-y.github.io/MSc5_research_project/code/Data_exploration.html)
+* [Data Exploration](https://mello-y.github.io/MSc5_research_project/code/Data_exploration.html)
 
    All things gotta start somewhere, but how?
 
-* [Logistic Regression](mello-y.github.io/MSc5_research_project/code/LogisticRegression.html)
+* [Logistic Regression](https://mello-y.github.io/MSc5_research_project/code/LogisticRegression.html)
 
    What is this course gonna contain?
 
    
-* [SVM](mello-y.github.io/MSc5_research_project/code/SVM.html)
+* [SVM](https://mello-y.github.io/MSc5_research_project/code/SVM.html)
 
    Where should the acquired knowledge to be disseminated?
 
