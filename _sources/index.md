@@ -18,32 +18,32 @@ These pages are currently under construction and will be updated continuously.
 Please visit these pages again in the next few weeks for further information.
 ````
 
-Hello everyone and welcome to the course page for X
+Hello everyone and welcome to the documentation of the research project "Predicting psychotic disorder with machine learning" in the Neurocognitive Psychology lab at Goethe University Frankfurt conducted within the psychology master.
 
-## Course name
+## Predicting psychotic disorder with machine learning
 
-Within this course we will explore X
+This report contains different sections that are supposed to guide you through the whole research process.
 
 You can use the following sections to navigate through the content of the lecture:
 
-* [Overview & procedure ](https://m-earnest.github.io/course_template_diler/general_information/overview.html)
+* [Theoretical Background](mello-y.github.io/MSc5_research_project/general_information/TheoreticalBackground.html)
 
    What's this course all about? How are things implemented and supposed to work?
 
-* [General outline](https://m-earnest.github.io/course_template_diler/general_information/outline.html)
+* [Data and Projectmanagement](https://mello-y.github.io/MSc5_research_project/general_information/DataProjectManagement.html)
 
    What are the specific topics and aspects taught?
 
-* [Introduction](https://m-earnest.github.io/course_template_diler/introduction/intro.html)
+* [Data Exploration](mello-y.github.io/MSc5_research_project/code/Data_exploration.html)
 
    All things gotta start somewhere, but how?
 
-* [Content](https://m-earnest.github.io/course_template_diler/content/intro_content.html)
+* [Logistic Regression](mello-y.github.io/MSc5_research_project/code/LogisticRegression.html)
 
    What is this course gonna contain?
 
    
-* [Results communication](https://m-earnest.github.io/course_template_diler/general_information/results_communication.html)
+* [SVM](mello-y.github.io/MSc5_research_project/code/SVM.html)
 
    Where should the acquired knowledge to be disseminated?
 
