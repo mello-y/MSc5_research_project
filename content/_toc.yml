@@ -1,9 +1,14 @@
-root: content/index
+root: index
 format: jb-book
 chapters:
 - file: general_information/TheoreticalBackground.md
 - file: general_information/DataProjectManagement.md
-- file: data/Data_exploration.ipynb
-- file: data/Data_analysis.ipynb
-- file: introduction/intro
+  sections:
+    - file: open_lab_notebook
+- file: code/Data_exploration.ipynb
+- file: general_information/Tasktype.md
+  sections: 
+  - file: code/Data_analysis.ipynb
+  - file: code/SVM.ipynb
 
+- file: Discussion.md
