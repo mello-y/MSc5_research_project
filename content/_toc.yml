@@ -1,0 +1,9 @@
+root: content/index
+format: jb-book
+chapters:
+- file: general_information/TheoreticalBackground.md
+- file: general_information/DataProjectManagement.md
+- file: data/Data_exploration.ipynb
+- file: data/Data_analysis.ipynb
+- file: introduction/intro
+
