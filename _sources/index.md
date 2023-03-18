@@ -7,9 +7,6 @@ titlesonly: true
 ---
 ```
 
-![brain_logo](static/brain.jpeg)
-
-
 # Welcome!
 
 ````{margin}
@@ -18,7 +15,7 @@ These pages are currently under construction and will be updated continuously.
 Please visit these pages again in the next few weeks for further information.
 ````
 
-Hello everyone and welcome to the documentation of the research project "Predicting psychotic disorder with machine learning" in the Neurocognitive Psychology lab at Goethe University Frankfurt conducted within the psychology master.
+Hello everyone and welcome to the documentation of the research project "Predicting psychotic disorder with machine learning" in the Neurocognitive Psychology lab at the Goethe University Frankfurt conducted within the psychology master.
 
 ## Predicting psychotic disorder with machine learning
 
@@ -47,19 +44,7 @@ You can use the following sections to navigate through the content of the lectur
 
    Where should the acquired knowledge to be disseminated?
 
-* [Symposium](https://m-earnest.github.io/course_template_diler/general_information/symposium.html)
 
-   What to do about outreach and discourse creation?
-
-
-* [Diversity, Equity, Inclusion](https://m-earnest.github.io/course_template_diler/general_information/dei.html)
-
-   What to look out for, what to keep in mind and how to trear each other.
-
-* [Code of Conduct](https://m-earnest.github.io/course_template_diler/general_information/CoC.html)
-
-   Necessities for creating an open, fair, safe and inclusive learning
-   experience.
 
 ## I've got a question!
 

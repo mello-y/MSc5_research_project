@@ -1,0 +1,1466 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Support Vector Machine (SVM) &#8212; Predicting psychotic disorder with machine learning</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'code/SVM';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Data analysis for MSc5_research_project" href="Data_analysis.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">Predicting psychotic disorder with machine learning</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Welcome!
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../general_information/TheoreticalBackground.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../general_information/DataProjectManagement.html">Data- and Projectmanagment</a></li>
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="Data_exploration.html">Data exploration for MSc5_research_project</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../general_information/Tasktype.html">Tasktype</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Data_analysis.html">Data analysis for MSc5_research_project</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Support Vector Machine (SVM)</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/mello-y/MSc5_research_project/master?urlpath=tree/content/code/SVM.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/mello-y/MSc5_research_project" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/mello-y/MSc5_research_project/edit/master/content/code/SVM.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/mello-y/MSc5_research_project/issues/new?title=Issue%20on%20page%20%2Fcode/SVM.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/code/SVM.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Support Vector Machine (SVM)</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-are-support-vector-machines-svms">1. What are Support Vector Machines (SVMs) ?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#macro-structural-data-cortical-thickness-ct">2. Macro-structural data: Cortical Thickness (CT)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-preparation">2.1 Data preparation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#build-the-model">2.2 Build the model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#model-evaluation">2.3 Model evaluation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#micro-structural-data">3. Micro-structural data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mean-diffusivity">3.1 Mean Diffusivity</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">3.1.1 Data preparation</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">3.1.2 Build the model</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">3.1.3 Model evaluation</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fractional-anisotropy">3.2 Fractional Anisotropy</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">3.2.1 Data preparation</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">3.2.2 Build the model</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">3.2.3 Model evaluation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="support-vector-machine-svm">
+<h1>Support Vector Machine (SVM)<a class="headerlink" href="#support-vector-machine-svm" title="Permalink to this heading">#</a></h1>
+<p>In the Data.analysis notebook Logistic Regression pipielines were computed for classifying the participants either as control or patient.This notebook is a continuation of the Data.analysis notebook and serves the purpose of computing <strong>SVM</strong> pipelines for macro-structural and micro-structural data.</p>
+<section id="what-are-support-vector-machines-svms">
+<h2>1. What are Support Vector Machines (SVMs) ?<a class="headerlink" href="#what-are-support-vector-machines-svms" title="Permalink to this heading">#</a></h2>
+<p>SVMs are a set of supervised learning methods used that can be used for classifcation, regression and outliers detection (for further information click here). The basic idea is to find an optimal separating line (or hyperplane) as output that separates the data into two classes. The SVM algorithm looks for the data points that are the clostest to the line from both classes. These points are called support vectors. Then, the distance between the support vectors and the hyperplane which is called the margin is computed. To find the best and optimal hyperplane, the margin should be maximized.</p>
+<p>Support vector classification (SVC) or Linear Support vector classification (LinearSVC) are methods of SVMs making it feasible to perfom a binary or mulit-class classification on a dataset. For the purpose of this project, LinearSVC is going to be performed.</p>
+</section>
+<section id="macro-structural-data-cortical-thickness-ct">
+<h2>2. Macro-structural data: Cortical Thickness (CT)<a class="headerlink" href="#macro-structural-data-cortical-thickness-ct" title="Permalink to this heading">#</a></h2>
+<p>In this section, a SVM pipeline will be computed for the macro-structual data <strong>CT</strong>. Firstly, the data is loaded and prepared for the analysis part. Secondly, the SVM model is built containing the analysis. Finally, we evaluate our model and have a look at how it performs.</p>
+<section id="data-preparation">
+<h3>2.1 Data preparation<a class="headerlink" href="#data-preparation" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#import relevant modules</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">svm</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">metrics</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#load data</span>
+
+<span class="n">CT_Dublin_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">pardir</span><span class="p">,</span> <span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="s1">&#39;PARC_500.aparc_thickness_Dublin.csv&#39;</span><span class="p">)</span>
+<span class="n">CT_Dublin</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">CT_Dublin_path</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#adjust dataframe</span>
+
+<span class="n">CT_Dublin_adj</span> <span class="o">=</span> <span class="n">CT_Dublin</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;Subject ID&#39;</span><span class="p">,</span><span class="s1">&#39;Age&#39;</span><span class="p">,</span> <span class="s1">&#39;Sex&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#label group 1 as 0 and 2 as 1</span>
+
+<span class="n">CT_Dublin_adj</span><span class="p">[</span><span class="s1">&#39;Group&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">CT_Dublin_adj</span><span class="p">[</span><span class="s1">&#39;Group&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#print the names of the 308 features</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Features: &quot;</span><span class="p">,</span> <span class="n">CT_Dublin_adj</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">308</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Features:  Index([&#39;lh_bankssts_part2_thickness&#39;,
+       &#39;lh_caudalanteriorcingulate_part1_thickness&#39;,
+       &#39;lh_caudalmiddlefrontal_part1_thickness&#39;,
+       &#39;lh_caudalmiddlefrontal_part2_thickness&#39;,
+       &#39;lh_caudalmiddlefrontal_part3_thickness&#39;,
+       &#39;lh_caudalmiddlefrontal_part4_thickness&#39;, &#39;lh_cuneus_part1_thickness&#39;,
+       &#39;lh_cuneus_part2_thickness&#39;, &#39;lh_entorhinal_part1_thickness&#39;,
+       &#39;lh_fusiform_part1_thickness&#39;,
+       ...
+       &#39;rh_supramarginal_part4_thickness&#39;, &#39;rh_supramarginal_part5_thickness&#39;,
+       &#39;rh_supramarginal_part6_thickness&#39;, &#39;rh_supramarginal_part7_thickness&#39;,
+       &#39;rh_frontalpole_part1_thickness&#39;, &#39;rh_temporalpole_part1_thickness&#39;,
+       &#39;rh_transversetemporal_part1_thickness&#39;, &#39;rh_insula_part1_thickness&#39;,
+       &#39;rh_insula_part2_thickness&#39;, &#39;rh_insula_part3_thickness&#39;],
+      dtype=&#39;object&#39;, length=306)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#print the names of the labels</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Labels: &quot;</span><span class="p">,</span> <span class="n">CT_Dublin_adj</span><span class="p">[</span><span class="s1">&#39;Group&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Labels:  0      0
+1      0
+2      0
+3      1
+4      1
+      ..
+103    1
+104    1
+105    1
+106    1
+107    1
+Name: Group, Length: 108, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="build-the-model">
+<h3>2.2 Build the model<a class="headerlink" href="#build-the-model" title="Permalink to this heading">#</a></h3>
+<p>As in the Data.analysis notebook, as a first step the input and output data should be defined. It is analogous to the Logistic Regression input and output since it is the identical <strong>CT</strong> data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#define data and target</span>
+
+<span class="n">X_CT</span> <span class="o">=</span> <span class="n">CT_Dublin_adj</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">1</span><span class="p">:</span><span class="mi">308</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="n">y_CT</span> <span class="o">=</span> <span class="n">CT_Dublin_adj</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,[</span><span class="mi">0</span><span class="p">]]</span><span class="o">.</span><span class="n">values</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_CT</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[2.18 , 2.382, 2.346, ..., 3.62 , 2.776, 3.282],
+       [2.394, 1.973, 2.534, ..., 3.588, 2.654, 3.124],
+       [2.551, 2.567, 1.954, ..., 3.657, 2.495, 2.669],
+       ...,
+       [2.273, 2.559, 2.578, ..., 3.48 , 2.294, 2.571],
+       [1.94 , 2.438, 2.272, ..., 3.187, 2.51 , 2.759],
+       [2.108, 2.269, 2.145, ..., 3.192, 2.551, 2.855]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_CT</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0],
+       [0],
+       [0],
+       [1],
+       [1],
+       [0],
+       [0],
+       [0],
+       [0],
+       [0],
+       [0],
+       [0],
+       [0],
+       [0],
+       [0],
+       [0],
+       [0],
+       [0],
+       [0],
+       [0],
+       [0],
+       [0],
+       [0],
+       [0],
+       [0],
+       [0],
+       [0],
+       [0],
+       [0],
+       [0],
+       [0],
+       [0],
+       [0],
+       [0],
+       [0],
+       [0],
+       [0],
+       [0],
+       [0],
+       [0],
+       [0],
+       [0],
+       [0],
+       [0],
+       [0],
+       [0],
+       [0],
+       [0],
+       [0],
+       [0],
+       [0],
+       [0],
+       [0],
+       [0],
+       [0],
+       [0],
+       [0],
+       [0],
+       [0],
+       [0],
+       [0],
+       [0],
+       [0],
+       [0],
+       [0],
+       [0],
+       [0],
+       [0],
+       [0],
+       [0],
+       [0],
+       [0],
+       [0],
+       [0],
+       [0],
+       [0],
+       [0],
+       [0],
+       [0],
+       [0],
+       [0],
+       [0],
+       [1],
+       [1],
+       [1],
+       [1],
+       [1],
+       [1],
+       [1],
+       [1],
+       [1],
+       [1],
+       [1],
+       [1],
+       [1],
+       [1],
+       [1],
+       [1],
+       [1],
+       [1],
+       [1],
+       [1],
+       [1],
+       [1],
+       [1],
+       [1],
+       [1],
+       [1]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_CT</span> <span class="o">=</span> <span class="n">y_CT</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">datasets</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span><span class="p">,</span> <span class="n">GridSearchCV</span>
+<span class="kn">from</span> <span class="nn">sklearn.svm</span> <span class="kn">import</span> <span class="n">SVC</span>
+
+<span class="c1"># Split the dataset into training and testing sets</span>
+<span class="n">X_train_CT</span><span class="p">,</span> <span class="n">X_test_CT</span><span class="p">,</span> <span class="n">y_train_CT</span><span class="p">,</span> <span class="n">y_test_CT</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X_CT</span><span class="p">,</span> <span class="n">y_CT</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+
+<span class="c1"># Create a SVM classifier</span>
+<span class="n">svm</span> <span class="o">=</span> <span class="n">SVC</span><span class="p">(</span><span class="n">kernel</span> <span class="o">=</span> <span class="s1">&#39;linear&#39;</span><span class="p">)</span>
+
+<span class="c1"># Define the range of values for the C hyperparameter</span>
+<span class="n">param_grid</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;C&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">]}</span>
+
+<span class="c1"># Perform a grid search cross-validation to find the best value of C</span>
+<span class="n">grid_search</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">svm</span><span class="p">,</span> <span class="n">param_grid</span><span class="o">=</span><span class="n">param_grid</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">grid_search</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_CT</span><span class="p">,</span> <span class="n">y_train_CT</span><span class="p">)</span>
+
+<span class="c1"># Print the best value of C found during the grid search</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Best value of C: &quot;</span><span class="p">,</span> <span class="n">grid_search</span><span class="o">.</span><span class="n">best_params_</span><span class="p">[</span><span class="s1">&#39;C&#39;</span><span class="p">])</span>
+
+<span class="c1"># Evaluate the performance of the SVM on the testing set with the best value of C</span>
+<span class="n">svm_best</span> <span class="o">=</span> <span class="n">SVC</span><span class="p">(</span><span class="n">C</span><span class="o">=</span><span class="n">grid_search</span><span class="o">.</span><span class="n">best_params_</span><span class="p">[</span><span class="s1">&#39;C&#39;</span><span class="p">])</span>
+<span class="n">svm_best</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_CT</span><span class="p">,</span> <span class="n">y_train_CT</span><span class="p">)</span>
+<span class="n">accuracy</span> <span class="o">=</span> <span class="n">svm_best</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test_CT</span><span class="p">,</span> <span class="n">y_test_CT</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Accuracy: &quot;</span><span class="p">,</span> <span class="n">accuracy</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Best value of C:  1
+Accuracy:  0.9090909090909091
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="model-evaluation">
+<h3>2.3 Model evaluation<a class="headerlink" href="#model-evaluation" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_pred_CT</span> <span class="o">=</span> <span class="n">svm_best</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test_CT</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Accuracy:&quot;</span><span class="p">,</span><span class="n">metrics</span><span class="o">.</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test_CT</span><span class="p">,</span> <span class="n">y_pred_CT</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Precision:&quot;</span><span class="p">,</span><span class="n">metrics</span><span class="o">.</span><span class="n">precision_score</span><span class="p">(</span><span class="n">y_test_CT</span><span class="p">,</span> <span class="n">y_pred_CT</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Recall:&quot;</span><span class="p">,</span><span class="n">metrics</span><span class="o">.</span><span class="n">recall_score</span><span class="p">(</span><span class="n">y_test_CT</span><span class="p">,</span> <span class="n">y_pred_CT</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;F1-Score:&quot;</span><span class="p">,</span> <span class="n">metrics</span><span class="o">.</span><span class="n">f1_score</span><span class="p">(</span><span class="n">y_test_CT</span><span class="p">,</span> <span class="n">y_pred_CT</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy: 0.9090909090909091
+Precision: 0.8333333333333334
+Recall: 0.7142857142857143
+F1-Score: 0.7692307692307692
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="micro-structural-data">
+<h2>3. Micro-structural data<a class="headerlink" href="#micro-structural-data" title="Permalink to this heading">#</a></h2>
+<section id="mean-diffusivity">
+<h3>3.1 Mean Diffusivity<a class="headerlink" href="#mean-diffusivity" title="Permalink to this heading">#</a></h3>
+<section id="id1">
+<h4>3.1.1 Data preparation<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#read data</span>
+
+<span class="n">MD_Dublin_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">pardir</span><span class="p">,</span> <span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="s1">&#39;PARC_500.aparc_MD_cortexAv_mean_Dublin.csv&#39;</span><span class="p">)</span>
+<span class="n">MD_Dublin</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">MD_Dublin_path</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#adjust dataframe</span>
+
+<span class="n">MD_Dublin_adj</span> <span class="o">=</span> <span class="n">MD_Dublin</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;Subject ID&#39;</span><span class="p">,</span><span class="s1">&#39;Age&#39;</span><span class="p">,</span> <span class="s1">&#39;Sex&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#label group 1 as 0 and 2 as 1</span>
+
+<span class="n">MD_Dublin_adj</span><span class="p">[</span><span class="s1">&#39;Group&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">MD_Dublin_adj</span><span class="p">[</span><span class="s1">&#39;Group&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">MD_Dublin_adj</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Group</th>
+      <th>lh_bankssts_part1_thickness</th>
+      <th>lh_bankssts_part2_thickness</th>
+      <th>lh_caudalanteriorcingulate_part1_thickness</th>
+      <th>lh_caudalmiddlefrontal_part1_thickness</th>
+      <th>lh_caudalmiddlefrontal_part2_thickness</th>
+      <th>lh_caudalmiddlefrontal_part3_thickness</th>
+      <th>lh_caudalmiddlefrontal_part4_thickness</th>
+      <th>lh_cuneus_part1_thickness</th>
+      <th>lh_cuneus_part2_thickness</th>
+      <th>...</th>
+      <th>rh_supramarginal_part5_thickness</th>
+      <th>rh_supramarginal_part6_thickness</th>
+      <th>rh_supramarginal_part7_thickness</th>
+      <th>rh_frontalpole_part1_thickness</th>
+      <th>rh_temporalpole_part1_thickness</th>
+      <th>rh_transversetemporal_part1_thickness</th>
+      <th>rh_insula_part1_thickness</th>
+      <th>rh_insula_part2_thickness</th>
+      <th>rh_insula_part3_thickness</th>
+      <th>rh_insula_part4_thickness</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>0.911</td>
+      <td>0.931</td>
+      <td>0.891</td>
+      <td>1.048</td>
+      <td>0.881</td>
+      <td>0.939</td>
+      <td>1.124</td>
+      <td>0.986</td>
+      <td>1.045</td>
+      <td>...</td>
+      <td>0.928</td>
+      <td>1.067</td>
+      <td>1.096</td>
+      <td>0.892</td>
+      <td>1.238</td>
+      <td>1.021</td>
+      <td>1.166</td>
+      <td>0.900</td>
+      <td>0.907</td>
+      <td>0.937</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0</td>
+      <td>0.861</td>
+      <td>0.913</td>
+      <td>0.846</td>
+      <td>0.927</td>
+      <td>0.888</td>
+      <td>0.894</td>
+      <td>0.924</td>
+      <td>1.040</td>
+      <td>1.093</td>
+      <td>...</td>
+      <td>0.878</td>
+      <td>0.985</td>
+      <td>1.045</td>
+      <td>1.001</td>
+      <td>1.196</td>
+      <td>1.083</td>
+      <td>1.143</td>
+      <td>0.917</td>
+      <td>0.923</td>
+      <td>0.960</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0</td>
+      <td>0.817</td>
+      <td>0.827</td>
+      <td>0.828</td>
+      <td>0.828</td>
+      <td>0.780</td>
+      <td>0.843</td>
+      <td>0.825</td>
+      <td>0.848</td>
+      <td>0.838</td>
+      <td>...</td>
+      <td>0.847</td>
+      <td>0.849</td>
+      <td>0.819</td>
+      <td>0.952</td>
+      <td>0.933</td>
+      <td>0.942</td>
+      <td>1.059</td>
+      <td>0.794</td>
+      <td>0.834</td>
+      <td>0.860</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0</td>
+      <td>0.887</td>
+      <td>0.905</td>
+      <td>0.878</td>
+      <td>0.932</td>
+      <td>0.820</td>
+      <td>0.888</td>
+      <td>0.970</td>
+      <td>0.918</td>
+      <td>0.900</td>
+      <td>...</td>
+      <td>0.957</td>
+      <td>0.985</td>
+      <td>0.989</td>
+      <td>1.075</td>
+      <td>1.150</td>
+      <td>1.017</td>
+      <td>0.986</td>
+      <td>0.888</td>
+      <td>0.916</td>
+      <td>0.928</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0</td>
+      <td>0.887</td>
+      <td>0.854</td>
+      <td>0.905</td>
+      <td>1.011</td>
+      <td>0.946</td>
+      <td>0.922</td>
+      <td>1.034</td>
+      <td>1.126</td>
+      <td>1.114</td>
+      <td>...</td>
+      <td>0.871</td>
+      <td>0.952</td>
+      <td>0.987</td>
+      <td>1.325</td>
+      <td>0.996</td>
+      <td>1.094</td>
+      <td>1.064</td>
+      <td>0.966</td>
+      <td>0.989</td>
+      <td>0.977</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>110</th>
+      <td>1</td>
+      <td>0.843</td>
+      <td>0.855</td>
+      <td>0.940</td>
+      <td>1.017</td>
+      <td>0.954</td>
+      <td>0.840</td>
+      <td>1.128</td>
+      <td>1.012</td>
+      <td>0.997</td>
+      <td>...</td>
+      <td>0.938</td>
+      <td>1.062</td>
+      <td>1.143</td>
+      <td>0.903</td>
+      <td>1.364</td>
+      <td>1.284</td>
+      <td>1.218</td>
+      <td>1.017</td>
+      <td>0.972</td>
+      <td>1.028</td>
+    </tr>
+    <tr>
+      <th>111</th>
+      <td>1</td>
+      <td>0.911</td>
+      <td>0.914</td>
+      <td>0.926</td>
+      <td>1.001</td>
+      <td>0.918</td>
+      <td>1.115</td>
+      <td>1.036</td>
+      <td>1.026</td>
+      <td>1.001</td>
+      <td>...</td>
+      <td>0.957</td>
+      <td>1.085</td>
+      <td>1.098</td>
+      <td>1.059</td>
+      <td>1.268</td>
+      <td>1.089</td>
+      <td>1.173</td>
+      <td>0.990</td>
+      <td>1.065</td>
+      <td>1.021</td>
+    </tr>
+    <tr>
+      <th>112</th>
+      <td>1</td>
+      <td>0.890</td>
+      <td>0.899</td>
+      <td>0.886</td>
+      <td>0.930</td>
+      <td>0.883</td>
+      <td>0.882</td>
+      <td>0.883</td>
+      <td>1.190</td>
+      <td>1.101</td>
+      <td>...</td>
+      <td>0.916</td>
+      <td>1.010</td>
+      <td>0.974</td>
+      <td>0.968</td>
+      <td>1.305</td>
+      <td>1.168</td>
+      <td>1.265</td>
+      <td>0.981</td>
+      <td>0.975</td>
+      <td>0.972</td>
+    </tr>
+    <tr>
+      <th>113</th>
+      <td>1</td>
+      <td>0.920</td>
+      <td>0.986</td>
+      <td>0.883</td>
+      <td>0.879</td>
+      <td>0.794</td>
+      <td>0.983</td>
+      <td>1.029</td>
+      <td>1.076</td>
+      <td>1.053</td>
+      <td>...</td>
+      <td>0.942</td>
+      <td>0.985</td>
+      <td>0.990</td>
+      <td>1.199</td>
+      <td>1.353</td>
+      <td>1.187</td>
+      <td>1.444</td>
+      <td>0.947</td>
+      <td>1.047</td>
+      <td>1.085</td>
+    </tr>
+    <tr>
+      <th>114</th>
+      <td>1</td>
+      <td>0.970</td>
+      <td>0.868</td>
+      <td>0.940</td>
+      <td>0.967</td>
+      <td>0.930</td>
+      <td>1.022</td>
+      <td>0.957</td>
+      <td>1.112</td>
+      <td>1.004</td>
+      <td>...</td>
+      <td>1.074</td>
+      <td>1.122</td>
+      <td>1.215</td>
+      <td>0.891</td>
+      <td>1.333</td>
+      <td>1.295</td>
+      <td>1.284</td>
+      <td>1.125</td>
+      <td>1.110</td>
+      <td>1.139</td>
+    </tr>
+  </tbody>
+</table>
+<p>115 rows × 309 columns</p>
+</div></div></div>
+</div>
+</section>
+<section id="id2">
+<h4>3.1.2 Build the model<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#define input and output</span>
+
+<span class="n">X_MD</span> <span class="o">=</span> <span class="n">MD_Dublin_adj</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">1</span><span class="p">:</span><span class="mi">308</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="n">y_MD</span> <span class="o">=</span> <span class="n">MD_Dublin_adj</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,[</span><span class="mi">0</span><span class="p">]]</span><span class="o">.</span><span class="n">values</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_MD</span> <span class="o">=</span> <span class="n">y_MD</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">datasets</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span><span class="p">,</span> <span class="n">GridSearchCV</span>
+<span class="kn">from</span> <span class="nn">sklearn.svm</span> <span class="kn">import</span> <span class="n">SVC</span>
+
+<span class="c1"># Split the dataset into training and testing sets</span>
+<span class="n">X_train_MD</span><span class="p">,</span> <span class="n">X_test_MD</span><span class="p">,</span> <span class="n">y_train_MD</span><span class="p">,</span> <span class="n">y_test_MD</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X_MD</span><span class="p">,</span> <span class="n">y_MD</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span><span class="n">random_state</span><span class="o">=</span><span class="mi">109</span><span class="p">)</span>
+
+<span class="c1"># Create a SVM classifier</span>
+<span class="n">svm_MD</span> <span class="o">=</span> <span class="n">SVC</span><span class="p">(</span><span class="n">kernel</span> <span class="o">=</span> <span class="s1">&#39;linear&#39;</span><span class="p">)</span>
+
+<span class="c1"># Define the range of values for the C hyperparameter</span>
+<span class="n">param_grid_MD</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;C&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">]}</span>
+
+<span class="c1"># Perform a grid search cross-validation to find the best value of C</span>
+<span class="n">grid_search_MD</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">svm_MD</span><span class="p">,</span> <span class="n">param_grid</span><span class="o">=</span><span class="n">param_grid</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">grid_search_MD</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_MD</span><span class="p">,</span> <span class="n">y_train_MD</span><span class="p">)</span>
+
+<span class="c1"># Print the best value of C found during the grid search</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Best value of C: &quot;</span><span class="p">,</span> <span class="n">grid_search_MD</span><span class="o">.</span><span class="n">best_params_</span><span class="p">[</span><span class="s1">&#39;C&#39;</span><span class="p">])</span>
+
+<span class="c1"># Evaluate the performance of the SVM on the testing set with the best value of C</span>
+<span class="n">svm_best_MD</span> <span class="o">=</span> <span class="n">SVC</span><span class="p">(</span><span class="n">C</span><span class="o">=</span><span class="n">grid_search_MD</span><span class="o">.</span><span class="n">best_params_</span><span class="p">[</span><span class="s1">&#39;C&#39;</span><span class="p">])</span>
+<span class="n">svm_best_MD</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_MD</span><span class="p">,</span> <span class="n">y_train_MD</span><span class="p">)</span>
+<span class="n">accuracy_MD</span> <span class="o">=</span> <span class="n">svm_best_MD</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test_MD</span><span class="p">,</span> <span class="n">y_test_MD</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Accuracy: &quot;</span><span class="p">,</span> <span class="n">accuracy_MD</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Best value of C:  1
+Accuracy:  0.8285714285714286
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_pred_MD</span> <span class="o">=</span> <span class="n">svm_best_MD</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">MD_X_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id3">
+<h4>3.1.3 Model evaluation<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Accuracy:&quot;</span><span class="p">,</span><span class="n">metrics</span><span class="o">.</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test_MD</span><span class="p">,</span> <span class="n">y_pred_MD</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Precision:&quot;</span><span class="p">,</span><span class="n">metrics</span><span class="o">.</span><span class="n">precision_score</span><span class="p">(</span><span class="n">y_test_MD</span><span class="p">,</span> <span class="n">y_pred_MD</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Recall:&quot;</span><span class="p">,</span><span class="n">metrics</span><span class="o">.</span><span class="n">recall_score</span><span class="p">(</span><span class="n">y_test_MD</span><span class="p">,</span> <span class="n">y_pred_MD</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;F1-Score:&quot;</span><span class="p">,</span> <span class="n">metrics</span><span class="o">.</span><span class="n">f1_score</span><span class="p">(</span><span class="n">y_test_MD</span><span class="p">,</span> <span class="n">y_pred_MD</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy: 0.8285714285714286
+Precision: 0.8333333333333334
+Recall: 0.5
+F1-Score: 0.625
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="fractional-anisotropy">
+<h3>3.2 Fractional Anisotropy<a class="headerlink" href="#fractional-anisotropy" title="Permalink to this heading">#</a></h3>
+<section id="id4">
+<h4>3.2.1 Data preparation<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#read data</span>
+
+<span class="n">FA_Dublin_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">pardir</span><span class="p">,</span> <span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="s1">&#39;PARC_500.aparc_FA_cortexAv_mean_Dublin.csv&#39;</span><span class="p">)</span>
+<span class="n">FA_Dublin</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">FA_Dublin_path</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#adjust dataframe</span>
+
+<span class="n">FA_Dublin_adj</span> <span class="o">=</span> <span class="n">FA_Dublin</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;Subject ID&#39;</span><span class="p">,</span><span class="s1">&#39;Age&#39;</span><span class="p">,</span> <span class="s1">&#39;Sex&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#label group 1 as 0 and 2 as 1</span>
+
+<span class="n">FA_Dublin_adj</span><span class="p">[</span><span class="s1">&#39;Group&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">FA_Dublin_adj</span><span class="p">[</span><span class="s1">&#39;Group&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id5">
+<h4>3.2.2 Build the model<a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#define input and output</span>
+
+<span class="n">X_FA</span> <span class="o">=</span> <span class="n">FA_Dublin_adj</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">1</span><span class="p">:</span><span class="mi">308</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="n">y_FA</span> <span class="o">=</span> <span class="n">FA_Dublin_adj</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,[</span><span class="mi">0</span><span class="p">]]</span><span class="o">.</span><span class="n">values</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_FA</span> <span class="o">=</span> <span class="n">y_FA</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">datasets</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span><span class="p">,</span> <span class="n">GridSearchCV</span>
+<span class="kn">from</span> <span class="nn">sklearn.svm</span> <span class="kn">import</span> <span class="n">SVC</span>
+
+<span class="c1"># Split the dataset into training and testing sets</span>
+<span class="n">X_train_FA</span><span class="p">,</span> <span class="n">X_test_FA</span><span class="p">,</span> <span class="n">y_train_FA</span><span class="p">,</span> <span class="n">y_test_FA</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X_FA</span><span class="p">,</span> <span class="n">y_FA</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span><span class="n">random_state</span><span class="o">=</span><span class="mi">109</span><span class="p">)</span>
+
+<span class="c1"># Create a SVM classifier</span>
+<span class="n">svm_FA</span> <span class="o">=</span> <span class="n">SVC</span><span class="p">(</span><span class="n">kernel</span> <span class="o">=</span> <span class="s1">&#39;linear&#39;</span><span class="p">)</span>
+
+<span class="c1"># Define the range of values for the C hyperparameter</span>
+<span class="n">param_grid_FA</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;C&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">]}</span>
+
+<span class="c1"># Perform a grid search cross-validation to find the best value of C</span>
+<span class="n">grid_search_FA</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">svm_FA</span><span class="p">,</span> <span class="n">param_grid</span><span class="o">=</span><span class="n">param_grid</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">grid_search_FA</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_FA</span><span class="p">,</span> <span class="n">y_train_FA</span><span class="p">)</span>
+
+<span class="c1"># Print the best value of C found during the grid search</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Best value of C: &quot;</span><span class="p">,</span> <span class="n">grid_search_FA</span><span class="o">.</span><span class="n">best_params_</span><span class="p">[</span><span class="s1">&#39;C&#39;</span><span class="p">])</span>
+
+<span class="c1"># Evaluate the performance of the SVM on the testing set with the best value of C</span>
+<span class="n">svm_best_FA</span> <span class="o">=</span> <span class="n">SVC</span><span class="p">(</span><span class="n">C</span><span class="o">=</span><span class="n">grid_search_FA</span><span class="o">.</span><span class="n">best_params_</span><span class="p">[</span><span class="s1">&#39;C&#39;</span><span class="p">])</span>
+<span class="n">svm_best_FA</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_FA</span><span class="p">,</span> <span class="n">y_train_FA</span><span class="p">)</span>
+<span class="n">accuracy_FA</span> <span class="o">=</span> <span class="n">svm_best_FA</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test_FA</span><span class="p">,</span> <span class="n">y_test_FA</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Accuracy: &quot;</span><span class="p">,</span> <span class="n">accuracy_FA</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Best value of C:  10
+Accuracy:  0.7714285714285715
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_pred_FA</span> <span class="o">=</span> <span class="n">svm_best_FA</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test_FA</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id6">
+<h4>3.2.3 Model evaluation<a class="headerlink" href="#id6" title="Permalink to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Accuracy:&quot;</span><span class="p">,</span><span class="n">metrics</span><span class="o">.</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test_FA</span><span class="p">,</span> <span class="n">y_pred_FA</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Precision:&quot;</span><span class="p">,</span><span class="n">metrics</span><span class="o">.</span><span class="n">precision_score</span><span class="p">(</span><span class="n">y_test_FA</span><span class="p">,</span> <span class="n">y_pred_FA</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Recall:&quot;</span><span class="p">,</span><span class="n">metrics</span><span class="o">.</span><span class="n">recall_score</span><span class="p">(</span><span class="n">y_test_FA</span><span class="p">,</span> <span class="n">y_pred_FA</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;F1-Score:&quot;</span><span class="p">,</span> <span class="n">metrics</span><span class="o">.</span><span class="n">f1_score</span><span class="p">(</span><span class="n">y_test_FA</span><span class="p">,</span> <span class="n">y_pred_FA</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy: 0.7714285714285715
+Precision: 0.75
+Recall: 0.3
+F1-Score: 0.4285714285714285
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "neuro_ai"
+        },
+        kernelOptions: {
+            name: "neuro_ai",
+            path: "./code"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'neuro_ai'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Data_analysis.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Data analysis for MSc5_research_project</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-are-support-vector-machines-svms">1. What are Support Vector Machines (SVMs) ?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#macro-structural-data-cortical-thickness-ct">2. Macro-structural data: Cortical Thickness (CT)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-preparation">2.1 Data preparation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#build-the-model">2.2 Build the model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#model-evaluation">2.3 Model evaluation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#micro-structural-data">3. Micro-structural data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mean-diffusivity">3.1 Mean Diffusivity</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">3.1.1 Data preparation</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">3.1.2 Build the model</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">3.1.3 Model evaluation</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fractional-anisotropy">3.2 Fractional Anisotropy</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">3.2.1 Data preparation</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">3.2.2 Build the model</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">3.2.3 Model evaluation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            <div class="bd-footer-content__inner">
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Mevlüt Yaglu based on the course template by Felix Koerber and Michael Ernst
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div></div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

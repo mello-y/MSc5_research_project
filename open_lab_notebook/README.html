@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Setup for the course &#8212; Predicting psychotic disorder with machine learning</title>
+    <title>Open lab notebook &#8212; Predicting psychotic disorder with machine learning</title>
   
   
   
@@ -62,7 +62,7 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'general_information/setup';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'open_lab_notebook/README';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -135,14 +135,8 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   
-    
-    
-      
-    
-    
-    <img src="../_static/brain.jpeg" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../_static/brain.jpeg" class="logo__image only-dark" alt="Logo image"/>`);</script>
   
+    <p class="title logo__title">Predicting psychotic disorder with machine learning</p>
   
 </a></div>
         <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
@@ -156,8 +150,19 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../data/Data_exploration.html">Data exploration for MSc5_research_project</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../data/Data_analysis.html">Data analysis for MSc5_research_project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../general_information/TheoreticalBackground.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../general_information/DataProjectManagement.html">Data- and Projectmanagment</a></li>
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../code/Data_exploration.html">Data exploration for MSc5_research_project</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../general_information/Tasktype.html">Tasktype</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../code/Data_analysis.html">Data analysis for MSc5_research_project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../code/SVM.html">Support Vector Machine (SVM)</a></li>
+</ul>
+</li>
 </ul>
 
     </div>
@@ -229,7 +234,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/mello-y/MSc5_research_project/edit/master/content/general_information/setup.md" target="_blank"
+      <li><a href="https://github.com/mello-y/MSc5_research_project/edit/master/content/open_lab_notebook/README.md" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -246,7 +251,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/mello-y/MSc5_research_project/issues/new?title=Issue%20on%20page%20%2Fgeneral_information/setup.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/mello-y/MSc5_research_project/issues/new?title=Issue%20on%20page%20%2Fopen_lab_notebook/README.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -276,7 +281,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../_sources/general_information/setup.md" target="_blank"
+      <li><a href="../_sources/open_lab_notebook/README.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -345,9 +350,7 @@ document.write(`
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</label>
+
 </div></div>
       
     </div>
@@ -358,29 +361,11 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Setup for the course</h1>
+    <h1>Open lab notebook</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
-            <div>
-                <h2> Contents </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#general-things">General things</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#required-software">Required software</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#some-quick-general-notes-on-instructions">Some quick general notes on instructions</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#os-specific-installation-instructions">OS-specific installation instructions</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-stuff">Additional stuff</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#discord">Discord</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modern-web-browser">Modern web browser</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#checking-your-install">Checking your install</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-the-course-content">Getting the course content</a></li>
-</ul>
-            </nav>
         </div>
     </div>
 </div>
@@ -390,57 +375,9 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="setup-for-the-course">
-<h1>Setup for the course<a class="headerlink" href="#setup-for-the-course" title="Permalink to this heading">#</a></h1>
-<p>There are a few things you need to get working on your machine in order to follow this course. However, don’t worry as it’s all gonna be <span class="xref myst">open source</span>, won’t require a lot of storage and will be explained in detail.</p>
-<section id="general-things">
-<h2>General things<a class="headerlink" href="#general-things" title="Permalink to this heading">#</a></h2>
-<p>There are a few computing requirements for the course that are absolutely necessary (beyond the few software packages you should install, described below):</p>
-<p>-list</p>
-<p>If you foresee any of these being a problem please reach out to one of the instructors and enquire what steps you can take to ensure your setup is ready for the course.</p>
-</section>
-<section id="required-software">
-<h2>Required software<a class="headerlink" href="#required-software" title="Permalink to this heading">#</a></h2>
-<p>To get the most out of the course, we ask that you arrive with the following software already installed (software/things in () are not entirely necessary but definitely great to have):</p>
-<ul class="simple">
-<li><p>list</p></li>
-</ul>
-<section id="some-quick-general-notes-on-instructions">
-<h3>Some quick general notes on instructions<a class="headerlink" href="#some-quick-general-notes-on-instructions" title="Permalink to this heading">#</a></h3>
-</section>
-<section id="os-specific-installation-instructions">
-<h3>OS-specific installation instructions<a class="headerlink" href="#os-specific-installation-instructions" title="Permalink to this heading">#</a></h3>
-<p>Select the tab that corresponds to your operating system and follow the instructions therein.</p>
-<p><strong>Note</strong>: If the instructions aren’t working and you have spent more than 15-20 minutes troubleshooting on your own, reach out on the #help-installation channel on the Discord channel with the exact problems you’re having.
-One of the instructors will try and get back to you quickly to help resolve the situation.
-If they’re unable to help via <code class="docutils literal notranslate"><span class="pre">Discord</span></code>, you may be directed to attend one of the installation office hours.</p>
-</section>
-<section id="additional-stuff">
-<h3>Additional stuff<a class="headerlink" href="#additional-stuff" title="Permalink to this heading">#</a></h3>
-</section>
-<section id="discord">
-<h3>Discord<a class="headerlink" href="#discord" title="Permalink to this heading">#</a></h3>
-<p>Go to <a class="reference external" href="https://discord.com/">https://discord.com/</a> and download and install Discord. Please note, that you can also use Discord through your browser if you don’t want to download it. This will be the main channel of communication for the course.
-You will be invited to the course channel via e-mail.</p>
-</section>
-<section id="modern-web-browser">
-<h3>Modern web browser<a class="headerlink" href="#modern-web-browser" title="Permalink to this heading">#</a></h3>
-<p>Install Firefox or Chrome.
-(Safari will also work.)
-Microsoft Edge is not modern, despite what Microsoft might try and otherwise tell you.</p>
-</section>
-</section>
-<section id="checking-your-install">
-<h2>Checking your install<a class="headerlink" href="#checking-your-install" title="Permalink to this heading">#</a></h2>
-</section>
-<section id="getting-the-course-content">
-<h2>Getting the course content<a class="headerlink" href="#getting-the-course-content" title="Permalink to this heading">#</a></h2>
-<p>Now that you have installed the required software (or not) to follow the course, it’s time to gather the respective materials.</p>
-<p>To get things up and running, please follow these steps:</p>
-<ol class="arabic simple">
-<li><p>Download the notebooks in this repository via <span class="xref myst">this link</span> and unzip them to your preferred location, e.g. <code class="docutils literal notranslate"><span class="pre">Desktop/X</span></code>.</p></li>
-</ol>
-</section>
+  <section class="tex2jax_ignore mathjax_ignore" id="open-lab-notebook">
+<h1>Open lab notebook<a class="headerlink" href="#open-lab-notebook" title="Permalink to this heading">#</a></h1>
+<p>Describe how you structured your open lab notebook and provide potential further helpful information.</p>
 </section>
 
     <script type="text/x-thebe-config">
@@ -456,7 +393,7 @@ Microsoft Edge is not modern, despite what Microsoft might try and otherwise tel
         },
         kernelOptions: {
             name: "python3",
-            path: "./general_information"
+            path: "./open_lab_notebook"
         },
         predefinedOutput: true
     }
@@ -477,30 +414,6 @@ Microsoft Edge is not modern, despite what Microsoft might try and otherwise tel
             </div>
             
             
-              
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#general-things">General things</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#required-software">Required software</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#some-quick-general-notes-on-instructions">Some quick general notes on instructions</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#os-specific-installation-instructions">OS-specific installation instructions</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-stuff">Additional stuff</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#discord">Discord</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modern-web-browser">Modern web browser</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#checking-your-install">Checking your install</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-the-course-content">Getting the course content</a></li>
-</ul>
-  </nav></div>
-
-</div></div>
               
             
           </div>

@@ -1,0 +1,707 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Monday, 16/01/2023 &#8212; Predicting psychotic disorder with machine learning</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'open_lab_notebook/January';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">Predicting psychotic disorder with machine learning</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Welcome!
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../general_information/TheoreticalBackground.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../general_information/DataProjectManagement.html">Data- and Projectmanagment</a></li>
+
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../code/Data_exploration.html">Data exploration for MSc5_research_project</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../general_information/Tasktype.html">Tasktype</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../code/Data_analysis.html">Data analysis for MSc5_research_project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../code/SVM.html">Support Vector Machine (SVM)</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/mello-y/MSc5_research_project" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/mello-y/MSc5_research_project/edit/master/content/open_lab_notebook/January.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/mello-y/MSc5_research_project/issues/new?title=Issue%20on%20page%20%2Fopen_lab_notebook/January.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/open_lab_notebook/January.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Monday, 16/01/2023</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Monday, 16/01/2023</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#tuesday-17-01-2023">Tuesday, 17/01/2023</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#wednesday-18-01-2023">Wednesday, 18/01/2023</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#friday-20-01-2023">Friday, 20/01/2023</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#wednesday-25-01-2023">Wednesday, 25/01/2023</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#thursday-26-01-2023">Thursday, 26/01/2023</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#friday-27-01-2023">Friday, 27/01/2023</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#monday-30-01-2023">Monday, 30/01/2023</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#monday-06-02-2023">Monday, 06/02/2023</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#monday-13-02-2023">Monday, 13/02/2023</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#wednesday-16-02-2023">Wednesday, 16/02/2023</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#thursday-23-02-2023">Thursday 23/02/2023</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#sunday-05-03-2023">Sunday 05/03/2023</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#monday-06-03-2023">Monday 06/03/2023</a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="monday-16-01-2023">
+<h1>Monday, 16/01/2023<a class="headerlink" href="#monday-16-01-2023" title="Permalink to this heading">#</a></h1>
+<p>What I did today:</p>
+<ul class="simple">
+<li><p>provided more information regarding the structure and overview for the github repository</p></li>
+<li><p>computed the  distributions of means for the mean diffusivity and fractional anisotropy data and plotted them using a violin plot</p></li>
+<li><p>created Data analysis notebook and defined the learning problem (supervised) and task type (classification)</p></li>
+<li><p>read in about SVM</p></li>
+</ul>
+<p>To-do next time working on the project:</p>
+<ul class="simple">
+<li><p>get a better understanding of SVM</p></li>
+<li><p>get an idea of how to implement SVM in python</p></li>
+</ul>
+</section>
+<section id="tuesday-17-01-2023">
+<h1>Tuesday, 17/01/2023<a class="headerlink" href="#tuesday-17-01-2023" title="Permalink to this heading">#</a></h1>
+<p>What I did today:</p>
+<ul class="simple">
+<li><p>read in about SVM and understood the underlying concept and logic</p></li>
+<li><p>decided to use linearSVC as algorithm for the classification task</p></li>
+<li><p>provided information in the Data analysis notebook on SVMs and linearSVC</p></li>
+</ul>
+<p>To-do next time working on the project:</p>
+<ul class="simple">
+<li><p>apply the logic of SVC to my data</p></li>
+<li><p>read in about features and feature selection and apply to my data</p></li>
+<li><p>get an idea of how to implement linearSVC in python (the structure of the pipeline)</p></li>
+</ul>
+</section>
+<section id="wednesday-18-01-2023">
+<h1>Wednesday, 18/01/2023<a class="headerlink" href="#wednesday-18-01-2023" title="Permalink to this heading">#</a></h1>
+<p>What I did today:</p>
+<ul class="simple">
+<li><p>wrote a SVM pipeline in python (still needs to be further developed)</p></li>
+<li><p>read about Logistic Regression and understood the underlying concept and logic</p></li>
+<li><p>thought about how to implement Logistic Regression in python (the structure of the pipeline)</p></li>
+</ul>
+<p>To-do next time working on the project:</p>
+<ul class="simple">
+<li><p>compute a logistic regression pipeline in python</p></li>
+</ul>
+</section>
+<section id="friday-20-01-2023">
+<h1>Friday, 20/01/2023<a class="headerlink" href="#friday-20-01-2023" title="Permalink to this heading">#</a></h1>
+<p>What I did today:</p>
+<ul class="simple">
+<li><p>computed a logistic regression pipeline in python for the first 5 brain regions</p></li>
+</ul>
+<p>To-do next time working on the project:</p>
+<ul class="simple">
+<li><p>compute a logistic regression pipeline in python for the remaining brain regions</p></li>
+<li><p>provide more information on SVM and Logistic Regression in the Data analysis notebook</p></li>
+<li></li>
+</ul>
+</section>
+<section id="wednesday-25-01-2023">
+<h1>Wednesday, 25/01/2023<a class="headerlink" href="#wednesday-25-01-2023" title="Permalink to this heading">#</a></h1>
+<p>What I did today:</p>
+<ul class="simple">
+<li><p>merged content of main branch into update branch to now work on update branch</p></li>
+<li><p>structured repo, moved notebooks into code folder</p></li>
+<li><p>read in more on logistic regression</p></li>
+</ul>
+<p>To-do next time working on the project:</p>
+<ul class="simple">
+<li><p>compute a logistic regression pipeline in python</p></li>
+</ul>
+</section>
+<section id="thursday-26-01-2023">
+<h1>Thursday, 26/01/2023<a class="headerlink" href="#thursday-26-01-2023" title="Permalink to this heading">#</a></h1>
+<p>What I did today:</p>
+<ul class="simple">
+<li><p>computed a logistic regression pipeline in python, restructred it</p></li>
+</ul>
+<p>To-do next time working on the project:</p>
+<ul class="simple">
+<li><p>plot logistic regression resullts</p></li>
+<li><p>provide more information on logistic regression in the Data analysis notebook</p></li>
+<li><p>restructre data analysis notebook</p></li>
+</ul>
+</section>
+<section id="friday-27-01-2023">
+<h1>Friday, 27/01/2023<a class="headerlink" href="#friday-27-01-2023" title="Permalink to this heading">#</a></h1>
+<p>What I did today:</p>
+<ul class="simple">
+<li><p>provided more information on logistic regression in the Data analysis notebook</p></li>
+<li><p>restructred data analysis notebook, specifically the logistic regression section</p></li>
+<li><p>created ROC curve for logistic regression</p></li>
+<li><p>failed to plot logistic regression results. The error message says that for the regplot function the input data must be 1-dimensional. For my y variable this was the case, for X it was not. I tried to reshape the X variable, but this did not work. I will try to fix this next time.</p></li>
+</ul>
+<p>To-do next time working on the project:</p>
+<ul class="simple">
+<li><p>plot logistic regression results</p></li>
+<li><p>interpret ROC curve</p></li>
+<li><p>provide more information on logistic regression in the Data analysis notebook</p></li>
+<li><p>start with the SVM section in the Data analysis notebook</p></li>
+</ul>
+</section>
+<section id="monday-30-01-2023">
+<h1>Monday, 30/01/2023<a class="headerlink" href="#monday-30-01-2023" title="Permalink to this heading">#</a></h1>
+<p>What I did today:</p>
+<ul class="simple">
+<li><p>provided more information on logistic regression in the Data analysis notebook</p></li>
+<li><p>interpreted confusion matrix and evaluation measures</p></li>
+<li><p>failed to plit logistic regression results; since there is no need to plot the results, I will not try to fix this anymore</p></li>
+</ul>
+<p>To-do next time working on the project:</p>
+<ul class="simple">
+<li><p>interpret ROC curve</p></li>
+<li><p>finalise logistic regression section in the Data analysis notebook</p></li>
+<li><p>start with the SVM section in the Data analysis notebook</p></li>
+</ul>
+</section>
+<section id="monday-06-02-2023">
+<h1>Monday, 06/02/2023<a class="headerlink" href="#monday-06-02-2023" title="Permalink to this heading">#</a></h1>
+<p>What I did today:</p>
+<ul class="simple">
+<li><p>adjusted file paths in the Data analysis notebook and Data exploration notebook and used relative paths and plat-form independent paths to ensure reproducibility</p></li>
+</ul>
+<p>To-do next time working on the project:</p>
+<ul class="simple">
+<li><p>interpret ROC curve</p></li>
+<li><p>finalise logistic regression section in the Data analysis notebook</p></li>
+<li><p>start with the SVM section in the Data analysis notebook</p></li>
+<li><p>Work on Issue #2 on github</p></li>
+</ul>
+</section>
+<section id="monday-13-02-2023">
+<h1>Monday, 13/02/2023<a class="headerlink" href="#monday-13-02-2023" title="Permalink to this heading">#</a></h1>
+<p>What I did today:</p>
+<ul class="simple">
+<li><p>computed logistic regression for microstructural data</p></li>
+<li><p>plotted brain region differences between controls and patients for the macrostructural data and microstructural data</p></li>
+</ul>
+<p>To-do next time working on the project:</p>
+<ul class="simple">
+<li><p>intepret ROC curve</p></li>
+<li><p>provide more information on logistic regression section</p></li>
+<li><p>compute SVM for macro and microstructural data</p></li>
+<li><p>Read into Gridsearch to see how results differ whith different parameters</p></li>
+</ul>
+</section>
+<section id="wednesday-16-02-2023">
+<h1>Wednesday, 16/02/2023<a class="headerlink" href="#wednesday-16-02-2023" title="Permalink to this heading">#</a></h1>
+<p>What I did today:</p>
+<ul class="simple">
+<li><p>created new notebook for SVM and computed pipelines for macro- and microstructural data</p></li>
+</ul>
+<p>To-do next time working on the project:</p>
+<ul class="simple">
+<li><p>Read into Gridsearch to see how results differ whith different parameters</p></li>
+<li><p>provide more information on logistic regression and SVM section</p></li>
+<li><p>intepret ROC curves</p></li>
+</ul>
+</section>
+<section id="thursday-23-02-2023">
+<h1>Thursday 23/02/2023<a class="headerlink" href="#thursday-23-02-2023" title="Permalink to this heading">#</a></h1>
+<p>What I did today:</p>
+<ul class="simple">
+<li><p>provided more information on logistic regression and SVM notebook</p></li>
+<li><p>intepreted ROC curve for macrostructural data</p></li>
+<li><p>worked on the issue to standardise before splitting the data</p></li>
+</ul>
+<p>To-do next time working on the project:</p>
+<ul class="simple">
+<li><p>intepret ROC curve for microstructural data</p></li>
+<li><p>Read into Gridsearch to see how results differ whith different parameters</p></li>
+<li><p>provide more information on logistic regression and SVM notebook for microstructual data</p></li>
+<li><p>cross-validate SVM and logistic regression for macro- and microstructural data</p></li>
+</ul>
+</section>
+<section id="sunday-05-03-2023">
+<h1>Sunday 05/03/2023<a class="headerlink" href="#sunday-05-03-2023" title="Permalink to this heading">#</a></h1>
+<p>What I did today:</p>
+<ul class="simple">
+<li><p>cross-validated logistic regression for macro- and microstructural data</p></li>
+</ul>
+<p>To-do next time working on the project:</p>
+<ul class="simple">
+<li><p>cross-validate SVM for macro- and microstructural data</p></li>
+<li><p>Apply Gridsearch to logistic regression and SVM for macro- and microstructural data</p></li>
+<li><p>read into ROC-curve methdods proposed by Jack</p></li>
+</ul>
+</section>
+<section id="monday-06-03-2023">
+<h1>Monday 06/03/2023<a class="headerlink" href="#monday-06-03-2023" title="Permalink to this heading">#</a></h1>
+<p>What I did today:</p>
+<ul class="simple">
+<li><p>applies Gridsearch to SVM for macro- and microstructural data</p></li>
+<li><p>cross-validated SVM for macro- and microstructural data</p></li>
+</ul>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./open_lab_notebook"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Monday, 16/01/2023</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#tuesday-17-01-2023">Tuesday, 17/01/2023</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#wednesday-18-01-2023">Wednesday, 18/01/2023</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#friday-20-01-2023">Friday, 20/01/2023</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#wednesday-25-01-2023">Wednesday, 25/01/2023</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#thursday-26-01-2023">Thursday, 26/01/2023</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#friday-27-01-2023">Friday, 27/01/2023</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#monday-30-01-2023">Monday, 30/01/2023</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#monday-06-02-2023">Monday, 06/02/2023</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#monday-13-02-2023">Monday, 13/02/2023</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#wednesday-16-02-2023">Wednesday, 16/02/2023</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#thursday-23-02-2023">Thursday 23/02/2023</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#sunday-05-03-2023">Sunday 05/03/2023</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#monday-06-03-2023">Monday 06/03/2023</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            <div class="bd-footer-content__inner">
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Mevlüt Yaglu based on the course template by Felix Koerber and Michael Ernst
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div></div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
