@@ -23,10 +23,12 @@ Version control makes it feasible to monitor and track the progress in projects.
 In this project, Git is used for version control and Github as an online platform to document the project. The repository can be accessed [here](https://github.com/mello-y/MSc5_research_project). The project is also documented on [OSF](https://osf.io/g8j2c/).
 ## Openlab notebook
 
-The openlab notebook serves the purpose of documenting the monthly progress of the project. It is structured in a way with a list of goals when working on the project and things to tackle working next time on the project. 
+The openlab notebook serves the purpose of documenting the monthly progress of the project. It is structured in a way with a list of goals when working on the project and things to tackle working next time on the project. Click [here](https://mello-y.github.io/MSc5_research_project/open_lab_notebook/html) to access the openlab notebook.
 
 
 ## Computational environment
+
+In order to make the code reproducible for others, the specifications for the computing environment with the relevant modules and packages are documented in the requirements_code.txt file. The file can be found [here](https://github.com/mello-y/MSc5_research_project/tree/main/content/code).
 
 
 
