@@ -8,7 +8,7 @@
 title                       : "Predicting psychotic disorder with machine learning"  # The title of the book. Will be placed in the left navbar.
 author                      : Mevlüt Yaglu based on the course template by Felix Koerber and Michael Ernst  # The author of the book
 copyright                   : "2023"  # Copyright year to be placed in the footer
-logo                        :  # A path to the book logo
+logo                        : static/brain.jpg # A path to the book logo
 exclude_patterns            : []  # Patterns to skip when building the book. Can be glob-style (e.g. "*skip.ipynb")
 
 #######################################################################################
