@@ -139,3 +139,5 @@ To-do next time working on the project:
 What I did today:
 - applies Gridsearch to SVM for macro- and microstructural data
 - cross-validated SVM for macro- and microstructural data
+
+
