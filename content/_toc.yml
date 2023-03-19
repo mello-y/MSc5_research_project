@@ -8,12 +8,12 @@ chapters:
   sections: 
   - file: code/Data_analysis.ipynb
   - file: code/SVM.ipynb
-- file: content/open_lab_notebook
+- file: general_information/open_lab_notebook.md
   sections:
-  - file: open_lab_notebook/November.md
-  - file: open_lab_notebook/December.md
-  - file: open_lab_notebook/January.md
-  - file: open_lab_notebook/February.md
-  - file: open_lab_notebook/March.md
+  - file: content/open_lab_notebook/November.md
+  - file: content/open_lab_notebook/December.md
+  - file: content/open_lab_notebook/January.md
+  - file: content/open_lab_notebook/February.md
+  - file: content/open_lab_notebook/March.md
 - file: general_information/Discussion.md
 - file: general_information/References.md
