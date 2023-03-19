@@ -1,3 +1,5 @@
+# November, 2022
+
 ## Wednesday, 02/11/2022
 What I did today: 
 - Read the paper "Functional MRI connectivity accurately distinguishes cases with psychotic disorders from healthy controls, based on cortical features associated with neurodevelopment" by Morgan et al. (2019) until the data section
