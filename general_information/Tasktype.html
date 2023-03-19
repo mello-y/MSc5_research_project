@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>1. Learning problem and task type &#8212; Predicting psychotic disorder with machine learning</title>
+    <title>Data analysis &#8212; Predicting psychotic disorder with machine learning</title>
   
   
   
@@ -65,8 +65,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'general_information/Tasktype';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Data analysis for MSc5_research_project" href="../code/Data_analysis.html" />
-    <link rel="prev" title="Data exploration for MSc5_research_project" href="../code/Data_exploration.html" />
+    <link rel="next" title="Logistic Regression" href="../code/Data_analysis.html" />
+    <link rel="prev" title="Data exploration" href="../code/Data_exploration.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -159,9 +159,9 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
-<li class="toctree-l1"><a class="reference internal" href="../code/Data_exploration.html">Data exploration for MSc5_research_project</a></li>
-<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">1. Learning problem and task type</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../code/Data_analysis.html">Data analysis for MSc5_research_project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../code/Data_exploration.html">Data exploration</a></li>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Data analysis</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../code/Data_analysis.html">Logistic Regression</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../code/SVM.html">Support Vector Machine (SVM)</a></li>
 </ul>
 </li>
@@ -363,7 +363,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>1. Learning problem and task type</h1>
+    <h1>Data analysis</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -377,8 +377,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="learning-problem-and-task-type">
-<h1>1. Learning problem and task type<a class="headerlink" href="#learning-problem-and-task-type" title="Permalink to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="data-analysis">
+<h1>Data analysis<a class="headerlink" href="#data-analysis" title="Permalink to this heading">#</a></h1>
 <p>Just to repeat briefly, the aim of the project is to use machine learning in order to predict whether a particpant can be classified either as control or patient with psychotic disorder based on different brain modalities. Before starting with our first modality being <strong>cortical thickness (CT)</strong>, the learning problem and the task type should be defined to know which model suits the best for the purpose of the project aim.</p>
 <p>Considering the task type, our purpose is to classify the samples in two categories being control and patient. Hence, the task type is classification. For that, I want to use the given information regarding the labels for each sample, consequently the learning problem is supervised.</p>
 <p>More specifically, with the data at hand the task type is binary classification. Binary classification refers to those classification task that have two class labels (in this data set control/patient). Commonly used algorithms for binary classification include Logistic Regression, k-Nearest Neighbors, Decision Trees, Support Vector Machine and Naive Bayes (for further information click here). In this project, I will focus on two algorithms being Logistic Regression and Support Vector Machine. For the latter, there is a separate notebook called Support Vector Machine.</p>
@@ -420,7 +420,7 @@ document.write(`
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Data exploration for MSc5_research_project</p>
+        <p class="prev-next-title">Data exploration</p>
       </div>
     </a>
     <a class="right-next"
@@ -428,7 +428,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Data analysis for MSc5_research_project</p>
+        <p class="prev-next-title">Logistic Regression</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
