@@ -29,20 +29,26 @@ You can use the following sections to navigate through the content of the lectur
 
 * [Data and Projectmanagement](https://mello-y.github.io/MSc5_research_project/general_information/DataProjectManagement.html)
 
-   What are the specific topics and aspects taught?
+   How to access the data, data description, monitoring project 
 
 * [Data Exploration](https://mello-y.github.io/MSc5_research_project/code/Data_exploration.html)
 
    All things gotta start somewhere, but how?
 
-* [Logistic Regression](https://mello-y.github.io/MSc5_research_project/code/LogisticRegression.html)
+* [Data Analysis](https://mello-y.github.io/MSc5_research_project/general_information/Tasktype.html)
 
    What is this course gonna contain?
 
    
-* [SVM](https://mello-y.github.io/MSc5_research_project/code/SVM.html)
+* [Discussion](https://mello-y.github.io/MSc5_research_project/general_information/Discussion.html)
 
    Where should the acquired knowledge to be disseminated?
+
+* [Open Lab Notebook](https://mello-y.github.io/MSc5_research_project/general_information/open_labnotebook.html)
+
+
+* [References](https://mello-y.github.io/MSc5_research_project/general_information/References.html)
+
 
 
 
