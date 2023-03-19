@@ -1,4 +1,4 @@
-# Data- and Projectmanagment
+# Data- and Projectmanagement
 
 This section carries information on the used dataset and its evaluation. Further, it provides information on the version control and the computational environment within wich the project was conducted. Also, the whole process is described in the openlab notebook.
 
