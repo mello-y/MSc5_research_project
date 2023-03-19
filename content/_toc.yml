@@ -3,12 +3,17 @@ format: jb-book
 chapters:
 - file: general_information/TheoreticalBackground.md
 - file: general_information/DataProjectManagement.md
-  sections:
-    - file: open_lab_notebook
 - file: code/Data_exploration.ipynb
 - file: general_information/Tasktype.md
   sections: 
   - file: code/Data_analysis.ipynb
   - file: code/SVM.ipynb
-
+- file: general_information/open_lab_notebook
+  sections:
+  - file: open_lab_notebook/November.md
+  - file: open_lab_notebook/December.md
+  - file: open_lab_notebook/January.md
+  - file: open_lab_notebook/February.md
+  - file: open_lab_notebook/March.md
 - file: Discussion.md
+- file: References.md
