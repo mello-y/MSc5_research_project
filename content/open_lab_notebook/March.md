@@ -1,11 +1,17 @@
 # March, 2023
 
-## Tuesday, 29/11/2022
+## Sunday 05/03/2023
 What I did today:
-- plotted mean distribution of CT values for control and patient group using a violin plot
-- started micro-structural data section with information regarding Mean Diffusivity (MD) and Fractional Anisotropy (FA)
-- added information and comments to the notebook
+- cross-validated logistic regression for macro- and microstructural data
 
 To-do next time working on the project:
-- look for specific brain regions to compare between control and patient group in CT
-- start exploring the micro-structural data
+- cross-validate SVM for macro- and microstructural data
+- Apply Gridsearch to logistic regression and SVM for macro- and microstructural data
+- read into ROC-curve methdods proposed by Jack
+
+## Monday 06/03/2023
+What I did today:
+- applies Gridsearch to SVM for macro- and microstructural data
+- cross-validated SVM for macro- and microstructural data
+
+
