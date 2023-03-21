@@ -166,6 +166,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../code/SVM.html">Support Vector Machine (SVM)</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="Discussion.html">Discussion</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="open_labnotebook.html">Openlab notebook</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../open_lab_notebook/November.html">November, 2022</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../open_lab_notebook/December.html">December, 2022</a></li>
@@ -174,7 +175,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../open_lab_notebook/March.html">March, 2023</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="Discussion.html">Discussion</a></li>
 <li class="toctree-l1"><a class="reference internal" href="References.html">References</a></li>
 </ul>
 
@@ -387,12 +387,23 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset-description-and-evaluation">Dataset description and evaluation</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-does-the-data-contain-general-overview">What does the data contain? General overview</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#five-different-mri-metrics">Five different MRI metrics</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#macrostructural-mri-cortical-thickness-ct">Macrostructural MRI: cortical thickness (CT)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#microstructural-mri-mean-diffusivity-md-and-fractional-anisotropy-fa">Microstructural MRI: Mean Diffusivity (MD) and Fractional Anisotropy (FA)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#functional-mri-fmri">Functional MRI (fMRI)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#fmri-connectivity-and-network-analysis">fMRI Connectivity and Network Analysis</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#structural-connectivity-and-dwi-tractography">Structural Connectivity and DWI Tractography</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#version-control">Version control</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#openlab-notebook">Openlab notebook</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#computational-environment">Computational environment</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#demographic-data">Demographic Data</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#projectmanagement">Projectmanagement</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#version-control">Version control</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#openlab-notebook">Openlab notebook</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#is-the-project-data-fairified">Is the project/data “FAIRified”?</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -406,31 +417,66 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="data-and-projectmanagement">
 <h1>Data- and Projectmanagement<a class="headerlink" href="#data-and-projectmanagement" title="Permalink to this heading">#</a></h1>
-<p>This section carries information on the used dataset and its evaluation. Further, it provides information on the version control and the computational environment within wich the project was conducted. Also, the whole process is described in the openlab notebook.</p>
+<p>This section provides a description on the dataset and its evaluation. Further, projectmanagement aspects are addressed.</p>
 <section id="dataset-description-and-evaluation">
 <h2>Dataset description and evaluation<a class="headerlink" href="#dataset-description-and-evaluation" title="Permalink to this heading">#</a></h2>
-<p>The data I am going to use for the project is available on <a class="reference external" href="https://figshare.com/articles/dataset/Data_for_Functional_MRI_connectivity_accurately_distinguishes_cases_with_psychotic_disorders_from_healthy_controls_based_on_cortical_features_associated_with_brain_network_development_/12361550">figshare</a> and originates from the paper “Functional MRI connectivity accurately distinguishes cases with psychotic disorders from healthy controls, based on cortical features associated with brain network development” by <a class="reference external" href="https://doi.org/10.1101/19009894">Young et al. (2020)</a>. The github repository for the study can be accessed <a class="reference external" href="https://github.com/jmyoung36/fMRI_connectivity_accurately_distinguishes_cases">here</a>.</p>
-<section id="what-does-the-data-contain-general-overview">
-<h3>What does the data contain? General overview<a class="headerlink" href="#what-does-the-data-contain-general-overview" title="Permalink to this heading">#</a></h3>
-<p>The already pre-processed data contains different metrics for three different samples being Dublin, Maastricht and Cobre.</p>
-<p>For the <strong>macro-structural</strong> data <em><strong>cortical thickness (CT)</strong></em> was estimated for 308 cortical regions according to a derived version of the Desikian-Killiany atlas <a class="reference external" href="https://www.sciencedirect.com/science/article/abs/pii/S1053811906000437?via%3Dihub">(Desikan et al, 2006)</a>. The files for the derived and adjusted atlas can be found in this <a class="reference external" href="https://github.com/RafaelRomeroGarcia/subParcellation">github repository</a>, the respective paper <a class="reference external" href="https://doi.org/10.1016/j.neuroimage.2011.10.086">here</a>.</p>
-<p>The <strong>micro-structural</strong> data contains diffusion weighted images (DWI) from which regional cortical measures such as <em><strong>mean diffusivity (MD)</strong></em> and <em><strong>fractional anisotropy (FA)</strong></em> were estimated.</p>
-<p>There are further metrics such as <em><strong>functional magnet resonance imaging data (fMRI), fMRI connectivity and network data</strong></em> and <em><strong>structural connectivity</strong></em> and <em><strong>DWI tractography</strong></em>. For project purposes, only the <strong>macro and micro-structural</strong> data will be used. On top of that, the data for only Dublin is going to be explored since it provides the best image quality (see Table 1 in <a class="reference external" href="https://doi.org/10.1101/19009894">Young et al., 2020)</a> and not every modality was measured for the Cobre dataset.</p>
-<p>The data also contains demographic data such as age and gender.</p>
+<p>The underlying data of this project originates from the study “Functional MRI connectivity accurately distinguishes cases with psychotic disorders from healthy controls, based on cortical features associated with brain network development” by [Morgan et al. (2020)] (<a class="reference external" href="https://doi.org/10.1101/19009894">https://doi.org/10.1101/19009894</a>). It can be accessed on [figshare]( (<a class="reference external" href="https://figshare.com/articles/dataset/Data_for_Functional_MRI_connectivity_accurately_distinguishes_cases_with_psychotic_disorders_from_healthy_controls_based_on_cortical_features_associated_with_brain_network_development_/12361550">https://figshare.com/articles/dataset/Data_for_Functional_MRI_connectivity_accurately_distinguishes_cases_with_psychotic_disorders_from_healthy_controls_based_on_cortical_features_associated_with_brain_network_development_/12361550</a>), the respective github repository can be found <a class="reference external" href="https://github.com/jmyoung36/fMRI_connectivity_accurately_distinguishes_cases">here</a> where everything is well documented and provided clearly. All the data is preprocessed and analyses were run with Matlab.</p>
+<section id="five-different-mri-metrics">
+<h3>Five different MRI metrics<a class="headerlink" href="#five-different-mri-metrics" title="Permalink to this heading">#</a></h3>
+<p>The data contains three different samples being Dublin, Maastricht and Cobre and five different MRI metrics for each sample (while in the Cobre dataset not every MRI metric was assessed). These are</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>- Macrostructural MRI
+- Microstructural MRI
+- Functional MRI
+- fMRI Connectivity and Network Analysis
+- Structural Connectivity.
+</pre></div>
+</div>
+<p>In the following, the assessment of each metric is briefly explained.</p>
+<section id="macrostructural-mri-cortical-thickness-ct">
+<h4>Macrostructural MRI: cortical thickness (CT)<a class="headerlink" href="#macrostructural-mri-cortical-thickness-ct" title="Permalink to this heading">#</a></h4>
+<p>For the <strong>macro-structural data</strong>, T1-weighted MPRAGE images were used. The images were aquired with MPRAGE sequences, capturing high tissue contrast and providing high spatial resolution with whole brain coverage in a short scan time <a class="reference external" href="https://doi.org/10.1371/journal.pone.0096899">(Wang et al.,2014)</a>. These were already preprocessed by a prior pipeline <a class="reference external" href="https://pubmed.ncbi.nlm.nih.gov/27457931/">(Withtaker et al., 2016)</a>, using the command from FreeSurfer called “recon-all” <a class="reference external" href="https://pubmed.ncbi.nlm.nih.gov/9931268/">(Dale et al., 1999)</a>. The surface was parcellated according to the Desikan-Killiany atlas (Desikan et al, 2006)](<a class="reference external" href="https://www.sciencedirect.com/science/article/abs/pii/S1053811906000437?via%3Dihub">https://www.sciencedirect.com/science/article/abs/pii/S1053811906000437?via%3Dihub</a>) (also see <a class="reference external" href="https://mello-y.github.io/MSc5_research_project/code/Data_exploration.html#demographic-data">here</a>. For each of those regions cortical thickness was estimated.</p>
+</section>
+<section id="microstructural-mri-mean-diffusivity-md-and-fractional-anisotropy-fa">
+<h4>Microstructural MRI: Mean Diffusivity (MD) and Fractional Anisotropy (FA)<a class="headerlink" href="#microstructural-mri-mean-diffusivity-md-and-fractional-anisotropy-fa" title="Permalink to this heading">#</a></h4>
+<p>Cortical measures of MD and FA were estimated for all brain regions from diffusion weighted images (DWI) using FreeSurfer’s trac-all command. DWIs were aquired using echo-planar sequences (EPI).</p>
+</section>
+<section id="functional-mri-fmri">
+<h4>Functional MRI (fMRI)<a class="headerlink" href="#functional-mri-fmri" title="Permalink to this heading">#</a></h4>
+<p>FMRI data were acquired using EPI sequences. For more concrete information on the EPI sequence parameters and the fMRI images for each sample consult “Functional MRI” [Morgan et al. (2020), p. 2] (<a class="reference external" href="https://doi.org/10.1101/19009894">https://doi.org/10.1101/19009894</a>) .</p>
+</section>
+<section id="fmri-connectivity-and-network-analysis">
+<h4>fMRI Connectivity and Network Analysis<a class="headerlink" href="#fmri-connectivity-and-network-analysis" title="Permalink to this heading">#</a></h4>
+<p>To estimate a functional connectivity matrix for each subject from the regional, normalized wavelet coefficients, sparse inverse covariance were used.</p>
+</section>
+<section id="structural-connectivity-and-dwi-tractography">
+<h4>Structural Connectivity and DWI Tractography<a class="headerlink" href="#structural-connectivity-and-dwi-tractography" title="Permalink to this heading">#</a></h4>
+<p>Parcellated T1-weighted MRI images were registered to corrected DWI images, a diffusion profile for each voxel was created and white matter tracts were identified with deterministic streamline tractography.</p>
 </section>
 </section>
+<section id="demographic-data">
+<h3>Demographic Data<a class="headerlink" href="#demographic-data" title="Permalink to this heading">#</a></h3>
+<p>For each sample demographic data such as age and gender are also provided.</p>
+<p>For this project, however, only the <strong>macro and micro-structural</strong> data will be used (also see <a class="reference external" href="https://mello-y.github.io/MSc5_research_project/general_information/Discussion.html">reflection on the research process</a>. On top of that, the data for only Dublin is going to be explored since it provides the best image quality (see Table 1 in <a class="reference external" href="https://doi.org/10.1101/19009894">Young et al., 2020)</a> and not every modality was measured for the Cobre dataset.</p>
+</section>
+</section>
+<section id="projectmanagement">
+<h2>Projectmanagement<a class="headerlink" href="#projectmanagement" title="Permalink to this heading">#</a></h2>
+<p>In the following, information on projectmanagement-related aspects are provided. These include version control, documentation, FAIRness principles and the computational environment.</p>
 <section id="version-control">
-<h2>Version control<a class="headerlink" href="#version-control" title="Permalink to this heading">#</a></h2>
+<h3>Version control<a class="headerlink" href="#version-control" title="Permalink to this heading">#</a></h3>
 <p>Version control makes it feasible to monitor and track the progress in projects. Changes made with progress, version control allows to access different versions of the files.
-In this project, Git is used for version control and Github as an online platform to document the project. The repository can be accessed <a class="reference external" href="https://github.com/mello-y/MSc5_research_project">here</a>. The project is also documented on <a class="reference external" href="https://osf.io/g8j2c/">OSF</a>.</p>
+In this project, Git is used for version control and Github as an online platform to document this project. The respective repository can be accessed <a class="reference external" href="https://github.com/mello-y/MSc5_research_project">here</a>. The project is also documented on <a class="reference external" href="https://osf.io/g8j2c/">OSF</a>.</p>
 </section>
 <section id="openlab-notebook">
-<h2>Openlab notebook<a class="headerlink" href="#openlab-notebook" title="Permalink to this heading">#</a></h2>
-<p>The openlab notebook serves the purpose of documenting the monthly progress of the project. It is structured in a way with a list of goals when working on the project and things to tackle working next time on the project. Click <a class="reference external" href="https://mello-y.github.io/MSc5_research_project/open_lab_notebook/html">here</a> to access the openlab notebook.</p>
+<h3>Openlab notebook<a class="headerlink" href="#openlab-notebook" title="Permalink to this heading">#</a></h3>
+<p>The openlab notebook serves the purpose of documenting the monthly progress of the project. It is structured in a way with a list of goals when working on the project and things to tackle working next time on the project. Click <a class="reference external" href="https://mello-y.github.io/MSc5_research_project/open_lab_notebook/html">here</a> to get to the openlab notebook.</p>
 </section>
-<section id="computational-environment">
-<h2>Computational environment<a class="headerlink" href="#computational-environment" title="Permalink to this heading">#</a></h2>
-<p>In order to make the code reproducible for others, the specifications for the computing environment with the relevant modules and packages are documented in the requirements_code.txt file. The file can be found <a class="reference external" href="https://github.com/mello-y/MSc5_research_project/tree/main/content/code">here</a>.</p>
+<section id="is-the-project-data-fairified">
+<h3>Is the project/data “FAIRified”?<a class="headerlink" href="#is-the-project-data-fairified" title="Permalink to this heading">#</a></h3>
+<p>The FAIR principles stand for Findability, Accessibility, Interoperability, and Reuse of digital assets and were first published in 2016 in <a class="reference external" href="https://www.go-fair.org/fair-principles/">“FAIR Guiding Principles for scientific data management and stewardship”</a>. These principles imply that data must be easy to find and discoverable with metadata, available and obtainable, interoperable in terms of both syntactically parseable and semantically understandable allowing the exchange and reuse between researchers, institutions and organizations and most importantly explicitly described and shared with the least restrictive licenses making it feasible to optimize the reuse of the data so that they can be replicated.
+The data used in this project meets all criteria. It is clearly described, where and how the data can be found and accessed. Also, the code to do so is provided. Interoperability is also assured.
+The data is reusable since it is shared without license, everything is well documented and described.</p>
+</section>
 </section>
 </section>
 
@@ -496,12 +542,23 @@ In this project, Git is used for version control and Github as an online platfor
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset-description-and-evaluation">Dataset description and evaluation</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-does-the-data-contain-general-overview">What does the data contain? General overview</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#five-different-mri-metrics">Five different MRI metrics</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#macrostructural-mri-cortical-thickness-ct">Macrostructural MRI: cortical thickness (CT)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#microstructural-mri-mean-diffusivity-md-and-fractional-anisotropy-fa">Microstructural MRI: Mean Diffusivity (MD) and Fractional Anisotropy (FA)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#functional-mri-fmri">Functional MRI (fMRI)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#fmri-connectivity-and-network-analysis">fMRI Connectivity and Network Analysis</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#structural-connectivity-and-dwi-tractography">Structural Connectivity and DWI Tractography</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#version-control">Version control</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#openlab-notebook">Openlab notebook</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#computational-environment">Computational environment</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#demographic-data">Demographic Data</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#projectmanagement">Projectmanagement</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#version-control">Version control</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#openlab-notebook">Openlab notebook</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#is-the-project-data-fairified">Is the project/data “FAIRified”?</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 

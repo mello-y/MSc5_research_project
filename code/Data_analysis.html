@@ -166,6 +166,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="SVM.html">Support Vector Machine (SVM)</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../general_information/Discussion.html">Discussion</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../general_information/open_labnotebook.html">Openlab notebook</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../open_lab_notebook/November.html">November, 2022</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../open_lab_notebook/December.html">December, 2022</a></li>
@@ -174,7 +175,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../open_lab_notebook/March.html">March, 2023</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../general_information/Discussion.html">Discussion</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../general_information/References.html">References</a></li>
 </ul>
 
@@ -417,8 +417,8 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cortical-thickness-ct">1.1 Cortical Thickness (CT)</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-preperation">2.1.1 Data preperation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#macro-structural-data-cortical-thickness-ct">1. Macro-structural data: Cortical Thickness (CT)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-preperation">1.1 Data preperation</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#building-the-model">2.1.2 Building the model</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#model-evaluation">2.1.3 Model evaluation</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#confusion-matrix">2.1.3.1 Confusion Matrix</a></li>
@@ -466,11 +466,13 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="logistic-regression">
 <h1>Logistic Regression<a class="headerlink" href="#logistic-regression" title="Permalink to this heading">#</a></h1>
-<p>In this section, the logistic regression is computed for both, the micro - and macrostructural data. Firstly, we start with <strong>CT</strong>.</p>
-<section id="cortical-thickness-ct">
-<h2>1.1 Cortical Thickness (CT)<a class="headerlink" href="#cortical-thickness-ct" title="Permalink to this heading">#</a></h2>
+<p>In this chapter the logistic regression algorithm is applied to the macro- and microstrucutral data. The procedure is analogous to both kind of data. First, the data is prepared in terms of making it suitable to use it in the code efficiently. Second, the logistic regression model is built, defining the input and output variables, scaling the relevant variables and splitting the data set into training and testing samples and subsequently training the model. Followed by evulating the model, we will refer to different metrics that provide information on how the model performs.</p>
+<p>We first start with <strong>cortical thickness (CT)</strong>.</p>
+<section id="macro-structural-data-cortical-thickness-ct">
+<h2>1. Macro-structural data: Cortical Thickness (CT)<a class="headerlink" href="#macro-structural-data-cortical-thickness-ct" title="Permalink to this heading">#</a></h2>
 <section id="data-preperation">
-<h3>2.1.1 Data preperation<a class="headerlink" href="#data-preperation" title="Permalink to this heading">#</a></h3>
+<h3>1.1 Data preperation<a class="headerlink" href="#data-preperation" title="Permalink to this heading">#</a></h3>
+<p>In the beginning, all relevant modules needed for the analysis are imported.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#import relevant modules</span>
@@ -492,6 +494,7 @@ document.write(`
 </div>
 </div>
 </div>
+<p>Again, to read the data, the os.pardir() function is used to make the code reproducible independent of different operating systems.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#read data</span>
@@ -1148,7 +1151,7 @@ document.write(`
 <p>108 rows × 309 columns</p>
 </div></div></div>
 </div>
-<p>As the dataframe shows, the Group variable contains information of whether the samples belong to control or patient. In this case, 1 indicates control and 2 patient. In order to perform a <strong>Logistic Regression</strong>, the labels of the outputs requires to be 0 and 1 since the probability of an instance belonging to a default class is computed.</p>
+<p>As the dataframe shows, the Group variable contains information of whether the samples belong to control or patient. In this case, 1 indicates control and 2 patient. In order to perform a <strong>Logistic Regression</strong>, the labels of the outputs require to be 0 and 1 since the probability of an instance belonging to a default class is computed.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#label group 1 as 0 and 2 as 1</span>
@@ -1507,15 +1510,15 @@ Name: Group, dtype: int64
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">countplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;Group&#39;</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">CT_Dublin_adj</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="s1">&#39;hls&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">countplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;Group&#39;</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">CT_Dublin_adj</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="s1">&#39;hls&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Amount of participants in each group&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;Group&#39;, ylabel=&#39;count&#39;&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Amount of participants in each group&#39;)
 </pre></div>
 </div>
-<img alt="../_images/010c0c1f9fb2f493582e47d22180d660a30c7542eba35e28369f7500570d46b7.png" src="../_images/010c0c1f9fb2f493582e47d22180d660a30c7542eba35e28369f7500570d46b7.png" />
+<img alt="../_images/1d2ed7605e937cc40b2134ff65d018c41e1ce1dd834fbbe7463765ba732001dc.png" src="../_images/1d2ed7605e937cc40b2134ff65d018c41e1ce1dd834fbbe7463765ba732001dc.png" />
 </div>
 </div>
 <p>The plot shows a clear unequal distribution of the participants in the Group variable.</p>
@@ -1723,6 +1726,7 @@ Name: Group, dtype: int64
 </div>
 </div>
 </div>
+<p>The numpy.ravel() functions returns contiguous flattened array (1D array with all the input-array elements and with the same type as it). This step is required for the upcoming analyses.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
@@ -6586,6 +6590,12 @@ Recall: 0.9684138049746106
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 257.44, &#39;Predicted label&#39;)
+</pre></div>
+</div>
+<img alt="../_images/f0ba7df09f3ded8199cf9bc80ef2a361e1513e52b46a6149b6d47e60302223ca.png" src="../_images/f0ba7df09f3ded8199cf9bc80ef2a361e1513e52b46a6149b6d47e60302223ca.png" />
+</div>
 </div>
 </section>
 <section id="id3">
@@ -6926,8 +6936,8 @@ Recall: 0.7976855068644129
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cortical-thickness-ct">1.1 Cortical Thickness (CT)</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-preperation">2.1.1 Data preperation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#macro-structural-data-cortical-thickness-ct">1. Macro-structural data: Cortical Thickness (CT)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-preperation">1.1 Data preperation</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#building-the-model">2.1.2 Building the model</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#model-evaluation">2.1.3 Model evaluation</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#confusion-matrix">2.1.3.1 Confusion Matrix</a></li>
