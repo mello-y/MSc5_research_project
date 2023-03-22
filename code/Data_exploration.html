@@ -417,15 +417,18 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#demographic-data">1. Demographic data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#demographic-data">1. Demographic data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-and-adjusting-the-macro-and-microstructural-data">1.1 Reading and adjusting the macro- and microstructural data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comparing-demographic-variables-for-the-macro-and-microstructural-data">1.1 Comparing demographic variables for the macro- and microstructural data</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gender">1.1.1 Gender</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#age">1.1.2 Age</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exploring-the-different-modalities">2. Exploring the different modalities</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#macro-structural-data-cortical-thickness-ct">2.1 Macro-structural data: cortical thickness (CT)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#micro-structural-data-mean-diffusivity-md-and-fractional-anisotropy-fa">3.2 Micro-structural data: mean diffusivity (MD) and fractional anisotropy (FA)</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dti-networks">3.1 DTI Networks</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#download-the-mat-files">3.1.1 Download the .mat files</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#read-the-mat-files">3.1.2 Read the .mat files</a></li>
 </ul>
 </li>
 </ul>
@@ -441,14 +444,16 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="data-exploration">
 <h1>Data exploration<a class="headerlink" href="#data-exploration" title="Permalink to this heading">#</a></h1>
-<p>This jupyter notebook deals with exploring the data for my research project within the MSc05 course in the Neurocognitive Psychology lab at Goethe University Frankfurt within the psychology master degree program.</p>
-<p>The main idea of the project is to use machine learning in order to predict whether a person can be classified either as a healthy control or a patient with psychotic disorder based on different MRI metrics and to see which of them provides more accuracy.</p>
+<p>This section deals with the exploration of the dataset. First of all, the demographic data of the sample is described with regard to basic demographic variables. Second,the <strong>macro- and microstructural</strong> data is explored, comparing how the control and patient group might differ respectively.</p>
 <section id="demographic-data">
 <h2>1. Demographic data<a class="headerlink" href="#demographic-data" title="Permalink to this heading">#</a></h2>
-<p>First of all, I am going to explore the demographic data to get a better understanding of the sample. In the Dublin dataset, there is a different subset of patients with <strong>micro-structural (MD and FA)</strong> data compared to those with <strong>macro-structural (CT)</strong> data. Both “subsets” are loaded and compared with regard to basic demographic variables.</p>
+<p>In the Dublin sample, there is a different subset of patients with <strong>micro-structural (MD and FA)</strong> data compared to those with <strong>macro-structural (CT)</strong> data. Both “subsets” are loaded and compared with regard to basic demographic variables.</p>
+<section id="reading-and-adjusting-the-macro-and-microstructural-data">
+<h3>1.1 Reading and adjusting the macro- and microstructural data<a class="headerlink" href="#reading-and-adjusting-the-macro-and-microstructural-data" title="Permalink to this heading">#</a></h3>
+<p>First, relevant modules are imported to read the data. Since different operating systems might differ in the way indicating file paths, the os.pardir() function is used to ensure that the code can run independently of various operating systems.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#import module to read the CT and DTI data</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#import module to read data</span>
 
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">os</span>
@@ -461,11 +466,10 @@ document.write(`
 </div>
 </div>
 </div>
+<p>To get the columns of our dataframe in order to see which variables are measured, we simply run the following command.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#get columns of pandas dataframe</span>
-
-<span class="n">CT_Dublin</span><span class="o">.</span><span class="n">columns</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">CT_Dublin</span><span class="o">.</span><span class="n">columns</span>
 </pre></div>
 </div>
 </div>
@@ -488,258 +492,291 @@ document.write(`
 </div>
 </div>
 </div>
-<p>As we can see, besides the different brain regions there are columns that indicate the demographic data that we are interested in for now.</p>
+<p>As we can see, besides the different brain regions there are columns that indicate variables containing the demographic data that we are interested in for now. To make things easier, we adjust the dataframe in selecting a subset that only carries the demographic variables.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#select a subset of the CT data</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#select a subset of the CT data with demographic variables</span>
 
 <span class="n">demographic_CT</span> <span class="o">=</span> <span class="n">CT_Dublin</span><span class="p">[[</span><span class="s2">&quot;Subject ID&quot;</span><span class="p">,</span> <span class="s2">&quot;Age&quot;</span><span class="p">,</span> <span class="s2">&quot;Sex&quot;</span><span class="p">,</span> <span class="s2">&quot;Group&quot;</span><span class="p">]]</span>
 </pre></div>
 </div>
 </div>
 </div>
+<p>Having the subset of demographic information for the <strong>macrostructural</strong> data, the identical procedure is done for the <strong>microstructural</strong> data. So first, the data is read and adjusted to demographic variables only.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#view demographic data of CT data</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#read MD and FA data</span>
 
-<span class="n">demographic_CT</span>
+<span class="n">MD_Dublin_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">pardir</span><span class="p">,</span> <span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="s1">&#39;PARC_500.aparc_MD_cortexAv_mean_Dublin.csv&#39;</span><span class="p">)</span>
+<span class="n">MD_Dublin</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">MD_Dublin_path</span><span class="p">)</span>
+
+<span class="n">FA_Dublin_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">pardir</span><span class="p">,</span> <span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="s1">&#39;PARC_500.aparc_FA_cortexAv_mean_Dublin.csv&#39;</span><span class="p">)</span>
+<span class="n">FA_Dublin</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">FA_Dublin_path</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#select a subset of the MD and FA data with demographic variables</span>
+
+<span class="n">demographic_MD</span> <span class="o">=</span> <span class="n">MD_Dublin</span><span class="p">[[</span><span class="s2">&quot;Subject ID&quot;</span><span class="p">,</span> <span class="s2">&quot;Age&quot;</span><span class="p">,</span> <span class="s2">&quot;Sex&quot;</span><span class="p">,</span> <span class="s2">&quot;Group&quot;</span><span class="p">]]</span>
+<span class="n">demographic_FA</span> <span class="o">=</span> <span class="n">FA_Dublin</span><span class="p">[[</span><span class="s2">&quot;Subject ID&quot;</span><span class="p">,</span> <span class="s2">&quot;Age&quot;</span><span class="p">,</span> <span class="s2">&quot;Sex&quot;</span><span class="p">,</span> <span class="s2">&quot;Group&quot;</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Normally, the shape of the dataframes for each MRI metric should be the same since it is only one sample. However, to check this we can run the following commands.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">demographic_CT</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">demographic_MD</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">demographic_FA</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Subject ID</th>
-      <th>Age</th>
-      <th>Sex</th>
-      <th>Group</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>CON9225</td>
-      <td>21</td>
-      <td>2</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>CON9229</td>
-      <td>28</td>
-      <td>2</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>CON9231</td>
-      <td>29</td>
-      <td>2</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>GASP3037</td>
-      <td>61</td>
-      <td>1</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>GASP3040</td>
-      <td>47</td>
-      <td>1</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>103</th>
-      <td>RPG9019</td>
-      <td>31</td>
-      <td>1</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <th>104</th>
-      <td>RPG9102</td>
-      <td>42</td>
-      <td>2</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <th>105</th>
-      <td>RPG9119</td>
-      <td>41</td>
-      <td>1</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <th>106</th>
-      <td>RPG9121</td>
-      <td>51</td>
-      <td>1</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <th>107</th>
-      <td>RPG9126</td>
-      <td>56</td>
-      <td>1</td>
-      <td>2</td>
-    </tr>
-  </tbody>
-</table>
-<p>108 rows × 4 columns</p>
-</div></div></div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>((108, 4), (115, 4), (115, 4))
+</pre></div>
 </div>
-<p>As it can be seen, for the <strong>CT</strong> data there is a total of N=108 participants.</p>
-<p>Having the subset of demographic information for the <strong>CT</strong> data, there is an excel file for the demographic information for the <strong>DWI</strong> data.</p>
+</div>
+</div>
+<p>As we can see, the shapes are not identicial except for the <strong>MD</strong> and <strong>FA</strong> dataframe. Since the latter are both central characteristics of diffusion tensors (see further below), it makes sense that they exhibit the identical shape and were measured for the same amount of subjects. However, for the <strong>CT</strong> data, it seems like there are fewer rows indicating not the same amount of subjects for whom the metric was measured. So having a look at the dataframes should show that.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#read Excel file as pandas dataframe</span>
-
-
-<span class="n">demographic_DWI_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">pardir</span><span class="p">,</span> <span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="s1">&#39;DTI_demographics_Dublin.xlsx&#39;</span><span class="p">)</span>
-<span class="n">demographic_DWI</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="n">demographic_DWI_path</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">demographic_CT</span><span class="p">,</span> <span class="n">demographic_MD</span><span class="p">,</span> <span class="n">demographic_FA</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">3</span><span class="n">m</span><span class="o">/</span><span class="mi">1</span><span class="n">g132z9j3_14k03_9l9qv2wr0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_17814</span><span class="o">/</span><span class="mf">1883115006.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> 
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">demographic_DWI_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">pardir</span><span class="p">,</span> <span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="s1">&#39;DTI_demographics_Dublin.xlsx&#39;</span><span class="p">)</span>
-<span class="ne">----&gt; </span><span class="mi">5</span> <span class="n">demographic_DWI</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="n">demographic_DWI_path</span><span class="p">)</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    Subject ID  Age  Sex  Group
+0      CON9225   21    2      1
+1      CON9229   28    2      1
+2      CON9231   29    2      1
+3     GASP3037   61    1      2
+4     GASP3040   47    1      2
+..         ...  ...  ...    ...
+103    RPG9019   31    1      2
+104    RPG9102   42    2      2
+105    RPG9119   41    1      2
+106    RPG9121   51    1      2
+107    RPG9126   56    1      2
 
-<span class="nn">~/miniconda3/envs/neuro_ai/lib/python3.7/site-packages/pandas/util/_decorators.py</span> in <span class="ni">wrapper</span><span class="nt">(*args, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">294</span>                 <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">295</span>                 <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="ne">FutureWarning</span><span class="p">,</span> <span class="n">stacklevel</span><span class="o">=</span><span class="n">stacklevel</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">296</span>             <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">297</span> 
-<span class="g g-Whitespace">    </span><span class="mi">298</span>         <span class="k">return</span> <span class="n">wrapper</span>
+[108 rows x 4 columns]     Subject ID  Age  Sex  Group
+0      CON3140   37    2      1
+1      CON3891   33    2      1
+2      CON4664   40    2      1
+3      CON7009   21    1      1
+4      CON7024   59    1      1
+..         ...  ...  ...    ...
+110    RPG9102   42    2      2
+111    RPG9103   37    1      2
+112    RPG9119   41    1      2
+113    RPG9121   51    1      2
+114    RPG9126   56    1      2
 
-<span class="nn">~/miniconda3/envs/neuro_ai/lib/python3.7/site-packages/pandas/io/excel/_base.py</span> in <span class="ni">read_excel</span><span class="nt">(io, sheet_name, header, names, index_col, usecols, squeeze, dtype, engine, converters, true_values, false_values, skiprows, nrows, na_values, keep_default_na, na_filter, verbose, parse_dates, date_parser, thousands, comment, skipfooter, convert_float, mangle_dupe_cols)</span>
-<span class="g g-Whitespace">    </span><span class="mi">302</span> 
-<span class="g g-Whitespace">    </span><span class="mi">303</span>     <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">io</span><span class="p">,</span> <span class="n">ExcelFile</span><span class="p">):</span>
-<span class="ne">--&gt; </span><span class="mi">304</span>         <span class="n">io</span> <span class="o">=</span> <span class="n">ExcelFile</span><span class="p">(</span><span class="n">io</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="n">engine</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">305</span>     <span class="k">elif</span> <span class="n">engine</span> <span class="ow">and</span> <span class="n">engine</span> <span class="o">!=</span> <span class="n">io</span><span class="o">.</span><span class="n">engine</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">306</span>         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+[115 rows x 4 columns]     Subject ID  Age  Sex  Group
+0      CON3140   37    2      1
+1      CON3891   33    2      1
+2      CON4664   40    2      1
+3      CON7009   21    1      1
+4      CON7024   59    1      1
+..         ...  ...  ...    ...
+110    RPG9102   42    2      2
+111    RPG9103   37    1      2
+112    RPG9119   41    1      2
+113    RPG9121   51    1      2
+114    RPG9126   56    1      2
 
-<span class="nn">~/miniconda3/envs/neuro_ai/lib/python3.7/site-packages/pandas/io/excel/_base.py</span> in <span class="ni">__init__</span><span class="nt">(self, path_or_buffer, engine)</span>
-<span class="g g-Whitespace">    </span><span class="mi">865</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_io</span> <span class="o">=</span> <span class="n">stringify_path</span><span class="p">(</span><span class="n">path_or_buffer</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">866</span> 
-<span class="ne">--&gt; </span><span class="mi">867</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_reader</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_engines</span><span class="p">[</span><span class="n">engine</span><span class="p">](</span><span class="bp">self</span><span class="o">.</span><span class="n">_io</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">868</span> 
-<span class="g g-Whitespace">    </span><span class="mi">869</span>     <span class="k">def</span> <span class="nf">__fspath__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-
-<span class="nn">~/miniconda3/envs/neuro_ai/lib/python3.7/site-packages/pandas/io/excel/_xlrd.py</span> in <span class="ni">__init__</span><span class="nt">(self, filepath_or_buffer)</span>
-<span class="g g-Whitespace">     </span><span class="mi">20</span>         <span class="n">err_msg</span> <span class="o">=</span> <span class="s2">&quot;Install xlrd &gt;= 1.0.0 for Excel support&quot;</span>
-<span class="g g-Whitespace">     </span><span class="mi">21</span>         <span class="n">import_optional_dependency</span><span class="p">(</span><span class="s2">&quot;xlrd&quot;</span><span class="p">,</span> <span class="n">extra</span><span class="o">=</span><span class="n">err_msg</span><span class="p">)</span>
-<span class="ne">---&gt; </span><span class="mi">22</span>         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">23</span> 
-<span class="g g-Whitespace">     </span><span class="mi">24</span>     <span class="nd">@property</span>
-
-<span class="nn">~/miniconda3/envs/neuro_ai/lib/python3.7/site-packages/pandas/io/excel/_base.py</span> in <span class="ni">__init__</span><span class="nt">(self, filepath_or_buffer)</span>
-<span class="g g-Whitespace">    </span><span class="mi">351</span>             <span class="bp">self</span><span class="o">.</span><span class="n">book</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">load_workbook</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">352</span>         <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
-<span class="ne">--&gt; </span><span class="mi">353</span>             <span class="bp">self</span><span class="o">.</span><span class="n">book</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">load_workbook</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">354</span>         <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">355</span>             <span class="bp">self</span><span class="o">.</span><span class="n">book</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">load_workbook</span><span class="p">(</span><span class="n">BytesIO</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">))</span>
-
-<span class="nn">~/miniconda3/envs/neuro_ai/lib/python3.7/site-packages/pandas/io/excel/_xlrd.py</span> in <span class="ni">load_workbook</span><span class="nt">(self, filepath_or_buffer)</span>
-<span class="g g-Whitespace">     </span><span class="mi">35</span>             <span class="k">return</span> <span class="n">open_workbook</span><span class="p">(</span><span class="n">file_contents</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">36</span>         <span class="k">else</span><span class="p">:</span>
-<span class="ne">---&gt; </span><span class="mi">37</span>             <span class="k">return</span> <span class="n">open_workbook</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">38</span> 
-<span class="g g-Whitespace">     </span><span class="mi">39</span>     <span class="nd">@property</span>
-
-<span class="nn">~/miniconda3/envs/neuro_ai/lib/python3.7/site-packages/xlrd/__init__.py</span> in <span class="ni">open_workbook</span><span class="nt">(filename, logfile, verbosity, use_mmap, file_contents, encoding_override, formatting_info, on_demand, ragged_rows, ignore_workbook_corruption)</span>
-<span class="g g-Whitespace">    </span><span class="mi">164</span>     <span class="s2">&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">165</span><span class="s2"> </span>
-<span class="ne">--&gt; </span><span class="mi">166</span><span class="s2">     file_format = inspect_format(filename, file_contents)</span>
-<span class="g g-Whitespace">    </span><span class="mi">167</span><span class="s2">     # We have to let unknown file formats pass through here, as some ancient</span>
-<span class="g g-Whitespace">    </span><span class="mi">168</span><span class="s2">     # files that xlrd can parse don&#39;t start with the expected signature.</span>
-
-<span class="nn">~/miniconda3/envs/neuro_ai/lib/python3.7/site-packages/xlrd/__init__.py</span> in <span class="ni">inspect_format</span><span class="nt">(path, content)</span>
-<span class="g g-Whitespace">     </span><span class="mi">58</span><span class="s2">     else:</span>
-<span class="g g-Whitespace">     </span><span class="mi">59</span><span class="s2">         path = os.path.expanduser(path)</span>
-<span class="ne">---&gt; </span><span class="mi">60</span><span class="s2">         with open(path, &quot;rb&quot;) as f:</span>
-<span class="g g-Whitespace">     </span><span class="mi">61</span><span class="s2">             peek = f.read(PEEK_SIZE)</span>
-<span class="g g-Whitespace">     </span><span class="mi">62</span><span class="s2"> </span>
-
-<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;../data/DTI_demographics_Dublin.xlsx&#39;
+[115 rows x 4 columns]
 </pre></div>
 </div>
 </div>
 </div>
+<p>To prove that the subjects in the <strong>MD</strong> and <strong>FA</strong> dataframe are identical, we can compare them and run the following code. The code implies whether the subjects in the <strong>MD</strong> dataframe are also in the <strong>FA</strong> dataframe and returns the amount of “True” cases for  being in both dataframes and “False” if that is not the case. So we expect the amount of “True” cases to be 115 since the 115 rows indicate the amount of subjects.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">demographic_DWI</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">demographic_MD</span><span class="p">[</span><span class="s1">&#39;Subject ID&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">demographic_FA</span><span class="p">[</span><span class="s1">&#39;Subject ID&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span> 
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">3</span><span class="n">m</span><span class="o">/</span><span class="mi">1</span><span class="n">g132z9j3_14k03_9l9qv2wr0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_17814</span><span class="o">/</span><span class="mf">2378468056.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">demographic_DWI</span>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True    115
+Name: Subject ID, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p>To double check, we can run the following:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">demographic_MD</span><span class="p">[</span><span class="s1">&#39;Subject ID&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">equals</span><span class="p">(</span><span class="n">demographic_FA</span><span class="p">[</span><span class="s1">&#39;Subject ID&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<p>The same can be done for the <strong>CT</strong> dataframe since it indicates 108 participants. It might be interesting to know in how far the participants overlap.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">demographic_CT</span><span class="p">[</span><span class="s1">&#39;Subject ID&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">demographic_MD</span><span class="p">[</span><span class="s1">&#39;Subject ID&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False    62
+True     46
+Name: Subject ID, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p>As the output shows, the participants in the <strong>CT</strong> and the <strong>MD</strong> and <strong>FA</strong> dataframe are not entirely identical. So both MRI metrics are not measured for the same participants. Subsequently, for the comparison of the demographical data both dataframes are going to be used.</p>
+</section>
+<section id="comparing-demographic-variables-for-the-macro-and-microstructural-data">
+<h3>1.1 Comparing demographic variables for the macro- and microstructural data<a class="headerlink" href="#comparing-demographic-variables-for-the-macro-and-microstructural-data" title="Permalink to this heading">#</a></h3>
+<p>As already indicated above, the <strong>macrostructural</strong> data contains a total of N = 108 participants whereas the <strong>microstructural</strong> data was measured for a total of N = 115 participants. For n = 46 participants both MRI metrics were measured.</p>
+<p>Before comparing the demographic variables, first we will have a look at the amount of participants belongig to the control and patient group for both MRI metrics. The documentation on <a class="reference external" href="https://figshare.com/articles/dataset/Data_for_Functional_MRI_connectivity_accurately_distinguishes_cases_with_psychotic_disorders_from_healthy_controls_based_on_cortical_features_associated_with_brain_network_development_/12361550">figshare</a> provides label information for Group (1=control, 2=case). To make the following visualizations more self-explaining, the numbers indicating the group are replaced with the respective label.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#label group 1 as control and 2 as patient</span>
 
-<span class="ne">NameError</span>: name &#39;demographic_DWI&#39; is not defined
+<span class="n">demographic_CT</span><span class="p">[</span><span class="s1">&#39;Group&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">demographic_CT</span><span class="p">[</span><span class="s1">&#39;Group&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="s1">&#39;Control&#39;</span><span class="p">,</span> <span class="s1">&#39;Patient&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
-</div>
-<p>For the <strong>DWI</strong> data there is a total of N=123 participants.</p>
-<p><font color='red'><strong>NOTE:</strong></font> <strong>In my case, the excel file format had to be in “xls” for it to be converted into a pandas data frame. The formats “xlsm” and “xlsx” did not work for me. In case you get an import error saying “Missing optional dependency “xlrd””, run the following code below in bash. For further help, click <a class="reference external" href="https://datatofish.com/read_excel/">here</a>.</strong></p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#use ! to run command in bash; remove the hashtag below to run the code</span>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/mello/miniconda3/envs/neuro_ai/lib/python3.7/site-packages/ipykernel_launcher.py:3: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
 
-<span class="c1">#!pip install xlrd</span>
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  This is separate from the ipykernel package so we can avoid doing imports until
 </pre></div>
 </div>
 </div>
 </div>
-<p>Now, having demographic data subsets of both <strong>CT</strong> and <strong>DWI</strong> data, they can be explored. The documentation on <a class="reference external" href="https://figshare.com/articles/dataset/Data_for_Functional_MRI_connectivity_accurately_distinguishes_cases_with_psychotic_disorders_from_healthy_controls_based_on_cortical_features_associated_with_brain_network_development_/12361550">figshare</a> provides label information for Sex (1=male, 2=female) and Group (1=control, 2=case).</p>
+<p>Since the demographic variables in the <strong>FA</strong> and <strong>MA</strong> dataframes are the same, in the following the <strong>FA</strong> dataframe is used to display demographic variables.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#n of control and patients</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">demographic_CT</span><span class="p">[</span><span class="s1">&#39;Group&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">())</span> 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#label group 1 as control and 2 as patient</span>
+
+<span class="n">demographic_FA</span><span class="p">[</span><span class="s1">&#39;Group&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">demographic_FA</span><span class="p">[</span><span class="s1">&#39;Group&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="s1">&#39;Control&#39;</span><span class="p">,</span> <span class="s1">&#39;Patient&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/mello/miniconda3/envs/neuro_ai/lib/python3.7/site-packages/ipykernel_launcher.py:3: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  This is separate from the ipykernel package so we can avoid doing imports until
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#n of males and females</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">demographic_CT</span><span class="p">[</span><span class="s1">&#39;Sex&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">())</span> 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">Group_CT</span> <span class="o">=</span> <span class="n">demographic_CT</span><span class="p">[</span><span class="s1">&#39;Group&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+
+<span class="n">ax</span> <span class="o">=</span> <span class="n">Group_CT</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="n">rot</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;blue&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Macrostructural data&quot;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Group&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Number of Participants&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">((</span><span class="s1">&#39;Control&#39;</span><span class="p">,</span> <span class="s1">&#39;Patient&#39;</span><span class="p">))</span>
+
+
+<span class="k">for</span> <span class="n">rect</span> <span class="ow">in</span> <span class="n">ax</span><span class="o">.</span><span class="n">patches</span><span class="p">:</span>
+    <span class="n">y_value</span> <span class="o">=</span> <span class="n">rect</span><span class="o">.</span><span class="n">get_height</span><span class="p">()</span>
+    <span class="n">x_value</span> <span class="o">=</span> <span class="n">rect</span><span class="o">.</span><span class="n">get_x</span><span class="p">()</span> <span class="o">+</span> <span class="n">rect</span><span class="o">.</span><span class="n">get_width</span><span class="p">()</span> <span class="o">/</span> <span class="mi">2</span>
+    <span class="n">space</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">label</span> <span class="o">=</span> <span class="nb">format</span><span class="p">(</span><span class="n">y_value</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="p">(</span><span class="n">x_value</span><span class="p">,</span> <span class="n">y_value</span><span class="p">),</span> <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">space</span><span class="p">),</span> <span class="n">textcoords</span><span class="o">=</span><span class="s2">&quot;offset points&quot;</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;bottom&#39;</span><span class="p">)</span>    
+
+<span class="n">Group_FA</span> <span class="o">=</span> <span class="n">demographic_FA</span><span class="p">[</span><span class="s1">&#39;Group&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+    
+<span class="n">ax</span> <span class="o">=</span> <span class="n">Group_FA</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="n">rot</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;orange&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Microstructural data&quot;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Group&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Number of Participants&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">((</span><span class="s1">&#39;Control&#39;</span><span class="p">,</span> <span class="s1">&#39;Patient&#39;</span><span class="p">))</span>
+
+
+<span class="k">for</span> <span class="n">rect</span> <span class="ow">in</span> <span class="n">ax</span><span class="o">.</span><span class="n">patches</span><span class="p">:</span>
+    <span class="n">y_value</span> <span class="o">=</span> <span class="n">rect</span><span class="o">.</span><span class="n">get_height</span><span class="p">()</span>
+    <span class="n">x_value</span> <span class="o">=</span> <span class="n">rect</span><span class="o">.</span><span class="n">get_x</span><span class="p">()</span> <span class="o">+</span> <span class="n">rect</span><span class="o">.</span><span class="n">get_width</span><span class="p">()</span> <span class="o">/</span> <span class="mi">2</span>
+    <span class="n">space</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">label</span> <span class="o">=</span> <span class="nb">format</span><span class="p">(</span><span class="n">y_value</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="p">(</span><span class="n">x_value</span><span class="p">,</span> <span class="n">y_value</span><span class="p">),</span> <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">space</span><span class="p">),</span> <span class="n">textcoords</span><span class="o">=</span><span class="s2">&quot;offset points&quot;</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;bottom&#39;</span><span class="p">)</span>    
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../_images/2a765b3fd4f5dcf67b87cd0f4e2572db9e9c0c71bf5a03abf26e102bdcada7f9.png" src="../_images/2a765b3fd4f5dcf67b87cd0f4e2572db9e9c0c71bf5a03abf26e102bdcada7f9.png" />
+<img alt="../_images/71bd640fc9024d37251498a04c2ebc776806813ce03ecfbe0a953f92e246397e.png" src="../_images/71bd640fc9024d37251498a04c2ebc776806813ce03ecfbe0a953f92e246397e.png" />
 </div>
+</div>
+<p>The plots clearly show an unequal distribution with more participants being controls for both <strong>macrostructural</strong> and <strong>microstructural</strong> data.</p>
+<section id="gender">
+<h4>1.1.1 Gender<a class="headerlink" href="#gender" title="Permalink to this heading">#</a></h4>
+<p>The documentation on <a class="reference external" href="https://figshare.com/articles/dataset/Data_for_Functional_MRI_connectivity_accurately_distinguishes_cases_with_psychotic_disorders_from_healthy_controls_based_on_cortical_features_associated_with_brain_network_development_/12361550">figshare</a> also provides label information for gender (1=male, 2=female). The code for visualizing the control and patients group can be adapted accordingly to show how many males and females</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Gender_CT</span> <span class="o">=</span> <span class="n">demographic_CT</span><span class="p">[</span><span class="s1">&#39;Sex&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+
+<span class="n">ax</span> <span class="o">=</span> <span class="n">Gender_CT</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="n">rot</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;blue&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Macrostructural data&quot;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Gender&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Number of Participants&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">((</span><span class="s1">&#39;Male&#39;</span><span class="p">,</span> <span class="s1">&#39;Female&#39;</span><span class="p">))</span>
+
+
+<span class="k">for</span> <span class="n">rect</span> <span class="ow">in</span> <span class="n">ax</span><span class="o">.</span><span class="n">patches</span><span class="p">:</span>
+    <span class="n">y_value</span> <span class="o">=</span> <span class="n">rect</span><span class="o">.</span><span class="n">get_height</span><span class="p">()</span>
+    <span class="n">x_value</span> <span class="o">=</span> <span class="n">rect</span><span class="o">.</span><span class="n">get_x</span><span class="p">()</span> <span class="o">+</span> <span class="n">rect</span><span class="o">.</span><span class="n">get_width</span><span class="p">()</span> <span class="o">/</span> <span class="mi">2</span>
+    <span class="n">space</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">label</span> <span class="o">=</span> <span class="nb">format</span><span class="p">(</span><span class="n">y_value</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="p">(</span><span class="n">x_value</span><span class="p">,</span> <span class="n">y_value</span><span class="p">),</span> <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">space</span><span class="p">),</span> <span class="n">textcoords</span><span class="o">=</span><span class="s2">&quot;offset points&quot;</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;bottom&#39;</span><span class="p">)</span>    
+
+<span class="n">Gender_FA</span> <span class="o">=</span> <span class="n">demographic_FA</span><span class="p">[</span><span class="s1">&#39;Sex&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+    
+<span class="n">ax</span> <span class="o">=</span> <span class="n">Group_FA</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="n">rot</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;orange&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Microstructural data&quot;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Gender&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Number of Participants&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">((</span><span class="s1">&#39;Male&#39;</span><span class="p">,</span> <span class="s1">&#39;Female&#39;</span><span class="p">))</span>
+
+
+<span class="k">for</span> <span class="n">rect</span> <span class="ow">in</span> <span class="n">ax</span><span class="o">.</span><span class="n">patches</span><span class="p">:</span>
+    <span class="n">y_value</span> <span class="o">=</span> <span class="n">rect</span><span class="o">.</span><span class="n">get_height</span><span class="p">()</span>
+    <span class="n">x_value</span> <span class="o">=</span> <span class="n">rect</span><span class="o">.</span><span class="n">get_x</span><span class="p">()</span> <span class="o">+</span> <span class="n">rect</span><span class="o">.</span><span class="n">get_width</span><span class="p">()</span> <span class="o">/</span> <span class="mi">2</span>
+    <span class="n">space</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">label</span> <span class="o">=</span> <span class="nb">format</span><span class="p">(</span><span class="n">y_value</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="p">(</span><span class="n">x_value</span><span class="p">,</span> <span class="n">y_value</span><span class="p">),</span> <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">space</span><span class="p">),</span> <span class="n">textcoords</span><span class="o">=</span><span class="s2">&quot;offset points&quot;</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;bottom&#39;</span><span class="p">)</span>    
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/a81d5b5a7b18267986b4c4cc0d7d80e30004b50f4dfee51814bff3df84fd11c3.png" src="../_images/a81d5b5a7b18267986b4c4cc0d7d80e30004b50f4dfee51814bff3df84fd11c3.png" />
+<img alt="../_images/8e7a35326068cc41f9add106e05878e6aeeaf79514c895d47c98bf16eb0733e5.png" src="../_images/8e7a35326068cc41f9add106e05878e6aeeaf79514c895d47c98bf16eb0733e5.png" />
+</div>
+</div>
+<p>Again, as the plots show, there are more males than females for both <strong>macrostructural</strong> and <strong>microstructural</strong> data.</p>
+</section>
+<section id="age">
+<h4>1.1.2 Age<a class="headerlink" href="#age" title="Permalink to this heading">#</a></h4>
+<p>To get an inital idea of how the age distribution is for the <strong>macrostructural</strong> data, we can run the following command. Second, to have a look on how the ages differ within the groups, we can use raincloud plots.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#get age information</span>
@@ -747,33 +784,86 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>count    108.000000
+mean      31.231481
+std       10.911373
+min       18.000000
+25%       22.000000
+50%       29.000000
+75%       38.250000
+max       64.000000
+Name: Age, dtype: float64
+</pre></div>
 </div>
-<p>To sum up the demographic data, for the <strong>CT</strong> data within the Dublin sample there is n=80 controls and n=28 patients, a total of N=108 participants of which n=60 are males and n=48 females. The mean age is M=31.23 years with a standard deviation of SD=10.91 years. The age ranges from min=18 years to max=64 years.</p>
+</div>
+</div>
+<p><span style="color:red">NOTE!</span> To be able to run the raincloud plots, ptitprince has to be installed. If you didn’t install ptitprince yet, run the following cell and remove the #.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#n of control and patients</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">demographic_DWI</span><span class="p">[</span><span class="s1">&#39;Group&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">())</span> 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="ch">#!pip install ptitprince</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#n of males and females</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">demographic_DWI</span><span class="p">[</span><span class="s1">&#39;Sex&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">())</span> 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">ptitprince</span> <span class="kn">import</span> <span class="n">PtitPrince</span> <span class="k">as</span> <span class="n">pt</span>
+
+<span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">11</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Age Distribution in Control and Patient Group for Macrostructural Data&#39;</span><span class="p">)</span>
+
+<span class="n">pt</span><span class="o">.</span><span class="n">RainCloud</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">demographic_CT</span> <span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;Group&quot;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;Age&quot;</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">ax</span><span class="p">,</span> <span class="n">orient</span><span class="o">=</span><span class="s1">&#39;h&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:title={&#39;center&#39;:&#39;Age Distribution in Control and Patient Group for Macrostructural Data&#39;}, xlabel=&#39;Age&#39;, ylabel=&#39;Group&#39;&gt;
+</pre></div>
+</div>
+<img alt="../_images/f8f308e96bd47748115857f7c067dfd253e10f6e986d3ecba81cbfe796e73cb6.png" src="../_images/f8f308e96bd47748115857f7c067dfd253e10f6e986d3ecba81cbfe796e73cb6.png" />
+</div>
+</div>
+<p>Now, the same is done for the <strong>microstructural</strong> data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">demographic_FA</span><span class="p">[</span><span class="s1">&#39;Age&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>count    115.000000
+mean      36.043478
+std       12.895934
+min       19.000000
+25%       25.000000
+50%       34.000000
+75%       43.000000
+max       64.000000
+Name: Age, dtype: float64
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#get age information</span>
-<span class="n">demographic_DWI</span><span class="p">[</span><span class="s1">&#39;Age&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">11</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Age Distribution in Control and Patient Group for Microstructural Data&#39;</span><span class="p">)</span>
+
+<span class="n">pt</span><span class="o">.</span><span class="n">RainCloud</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">demographic_FA</span> <span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;Group&quot;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot;Age&quot;</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">ax</span><span class="p">,</span> <span class="n">orient</span><span class="o">=</span><span class="s1">&#39;h&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:title={&#39;center&#39;:&#39;Age Distribution in Control and Patient Group for Microstructural Data&#39;}, xlabel=&#39;Age&#39;, ylabel=&#39;Group&#39;&gt;
+</pre></div>
 </div>
-<p>The <strong>DWI data</strong> subset for the Dublin sample consists of a total of N=123 particpants with n=56 being control and n=64 patients. There are n=66 males and n=57 females. The mean age is M=28.46 years with a standard deviation of SD=8.52 years. The age ranges from min=17 years to max=50 years.</p>
+<img alt="../_images/94d3b40b93eb2401bc5dde8e16d758d951cb09a2aaba4d2464401a420b6f7d67.png" src="../_images/94d3b40b93eb2401bc5dde8e16d758d951cb09a2aaba4d2464401a420b6f7d67.png" />
+</div>
+</div>
+<p>As both plots show for both MRI metrics, the patient group involves participants that seem to be older in average</p>
+</section>
+</section>
 </section>
 <section id="exploring-the-different-modalities">
 <h2>2. Exploring the different modalities<a class="headerlink" href="#exploring-the-different-modalities" title="Permalink to this heading">#</a></h2>
@@ -1219,92 +1309,6 @@ Now, having visualized the used atlas with its regions and according labels, we 
 </div>
 </section>
 </section>
-<section id="dti-networks">
-<h2>3.1 DTI Networks<a class="headerlink" href="#dti-networks" title="Permalink to this heading">#</a></h2>
-<p>First of all, I am going to explore the DTI network data, followed by the regional MD and FA values and lastly the CT data.</p>
-<p>The data that contains the DTI networks are available as matlab files. In the following, it is depicted how the matlab files can be downloaded and read.</p>
-<section id="download-the-mat-files">
-<h3>3.1.1 Download the .mat files<a class="headerlink" href="#download-the-mat-files" title="Permalink to this heading">#</a></h3>
-<p>If you click on the name of the matlab datafile on figshare , it then only shows you the preview of the matlab file and the link of that is for the respective preview. If you want to copy the link of the matlab file itself, you have to right-click on the datafile name and then copy the link.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">urllib.request</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Beginning file download with urllib2...&#39;</span><span class="p">)</span>
-
-<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://figshare.com/ndownloader/files/22782440&quot;</span>
-<span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlretrieve</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;../data/DTI_Dublin.mat&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="read-the-mat-files">
-<h3>3.1.2 Read the .mat files<a class="headerlink" href="#read-the-mat-files" title="Permalink to this heading">#</a></h3>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">scipy.io</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p><strong>Dublin</strong></p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">DTI_Dublin</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">loadmat</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;../data/DTI_Dublin.mat&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">DTI_Dublin</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">DTI_Dublin</span><span class="p">[</span><span class="s1">&#39;nostreamlines_new&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>123 Probanden mit DTI Matrizen.
-Wie sehen DTI Matrizen aus?</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">DTI_Dublin</span><span class="p">[</span><span class="s1">&#39;nostreamlines_new&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">DTI_Dublin</span><span class="p">[</span><span class="s1">&#39;nostreamlines_new&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Zwischen 308 Regionen basierend auf DTI Daten Werte (siehe course website, nochmal durchlesen!!)</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">7</span><span class="p">))</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">DTI_Dublin</span><span class="p">[</span><span class="s1">&#39;nostreamlines_new&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">xticklabels</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;rocket&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1368,15 +1372,18 @@ Wie sehen DTI Matrizen aus?</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#demographic-data">1. Demographic data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#demographic-data">1. Demographic data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-and-adjusting-the-macro-and-microstructural-data">1.1 Reading and adjusting the macro- and microstructural data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comparing-demographic-variables-for-the-macro-and-microstructural-data">1.1 Comparing demographic variables for the macro- and microstructural data</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gender">1.1.1 Gender</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#age">1.1.2 Age</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exploring-the-different-modalities">2. Exploring the different modalities</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#macro-structural-data-cortical-thickness-ct">2.1 Macro-structural data: cortical thickness (CT)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#micro-structural-data-mean-diffusivity-md-and-fractional-anisotropy-fa">3.2 Micro-structural data: mean diffusivity (MD) and fractional anisotropy (FA)</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dti-networks">3.1 DTI Networks</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#download-the-mat-files">3.1.1 Download the .mat files</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#read-the-mat-files">3.1.2 Read the .mat files</a></li>
 </ul>
 </li>
 </ul>
