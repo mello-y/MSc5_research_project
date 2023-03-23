@@ -647,6 +647,16 @@ Name: Subject ID, dtype: int64
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/mello/miniconda3/envs/neuro_ai/lib/python3.7/site-packages/ipykernel_launcher.py:3: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  This is separate from the ipykernel package so we can avoid doing imports until
+</pre></div>
+</div>
+</div>
 </div>
 <p>Since the demographic variables in the <strong>FA</strong> and <strong>MA</strong> dataframes are the same, in the following the <strong>FA</strong> dataframe is used to display demographic variables.</p>
 <div class="cell docutils container">
@@ -654,6 +664,16 @@ Name: Subject ID, dtype: int64
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#label group 1 as control and 2 as patient</span>
 
 <span class="n">demographic_FA</span><span class="p">[</span><span class="s1">&#39;Group&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">demographic_FA</span><span class="p">[</span><span class="s1">&#39;Group&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="s1">&#39;Control&#39;</span><span class="p">,</span> <span class="s1">&#39;Patient&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/mello/miniconda3/envs/neuro_ai/lib/python3.7/site-packages/ipykernel_launcher.py:3: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  This is separate from the ipykernel package so we can avoid doing imports until
 </pre></div>
 </div>
 </div>
@@ -801,7 +821,7 @@ Name: Age, dtype: float64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:title={&#39;center&#39;:&#39;Age Distribution in Control and Patient Group for Macrostructural Data&#39;}, xlabel=&#39;Age&#39;, ylabel=&#39;Group&#39;&gt;
 </pre></div>
 </div>
-<img alt="../_images/97b9a5907908c8ed8fe9f18803f964502ac9ad50fb050c86f05064767a95f36a.png" src="../_images/97b9a5907908c8ed8fe9f18803f964502ac9ad50fb050c86f05064767a95f36a.png" />
+<img alt="../_images/7e750ccb1fe5406fd67f8f378e280e53bdb96500d32283a94d72cdf9afedd1c2.png" src="../_images/7e750ccb1fe5406fd67f8f378e280e53bdb96500d32283a94d72cdf9afedd1c2.png" />
 </div>
 </div>
 <p>Now, the same is done for the <strong>microstructural</strong> data.</p>
@@ -838,7 +858,7 @@ Name: Age, dtype: float64
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:title={&#39;center&#39;:&#39;Age Distribution in Control and Patient Group for Microstructural Data&#39;}, xlabel=&#39;Age&#39;, ylabel=&#39;Group&#39;&gt;
 </pre></div>
 </div>
-<img alt="../_images/98285cd87c7c1ab249d70fc163bc82c764f0724ab991c49cd395186b85ea1df1.png" src="../_images/98285cd87c7c1ab249d70fc163bc82c764f0724ab991c49cd395186b85ea1df1.png" />
+<img alt="../_images/430f9cb029a52f4ab4f1ea6c276e186fd8631e070132682f7f209d72b38020b3.png" src="../_images/430f9cb029a52f4ab4f1ea6c276e186fd8631e070132682f7f209d72b38020b3.png" />
 </div>
 </div>
 <p>As both plots show for both MRI metrics, the patient group involves participants that seem to be older in average</p>
@@ -879,7 +899,7 @@ There is a <a class="reference external" href="https://github.com/RafaelRomeroGa
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;nilearn.plotting.displays._slicers.OrthoSlicer at 0x7f9baadb4e10&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;nilearn.plotting.displays._slicers.OrthoSlicer at 0x7ff320125518&gt;
 </pre></div>
 </div>
 <img alt="../_images/074844bb19b1a8358bca92fcb6a7d864aa00f62140ce810462bd5b5c164a723f.png" src="../_images/074844bb19b1a8358bca92fcb6a7d864aa00f62140ce810462bd5b5c164a723f.png" />
@@ -1809,6 +1829,8 @@ dtype: float64
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#plot mean of CT means</span>
 
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sb</span>
+
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">sb</span><span class="o">.</span><span class="n">violinplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">CT_means_T</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Group&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Cortical Thickness Means&#39;</span><span class="p">)</span>
@@ -1997,7 +2019,7 @@ dtype: float64
 </table>
 </div></div></div>
 </div>
-<p>The brain region is just one out of nine parts of the precentral gyrus in the right hemisphere. However, looking at the difference, it just seems very little.</p>
+<p>The brain region is just one out of nine parts of the precentral gyrus in the right hemisphere. Looking at the difference, it just seems very little. However, for the <strong>macro-structural</strong> data we can conclude that there is a loss of <strong>CT</strong> towards psychosis.</p>
 </section>
 <section id="micro-structural-data-mean-diffusivity-md-and-fractional-anisotropy-fa">
 <h3>3.2 Micro-structural data: mean diffusivity (MD) and fractional anisotropy (FA)<a class="headerlink" href="#micro-structural-data-mean-diffusivity-md-and-fractional-anisotropy-fa" title="Permalink to this heading">#</a></h3>
@@ -2006,7 +2028,7 @@ dtype: float64
 <p>In the following, the same procedure is done as for the <strong>CT</strong> data. First, we adjust the dataframes, compute the means and plot the differences between control and patients.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#adjust dataframe</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#adjust dataframes</span>
 
 <span class="n">MD_Dublin_ad</span> <span class="o">=</span> <span class="n">MD_Dublin</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;Subject ID&#39;</span><span class="p">,</span><span class="s1">&#39;Age&#39;</span><span class="p">,</span> <span class="s1">&#39;Sex&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
@@ -2015,6 +2037,7 @@ dtype: float64
 </div>
 </div>
 </div>
+<p>Again, the numbers indicating the group are renamed with the respective label.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">MD_Dublin_ad</span><span class="p">[</span><span class="s1">&#39;Group&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">MD_Dublin_ad</span><span class="p">[</span><span class="s1">&#39;Group&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="s1">&#39;Control&#39;</span><span class="p">,</span> <span class="s1">&#39;Patient&#39;</span><span class="p">])</span>
@@ -2024,17 +2047,135 @@ dtype: float64
 </div>
 </div>
 </div>
+<p>Now we can compute the mean for each brain region for controls and patients.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#compute means for patients and control in each brain region</span>
-
-<span class="n">MD_means</span> <span class="o">=</span> <span class="n">MD_Dublin_ad</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Group&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-
-<span class="n">FA_means</span> <span class="o">=</span> <span class="n">FA_Dublin_ad</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Group&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">MD_means</span> <span class="o">=</span> <span class="n">MD_Dublin_ad</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Group&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">MD_means</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>lh_bankssts_part1_thickness</th>
+      <th>lh_bankssts_part2_thickness</th>
+      <th>lh_caudalanteriorcingulate_part1_thickness</th>
+      <th>lh_caudalmiddlefrontal_part1_thickness</th>
+      <th>lh_caudalmiddlefrontal_part2_thickness</th>
+      <th>lh_caudalmiddlefrontal_part3_thickness</th>
+      <th>lh_caudalmiddlefrontal_part4_thickness</th>
+      <th>lh_cuneus_part1_thickness</th>
+      <th>lh_cuneus_part2_thickness</th>
+      <th>lh_entorhinal_part1_thickness</th>
+      <th>...</th>
+      <th>rh_supramarginal_part5_thickness</th>
+      <th>rh_supramarginal_part6_thickness</th>
+      <th>rh_supramarginal_part7_thickness</th>
+      <th>rh_frontalpole_part1_thickness</th>
+      <th>rh_temporalpole_part1_thickness</th>
+      <th>rh_transversetemporal_part1_thickness</th>
+      <th>rh_insula_part1_thickness</th>
+      <th>rh_insula_part2_thickness</th>
+      <th>rh_insula_part3_thickness</th>
+      <th>rh_insula_part4_thickness</th>
+    </tr>
+    <tr>
+      <th>Group</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Control</th>
+      <td>0.886598</td>
+      <td>0.890146</td>
+      <td>0.873439</td>
+      <td>0.919476</td>
+      <td>0.858488</td>
+      <td>0.888854</td>
+      <td>0.943110</td>
+      <td>0.953671</td>
+      <td>0.960768</td>
+      <td>0.927415</td>
+      <td>...</td>
+      <td>0.913402</td>
+      <td>0.969293</td>
+      <td>0.976659</td>
+      <td>0.921305</td>
+      <td>1.074159</td>
+      <td>1.046293</td>
+      <td>1.073183</td>
+      <td>0.911683</td>
+      <td>0.914988</td>
+      <td>0.933293</td>
+    </tr>
+    <tr>
+      <th>Patient</th>
+      <td>0.920545</td>
+      <td>0.920939</td>
+      <td>0.906485</td>
+      <td>0.965030</td>
+      <td>0.879091</td>
+      <td>0.931667</td>
+      <td>0.997727</td>
+      <td>1.025030</td>
+      <td>1.003879</td>
+      <td>0.985485</td>
+      <td>...</td>
+      <td>0.939303</td>
+      <td>0.997000</td>
+      <td>1.017303</td>
+      <td>0.989152</td>
+      <td>1.248970</td>
+      <td>1.135364</td>
+      <td>1.206697</td>
+      <td>0.965242</td>
+      <td>0.981182</td>
+      <td>1.001848</td>
+    </tr>
+  </tbody>
+</table>
+<p>2 rows × 308 columns</p>
+</div></div></div>
 </div>
+<p>Interestingly, we see that <strong>MD</strong> seems to be higher in patients than in controls. To get an idea of the overall <strong>MD</strong>, we compute the mean of the means of the brain regions for both groups.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#mean of means of mean diffusivity for control and patients</span>
@@ -2054,6 +2195,134 @@ dtype: float64
 </div>
 </div>
 <p>The values indicate that the control group has a lower average mean diffusivity compared to patients.</p>
+<p>Now, we will have a look at <strong>FA</strong>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">FA_means</span> <span class="o">=</span> <span class="n">FA_Dublin_ad</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Group&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">FA_means</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>lh_bankssts_part1_thickness</th>
+      <th>lh_bankssts_part2_thickness</th>
+      <th>lh_caudalanteriorcingulate_part1_thickness</th>
+      <th>lh_caudalmiddlefrontal_part1_thickness</th>
+      <th>lh_caudalmiddlefrontal_part2_thickness</th>
+      <th>lh_caudalmiddlefrontal_part3_thickness</th>
+      <th>lh_caudalmiddlefrontal_part4_thickness</th>
+      <th>lh_cuneus_part1_thickness</th>
+      <th>lh_cuneus_part2_thickness</th>
+      <th>lh_entorhinal_part1_thickness</th>
+      <th>...</th>
+      <th>rh_supramarginal_part5_thickness</th>
+      <th>rh_supramarginal_part6_thickness</th>
+      <th>rh_supramarginal_part7_thickness</th>
+      <th>rh_frontalpole_part1_thickness</th>
+      <th>rh_temporalpole_part1_thickness</th>
+      <th>rh_transversetemporal_part1_thickness</th>
+      <th>rh_insula_part1_thickness</th>
+      <th>rh_insula_part2_thickness</th>
+      <th>rh_insula_part3_thickness</th>
+      <th>rh_insula_part4_thickness</th>
+    </tr>
+    <tr>
+      <th>Group</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Control</th>
+      <td>0.318866</td>
+      <td>0.157451</td>
+      <td>0.218463</td>
+      <td>0.157512</td>
+      <td>0.174805</td>
+      <td>0.147061</td>
+      <td>0.144451</td>
+      <td>0.135451</td>
+      <td>0.148573</td>
+      <td>0.213183</td>
+      <td>...</td>
+      <td>0.151720</td>
+      <td>0.137244</td>
+      <td>0.136427</td>
+      <td>0.223732</td>
+      <td>0.193293</td>
+      <td>0.135671</td>
+      <td>0.156598</td>
+      <td>0.155098</td>
+      <td>0.151024</td>
+      <td>0.143634</td>
+    </tr>
+    <tr>
+      <th>Patient</th>
+      <td>0.304939</td>
+      <td>0.157788</td>
+      <td>0.220758</td>
+      <td>0.156121</td>
+      <td>0.177636</td>
+      <td>0.147818</td>
+      <td>0.143879</td>
+      <td>0.124909</td>
+      <td>0.140182</td>
+      <td>0.212152</td>
+      <td>...</td>
+      <td>0.146455</td>
+      <td>0.134091</td>
+      <td>0.133909</td>
+      <td>0.230152</td>
+      <td>0.194030</td>
+      <td>0.141606</td>
+      <td>0.149121</td>
+      <td>0.158455</td>
+      <td>0.147667</td>
+      <td>0.142030</td>
+    </tr>
+  </tbody>
+</table>
+<p>2 rows × 308 columns</p>
+</div></div></div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#mean of means of fractional anisotropy for control and patients</span>
@@ -2072,7 +2341,7 @@ dtype: float64
 </div>
 </div>
 </div>
-<p>The values indicate that the patient group has a lower mean fractional anisotropy compared to patients.</p>
+<p>The values indicate that the patient group has a lower mean fractional anisotropy compared to patients. To plot these means, again the columns and rows has to be switched.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#switch colums and rows</span>
@@ -2082,186 +2351,6 @@ dtype: float64
 </pre></div>
 </div>
 </div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">MD_means_T</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th>Group</th>
-      <th>Control</th>
-      <th>Patient</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>lh_bankssts_part1_thickness</th>
-      <td>0.886598</td>
-      <td>0.920545</td>
-    </tr>
-    <tr>
-      <th>lh_bankssts_part2_thickness</th>
-      <td>0.890146</td>
-      <td>0.920939</td>
-    </tr>
-    <tr>
-      <th>lh_caudalanteriorcingulate_part1_thickness</th>
-      <td>0.873439</td>
-      <td>0.906485</td>
-    </tr>
-    <tr>
-      <th>lh_caudalmiddlefrontal_part1_thickness</th>
-      <td>0.919476</td>
-      <td>0.965030</td>
-    </tr>
-    <tr>
-      <th>lh_caudalmiddlefrontal_part2_thickness</th>
-      <td>0.858488</td>
-      <td>0.879091</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>rh_transversetemporal_part1_thickness</th>
-      <td>1.046293</td>
-      <td>1.135364</td>
-    </tr>
-    <tr>
-      <th>rh_insula_part1_thickness</th>
-      <td>1.073183</td>
-      <td>1.206697</td>
-    </tr>
-    <tr>
-      <th>rh_insula_part2_thickness</th>
-      <td>0.911683</td>
-      <td>0.965242</td>
-    </tr>
-    <tr>
-      <th>rh_insula_part3_thickness</th>
-      <td>0.914988</td>
-      <td>0.981182</td>
-    </tr>
-    <tr>
-      <th>rh_insula_part4_thickness</th>
-      <td>0.933293</td>
-      <td>1.001848</td>
-    </tr>
-  </tbody>
-</table>
-<p>308 rows × 2 columns</p>
-</div></div></div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">FA_means_T</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th>Group</th>
-      <th>Control</th>
-      <th>Patient</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>lh_bankssts_part1_thickness</th>
-      <td>0.318866</td>
-      <td>0.304939</td>
-    </tr>
-    <tr>
-      <th>lh_bankssts_part2_thickness</th>
-      <td>0.157451</td>
-      <td>0.157788</td>
-    </tr>
-    <tr>
-      <th>lh_caudalanteriorcingulate_part1_thickness</th>
-      <td>0.218463</td>
-      <td>0.220758</td>
-    </tr>
-    <tr>
-      <th>lh_caudalmiddlefrontal_part1_thickness</th>
-      <td>0.157512</td>
-      <td>0.156121</td>
-    </tr>
-    <tr>
-      <th>lh_caudalmiddlefrontal_part2_thickness</th>
-      <td>0.174805</td>
-      <td>0.177636</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>rh_transversetemporal_part1_thickness</th>
-      <td>0.135671</td>
-      <td>0.141606</td>
-    </tr>
-    <tr>
-      <th>rh_insula_part1_thickness</th>
-      <td>0.156598</td>
-      <td>0.149121</td>
-    </tr>
-    <tr>
-      <th>rh_insula_part2_thickness</th>
-      <td>0.155098</td>
-      <td>0.158455</td>
-    </tr>
-    <tr>
-      <th>rh_insula_part3_thickness</th>
-      <td>0.151024</td>
-      <td>0.147667</td>
-    </tr>
-    <tr>
-      <th>rh_insula_part4_thickness</th>
-      <td>0.143634</td>
-      <td>0.142030</td>
-    </tr>
-  </tbody>
-</table>
-<p>308 rows × 2 columns</p>
-</div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2281,9 +2370,10 @@ dtype: float64
 <img alt="../_images/4b58821dd3e2a5e1c03fe300b868e294b9c266acaeaf0494f64a67019989db0e.png" src="../_images/4b58821dd3e2a5e1c03fe300b868e294b9c266acaeaf0494f64a67019989db0e.png" />
 </div>
 </div>
+<p>The violin plot also shows that the <strong>MD</strong> means for controls are lower. While the mean values for <strong>FA</strong> does not to seem to differ remarkably, they are also plotted for a better imagination.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#plot the MD means</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#plot the FA means</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">sb</span><span class="o">.</span><span class="n">violinplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">FA_means</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
@@ -2299,34 +2389,15 @@ dtype: float64
 <img alt="../_images/f2364397fe613856db761c437ab75c78ab04c920b5e0fbfb4feae80568424e64.png" src="../_images/f2364397fe613856db761c437ab75c78ab04c920b5e0fbfb4feae80568424e64.png" />
 </div>
 </div>
-<p>Group differences</p>
+<p>Coherently with the mean values, the <strong>FA</strong> means seem to be rather similar.</p>
+<p>Next, we will again look for whether all brain regions show an effect in the same direction as it was for <strong>CT</strong> the case. For that, the differences in the means of patient and control group is computed and their distribution plotted.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#compute difference</span>
 
-<span class="n">x_MD</span> <span class="o">=</span> <span class="n">MD_means_T</span><span class="p">[</span><span class="s1">&#39;Difference&#39;</span><span class="p">]</span>
+<span class="n">MD_means_T</span><span class="p">[</span><span class="s1">&#39;Difference&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">MD_means_T</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">MD_means_T</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span>
 
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
-
-<span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">bars</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">MD_means_T</span><span class="p">[</span><span class="s1">&#39;Difference&#39;</span><span class="p">],</span> <span class="n">bins</span> <span class="o">=</span> <span class="mi">308</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;C0&quot;</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">bar</span> <span class="ow">in</span> <span class="n">bars</span><span class="p">:</span>
-    <span class="k">if</span> <span class="n">bar</span><span class="o">.</span><span class="n">get_x</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="n">bar</span><span class="o">.</span><span class="n">set_facecolor</span><span class="p">(</span><span class="s2">&quot;C1&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Difference of Mean Diffusivity Means&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Amount of Brain Regions&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;grey&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/c280cb696d2575a966af91322f174e2dc77054dd1ad95d4d0cf7eae774477cb5.png" src="../_images/c280cb696d2575a966af91322f174e2dc77054dd1ad95d4d0cf7eae774477cb5.png" />
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">MD_means_T</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">MD_means_T</span><span class="p">[</span><span class="s1">&#39;Difference&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">]</span>
+<span class="n">MD_means_T</span>
 </pre></div>
 </div>
 </div>
@@ -2356,115 +2427,74 @@ dtype: float64
   </thead>
   <tbody>
     <tr>
-      <th>lh_inferiortemporal_part4_thickness</th>
-      <td>0.855829</td>
-      <td>0.854818</td>
-      <td>0.001011</td>
+      <th>lh_bankssts_part1_thickness</th>
+      <td>0.886598</td>
+      <td>0.920545</td>
+      <td>-0.033948</td>
     </tr>
     <tr>
-      <th>lh_lateraloccipital_part5_thickness</th>
-      <td>1.087037</td>
-      <td>1.054606</td>
-      <td>0.032431</td>
+      <th>lh_bankssts_part2_thickness</th>
+      <td>0.890146</td>
+      <td>0.920939</td>
+      <td>-0.030793</td>
     </tr>
     <tr>
-      <th>lh_lateraloccipital_part6_thickness</th>
-      <td>0.907402</td>
-      <td>0.888455</td>
-      <td>0.018948</td>
+      <th>lh_caudalanteriorcingulate_part1_thickness</th>
+      <td>0.873439</td>
+      <td>0.906485</td>
+      <td>-0.033046</td>
     </tr>
     <tr>
-      <th>lh_lateraloccipital_part8_thickness</th>
-      <td>0.925695</td>
-      <td>0.891939</td>
-      <td>0.033756</td>
+      <th>lh_caudalmiddlefrontal_part1_thickness</th>
+      <td>0.919476</td>
+      <td>0.965030</td>
+      <td>-0.045555</td>
     </tr>
     <tr>
-      <th>lh_lateraloccipital_part9_thickness</th>
-      <td>0.969159</td>
-      <td>0.938515</td>
-      <td>0.030643</td>
+      <th>lh_caudalmiddlefrontal_part2_thickness</th>
+      <td>0.858488</td>
+      <td>0.879091</td>
+      <td>-0.020603</td>
     </tr>
     <tr>
-      <th>lh_postcentral_part1_thickness</th>
-      <td>1.276159</td>
-      <td>1.220030</td>
-      <td>0.056128</td>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
     </tr>
     <tr>
-      <th>lh_precentral_part5_thickness</th>
-      <td>0.986951</td>
-      <td>0.980424</td>
-      <td>0.006527</td>
+      <th>rh_transversetemporal_part1_thickness</th>
+      <td>1.046293</td>
+      <td>1.135364</td>
+      <td>-0.089071</td>
     </tr>
     <tr>
-      <th>lh_precuneus_part2_thickness</th>
-      <td>1.048524</td>
-      <td>1.034576</td>
-      <td>0.013949</td>
+      <th>rh_insula_part1_thickness</th>
+      <td>1.073183</td>
+      <td>1.206697</td>
+      <td>-0.133514</td>
     </tr>
     <tr>
-      <th>lh_superiorparietal_part1_thickness</th>
-      <td>0.999524</td>
-      <td>0.993727</td>
-      <td>0.005797</td>
+      <th>rh_insula_part2_thickness</th>
+      <td>0.911683</td>
+      <td>0.965242</td>
+      <td>-0.053559</td>
     </tr>
     <tr>
-      <th>rh_lateraloccipital_part1_thickness</th>
-      <td>1.078963</td>
-      <td>1.046515</td>
-      <td>0.032448</td>
+      <th>rh_insula_part3_thickness</th>
+      <td>0.914988</td>
+      <td>0.981182</td>
+      <td>-0.066194</td>
     </tr>
     <tr>
-      <th>rh_lateraloccipital_part5_thickness</th>
-      <td>0.926024</td>
-      <td>0.914970</td>
-      <td>0.011055</td>
-    </tr>
-    <tr>
-      <th>rh_lateraloccipital_part7_thickness</th>
-      <td>0.883988</td>
-      <td>0.878061</td>
-      <td>0.005927</td>
-    </tr>
-    <tr>
-      <th>rh_lateraloccipital_part8_thickness</th>
-      <td>0.972439</td>
-      <td>0.945788</td>
-      <td>0.026651</td>
-    </tr>
-    <tr>
-      <th>rh_lingual_part2_thickness</th>
-      <td>1.057695</td>
-      <td>1.014485</td>
-      <td>0.043210</td>
-    </tr>
-    <tr>
-      <th>rh_postcentral_part1_thickness</th>
-      <td>1.286098</td>
-      <td>1.209879</td>
-      <td>0.076219</td>
-    </tr>
-    <tr>
-      <th>rh_precuneus_part3_thickness</th>
-      <td>1.022220</td>
-      <td>1.006121</td>
-      <td>0.016098</td>
-    </tr>
-    <tr>
-      <th>rh_superiorparietal_part2_thickness</th>
-      <td>1.013451</td>
-      <td>1.002394</td>
-      <td>0.011057</td>
-    </tr>
-    <tr>
-      <th>rh_superiorparietal_part6_thickness</th>
-      <td>1.088402</td>
-      <td>1.066879</td>
-      <td>0.021524</td>
+      <th>rh_insula_part4_thickness</th>
+      <td>0.933293</td>
+      <td>1.001848</td>
+      <td>-0.068556</td>
     </tr>
   </tbody>
 </table>
+<p>308 rows × 3 columns</p>
 </div></div></div>
 </div>
 <div class="cell docutils container">
@@ -2472,15 +2502,15 @@ dtype: float64
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
-<span class="n">x_FA</span> <span class="o">=</span> <span class="n">FA_means_T</span><span class="p">[</span><span class="s1">&#39;Difference&#39;</span><span class="p">]</span>
+<span class="n">x_MD</span> <span class="o">=</span> <span class="n">MD_means_T</span><span class="p">[</span><span class="s1">&#39;Difference&#39;</span><span class="p">]</span>
 
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
 
-<span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">bars</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">FA_means_T</span><span class="p">[</span><span class="s1">&#39;Difference&#39;</span><span class="p">],</span> <span class="n">bins</span> <span class="o">=</span> <span class="mi">308</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;C0&quot;</span><span class="p">)</span>
+<span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">bars</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">MD_means_T</span><span class="p">[</span><span class="s1">&#39;Difference&#39;</span><span class="p">],</span> <span class="n">bins</span> <span class="o">=</span> <span class="mi">308</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;C0&quot;</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">bar</span> <span class="ow">in</span> <span class="n">bars</span><span class="p">:</span>
     <span class="k">if</span> <span class="n">bar</span><span class="o">.</span><span class="n">get_x</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
         <span class="n">bar</span><span class="o">.</span><span class="n">set_facecolor</span><span class="p">(</span><span class="s2">&quot;C1&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Difference of Cortical Thickness Means&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Difference of Mean Diffusivity Means&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Amount of Brain Regions&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;grey&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -2488,12 +2518,48 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/2bbaf9c296dfa39081bc500060427f11c75d96bcbab17bc047dc463912cc4b17.png" src="../_images/2bbaf9c296dfa39081bc500060427f11c75d96bcbab17bc047dc463912cc4b17.png" />
+<img alt="../_images/c280cb696d2575a966af91322f174e2dc77054dd1ad95d4d0cf7eae774477cb5.png" src="../_images/c280cb696d2575a966af91322f174e2dc77054dd1ad95d4d0cf7eae774477cb5.png" />
 </div>
 </div>
+<p>As it can be seen, the majority of the brain regions show increased <strong>MD</strong> in patients. The brain regions that seem to be higher in <strong>MD</strong> in controls are the following:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">FA_means_T</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">FA_means_T</span><span class="p">[</span><span class="s1">&#39;Difference&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">MD_means_T</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">MD_means_T</span><span class="p">[</span><span class="s1">&#39;Difference&#39;</span><span class="p">]</span>  <span class="o">&gt;</span> <span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Group                                 Control   Patient  Difference
+lh_inferiortemporal_part4_thickness  0.855829  0.854818    0.001011
+lh_lateraloccipital_part5_thickness  1.087037  1.054606    0.032431
+lh_lateraloccipital_part6_thickness  0.907402  0.888455    0.018948
+lh_lateraloccipital_part8_thickness  0.925695  0.891939    0.033756
+lh_lateraloccipital_part9_thickness  0.969159  0.938515    0.030643
+lh_postcentral_part1_thickness       1.276159  1.220030    0.056128
+lh_precentral_part5_thickness        0.986951  0.980424    0.006527
+lh_precuneus_part2_thickness         1.048524  1.034576    0.013949
+lh_superiorparietal_part1_thickness  0.999524  0.993727    0.005797
+rh_lateraloccipital_part1_thickness  1.078963  1.046515    0.032448
+rh_lateraloccipital_part5_thickness  0.926024  0.914970    0.011055
+rh_lateraloccipital_part7_thickness  0.883988  0.878061    0.005927
+rh_lateraloccipital_part8_thickness  0.972439  0.945788    0.026651
+rh_lingual_part2_thickness           1.057695  1.014485    0.043210
+rh_postcentral_part1_thickness       1.286098  1.209879    0.076219
+rh_precuneus_part3_thickness         1.022220  1.006121    0.016098
+rh_superiorparietal_part2_thickness  1.013451  1.002394    0.011057
+rh_superiorparietal_part6_thickness  1.088402  1.066879    0.021524
+</pre></div>
+</div>
+</div>
+</div>
+<p>Given the mean of  <strong>FA</strong> means, the distriubtion of their differences might be more ambigious. However, let’s check this.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#compute difference</span>
+
+<span class="n">FA_means_T</span><span class="p">[</span><span class="s1">&#39;Difference&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">FA_means_T</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">FA_means_T</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="n">FA_means_T</span>
 </pre></div>
 </div>
 </div>
@@ -2529,28 +2595,28 @@ dtype: float64
       <td>0.013926</td>
     </tr>
     <tr>
+      <th>lh_bankssts_part2_thickness</th>
+      <td>0.157451</td>
+      <td>0.157788</td>
+      <td>-0.000337</td>
+    </tr>
+    <tr>
+      <th>lh_caudalanteriorcingulate_part1_thickness</th>
+      <td>0.218463</td>
+      <td>0.220758</td>
+      <td>-0.002294</td>
+    </tr>
+    <tr>
       <th>lh_caudalmiddlefrontal_part1_thickness</th>
       <td>0.157512</td>
       <td>0.156121</td>
       <td>0.001391</td>
     </tr>
     <tr>
-      <th>lh_caudalmiddlefrontal_part4_thickness</th>
-      <td>0.144451</td>
-      <td>0.143879</td>
-      <td>0.000572</td>
-    </tr>
-    <tr>
-      <th>lh_cuneus_part1_thickness</th>
-      <td>0.135451</td>
-      <td>0.124909</td>
-      <td>0.010542</td>
-    </tr>
-    <tr>
-      <th>lh_cuneus_part2_thickness</th>
-      <td>0.148573</td>
-      <td>0.140182</td>
-      <td>0.008391</td>
+      <th>lh_caudalmiddlefrontal_part2_thickness</th>
+      <td>0.174805</td>
+      <td>0.177636</td>
+      <td>-0.002831</td>
     </tr>
     <tr>
       <th>...</th>
@@ -2559,22 +2625,22 @@ dtype: float64
       <td>...</td>
     </tr>
     <tr>
-      <th>rh_supramarginal_part6_thickness</th>
-      <td>0.137244</td>
-      <td>0.134091</td>
-      <td>0.003153</td>
-    </tr>
-    <tr>
-      <th>rh_supramarginal_part7_thickness</th>
-      <td>0.136427</td>
-      <td>0.133909</td>
-      <td>0.002518</td>
+      <th>rh_transversetemporal_part1_thickness</th>
+      <td>0.135671</td>
+      <td>0.141606</td>
+      <td>-0.005935</td>
     </tr>
     <tr>
       <th>rh_insula_part1_thickness</th>
       <td>0.156598</td>
       <td>0.149121</td>
       <td>0.007476</td>
+    </tr>
+    <tr>
+      <th>rh_insula_part2_thickness</th>
+      <td>0.155098</td>
+      <td>0.158455</td>
+      <td>-0.003357</td>
     </tr>
     <tr>
       <th>rh_insula_part3_thickness</th>
@@ -2590,9 +2656,138 @@ dtype: float64
     </tr>
   </tbody>
 </table>
-<p>188 rows × 3 columns</p>
+<p>308 rows × 3 columns</p>
 </div></div></div>
 </div>
+<p>The “Difference” Column already shows mixed directions. To visualize that, we run the following code.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">x_FA</span> <span class="o">=</span> <span class="n">FA_means_T</span><span class="p">[</span><span class="s1">&#39;Difference&#39;</span><span class="p">]</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+
+<span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">bars</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">FA_means_T</span><span class="p">[</span><span class="s1">&#39;Difference&#39;</span><span class="p">],</span> <span class="n">bins</span> <span class="o">=</span> <span class="mi">308</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;C0&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">bar</span> <span class="ow">in</span> <span class="n">bars</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">bar</span><span class="o">.</span><span class="n">get_x</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">bar</span><span class="o">.</span><span class="n">set_facecolor</span><span class="p">(</span><span class="s2">&quot;C1&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Difference of Fractional Anisotropy Means&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Amount of Brain Regions&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;grey&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/47c0edf40c1eda49008db7e4ead9a0f3eac36ccd91d7ae94973a3a048f689cb9.png" src="../_images/47c0edf40c1eda49008db7e4ead9a0f3eac36ccd91d7ae94973a3a048f689cb9.png" />
+</div>
+</div>
+<p>The distribution of the means here is not to clear as it was for <strong>CT</strong> and <strong>MD</strong> the case. Overall it can be said that the directions are mixed, however, what can be seen is that there is a little tendency of more decrease in <strong>FA</strong> for patients. The brain regions higher in <strong>FA</strong> for patients can be returned with the following code.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">FA_means_T</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">FA_means_T</span><span class="p">[</span><span class="s1">&#39;Difference&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Group</th>
+      <th>Control</th>
+      <th>Patient</th>
+      <th>Difference</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>lh_bankssts_part2_thickness</th>
+      <td>0.157451</td>
+      <td>0.157788</td>
+      <td>-0.000337</td>
+    </tr>
+    <tr>
+      <th>lh_caudalanteriorcingulate_part1_thickness</th>
+      <td>0.218463</td>
+      <td>0.220758</td>
+      <td>-0.002294</td>
+    </tr>
+    <tr>
+      <th>lh_caudalmiddlefrontal_part2_thickness</th>
+      <td>0.174805</td>
+      <td>0.177636</td>
+      <td>-0.002831</td>
+    </tr>
+    <tr>
+      <th>lh_caudalmiddlefrontal_part3_thickness</th>
+      <td>0.147061</td>
+      <td>0.147818</td>
+      <td>-0.000757</td>
+    </tr>
+    <tr>
+      <th>lh_fusiform_part2_thickness</th>
+      <td>0.234183</td>
+      <td>0.234909</td>
+      <td>-0.000726</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>rh_supramarginal_part4_thickness</th>
+      <td>0.131000</td>
+      <td>0.134455</td>
+      <td>-0.003455</td>
+    </tr>
+    <tr>
+      <th>rh_frontalpole_part1_thickness</th>
+      <td>0.223732</td>
+      <td>0.230152</td>
+      <td>-0.006420</td>
+    </tr>
+    <tr>
+      <th>rh_temporalpole_part1_thickness</th>
+      <td>0.193293</td>
+      <td>0.194030</td>
+      <td>-0.000738</td>
+    </tr>
+    <tr>
+      <th>rh_transversetemporal_part1_thickness</th>
+      <td>0.135671</td>
+      <td>0.141606</td>
+      <td>-0.005935</td>
+    </tr>
+    <tr>
+      <th>rh_insula_part2_thickness</th>
+      <td>0.155098</td>
+      <td>0.158455</td>
+      <td>-0.003357</td>
+    </tr>
+  </tbody>
+</table>
+<p>120 rows × 3 columns</p>
+</div></div></div>
+</div>
+<p>This was the data exploration section analyzing basic demographic variables and the distribution of differences in brain areas between controls and patients. The following pages deal with the application of machine learning algorithms to our data.</p>
 </section>
 </section>
 </section>
