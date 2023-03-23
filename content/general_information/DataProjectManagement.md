@@ -56,6 +56,14 @@ In the following, information on projectmanagement-related aspects are provided.
 Version control makes it feasible to monitor and track the progress in projects. Changes made with progress, version control allows to access different versions of the files. 
 In this project, Git is used for version control and Github as an online platform to document this project. The respective repository can be accessed [here](https://github.com/mello-y/MSc5_research_project). The project is also documented on [OSF](https://osf.io/g8j2c/).
 
+### Computational Environment
+
+To ensure the reproducibility of this project and code, there is a requirements_code.txt file in the content/code folder of repository. This file contains all the packages and modules that are needed to run the code. To install the modules, the file can be downloaded from the repository. To create the same computational environment, create a new conda environment (for further information on conda environments see [here](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html)). When the conda environment is created, activate it and run the following command in the terminal:
+
+```bash pip install -r requirements_code.txt ```
+
+Now, you should be set up with all the neccessary modules and packages to run the code. 
+
 ### Openlab notebook
 
 The openlab notebook serves the purpose of documenting the monthly progress of the project. It is structured in a way with a list of goals when working on the project and things to tackle working next time on the project. Click [here](https://mello-y.github.io/MSc5_research_project/open_lab_notebook/html) to get to the openlab notebook.
