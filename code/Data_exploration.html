@@ -419,16 +419,16 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#demographic-data">1. Demographic data</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-and-adjusting-the-macro-and-microstructural-data">1.1 Reading and adjusting the macro- and microstructural data</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comparing-demographic-variables-for-the-macro-and-microstructural-data">1.1 Comparing demographic variables for the macro- and microstructural data</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gender">1.1.1 Gender</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#age">1.1.2 Age</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comparing-demographic-variables-for-the-macro-and-microstructural-data">1.2 Comparing demographic variables for the macro- and microstructural data</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gender">1.2.1 Gender</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#age">1.2.2 Age</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exploring-the-different-mri-metrics">2. Exploring the different MRI metrics</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#macro-structural-data-cortical-thickness-ct">2.1 Macro-structural data: cortical thickness (CT)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#micro-structural-data-mean-diffusivity-md-and-fractional-anisotropy-fa">3.2 Micro-structural data: mean diffusivity (MD) and fractional anisotropy (FA)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#micro-structural-data-mean-diffusivity-md-and-fractional-anisotropy-fa">2.2 Micro-structural data: mean diffusivity (MD) and fractional anisotropy (FA)</a></li>
 </ul>
 </li>
 </ul>
@@ -636,7 +636,7 @@ Name: Subject ID, dtype: int64
 <p>As the output shows, the participants in the <strong>CT</strong> and the <strong>MD</strong> and <strong>FA</strong> dataframe are not entirely identical. So both MRI metrics are not measured for the same participants. Subsequently, for the comparison of the demographical data both dataframes are going to be used.</p>
 </section>
 <section id="comparing-demographic-variables-for-the-macro-and-microstructural-data">
-<h3>1.1 Comparing demographic variables for the macro- and microstructural data<a class="headerlink" href="#comparing-demographic-variables-for-the-macro-and-microstructural-data" title="Permalink to this heading">#</a></h3>
+<h3>1.2 Comparing demographic variables for the macro- and microstructural data<a class="headerlink" href="#comparing-demographic-variables-for-the-macro-and-microstructural-data" title="Permalink to this heading">#</a></h3>
 <p>As already indicated above, the <strong>macrostructural</strong> data contains a total of N = 108 participants whereas the <strong>microstructural</strong> data was measured for a total of N = 115 participants. For n = 46 participants both MRI metrics were measured.</p>
 <p>Before comparing the demographic variables, first we will have a look at the amount of participants belongig to the control and patient group for both MRI metrics. The documentation on <a class="reference external" href="https://figshare.com/articles/dataset/Data_for_Functional_MRI_connectivity_accurately_distinguishes_cases_with_psychotic_disorders_from_healthy_controls_based_on_cortical_features_associated_with_brain_network_development_/12361550">figshare</a> provides label information for Group (1=control, 2=case). To make the following visualizations more self-explaining, the numbers indicating the group are replaced with the respective label.</p>
 <div class="cell docutils container">
@@ -726,7 +726,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 </div>
 <p>The plots clearly show an unequal distribution with more participants being controls for both <strong>macrostructural</strong> and <strong>microstructural</strong> data.</p>
 <section id="gender">
-<h4>1.1.1 Gender<a class="headerlink" href="#gender" title="Permalink to this heading">#</a></h4>
+<h4>1.2.1 Gender<a class="headerlink" href="#gender" title="Permalink to this heading">#</a></h4>
 <p>The documentation on <a class="reference external" href="https://figshare.com/articles/dataset/Data_for_Functional_MRI_connectivity_accurately_distinguishes_cases_with_psychotic_disorders_from_healthy_controls_based_on_cortical_features_associated_with_brain_network_development_/12361550">figshare</a> also provides label information for gender (1=male, 2=female). The code for visualizing the control and patients group can be adapted accordingly to show how many males and females</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -775,7 +775,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <p>Again, as the plots show, there are more males than females for both <strong>macrostructural</strong> and <strong>microstructural</strong> data.</p>
 </section>
 <section id="age">
-<h4>1.1.2 Age<a class="headerlink" href="#age" title="Permalink to this heading">#</a></h4>
+<h4>1.2.2 Age<a class="headerlink" href="#age" title="Permalink to this heading">#</a></h4>
 <p>To get an inital idea of how the age distribution is for the <strong>macrostructural</strong> data, we can run the following command. Second, to have a look on how the ages differ within the groups, we can use raincloud plots.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2022,7 +2022,7 @@ dtype: float64
 <p>The brain region is just one out of nine parts of the precentral gyrus in the right hemisphere. Looking at the difference, it just seems very little. However, for the <strong>macro-structural</strong> data we can conclude that there is a loss of <strong>CT</strong> towards psychosis.</p>
 </section>
 <section id="micro-structural-data-mean-diffusivity-md-and-fractional-anisotropy-fa">
-<h3>3.2 Micro-structural data: mean diffusivity (MD) and fractional anisotropy (FA)<a class="headerlink" href="#micro-structural-data-mean-diffusivity-md-and-fractional-anisotropy-fa" title="Permalink to this heading">#</a></h3>
+<h3>2.2 Micro-structural data: mean diffusivity (MD) and fractional anisotropy (FA)<a class="headerlink" href="#micro-structural-data-mean-diffusivity-md-and-fractional-anisotropy-fa" title="Permalink to this heading">#</a></h3>
 <p>In general, Diffusion MRI measures white matter fibres which makes it feasible to examine connections between different regions. For that, we look at how water diffuses in the brain which again provides information of the brain itself. The diffusion of water can be visualized as cloud if points which again can be approximated with a tensor model. Since there is a distinction in isotropic (characteristics are similar in all directions) vs anisotropic (characteristics e.g. faster in a given direction) diffusion, the tensor model might differ.</p>
 <p><strong>MD</strong> and <strong>FA</strong> are central characteristics of tensors. <strong>MD</strong> indicates how much diffusion there is inside a voxel. <strong>FA</strong> is a measurement of the anisotropy of diffusion with a value range between 0 and 1. While the a <strong>FA</strong> value of 0 stands for isotropic diffusion, the <strong>FA</strong> value of 1 indicates anisotropic diffusion.</p>
 <p>In the following, the same procedure is done as for the <strong>CT</strong> data. First, we adjust the dataframes, compute the means and plot the differences between control and patients.</p>
@@ -2855,16 +2855,16 @@ rh_superiorparietal_part6_thickness  1.088402  1.066879    0.021524
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#demographic-data">1. Demographic data</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-and-adjusting-the-macro-and-microstructural-data">1.1 Reading and adjusting the macro- and microstructural data</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comparing-demographic-variables-for-the-macro-and-microstructural-data">1.1 Comparing demographic variables for the macro- and microstructural data</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gender">1.1.1 Gender</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#age">1.1.2 Age</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comparing-demographic-variables-for-the-macro-and-microstructural-data">1.2 Comparing demographic variables for the macro- and microstructural data</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gender">1.2.1 Gender</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#age">1.2.2 Age</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exploring-the-different-mri-metrics">2. Exploring the different MRI metrics</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#macro-structural-data-cortical-thickness-ct">2.1 Macro-structural data: cortical thickness (CT)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#micro-structural-data-mean-diffusivity-md-and-fractional-anisotropy-fa">3.2 Micro-structural data: mean diffusivity (MD) and fractional anisotropy (FA)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#micro-structural-data-mean-diffusivity-md-and-fractional-anisotropy-fa">2.2 Micro-structural data: mean diffusivity (MD) and fractional anisotropy (FA)</a></li>
 </ul>
 </li>
 </ul>
