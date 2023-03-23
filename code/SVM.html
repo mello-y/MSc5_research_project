@@ -453,7 +453,7 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="support-vector-machine-svm">
 <h1>Support Vector Machine (SVM)<a class="headerlink" href="#support-vector-machine-svm" title="Permalink to this heading">#</a></h1>
-<p>In the Data.analysis notebook Logistic Regression pipielines were computed for classifying the participants either as control or patient.This notebook is a continuation of the Data.analysis notebook and serves the purpose of computing <strong>SVM</strong> pipelines for macro-structural and micro-structural data.</p>
+<p>This section is a continuation of the Logistic Regression section and serves the purpose of computing <strong>SVM</strong> pipelines for <strong>macro-structural</strong> and <strong>micro-structural</strong> data.</p>
 <section id="what-are-support-vector-machines-svms">
 <h2>1. What are Support Vector Machines (SVMs) ?<a class="headerlink" href="#what-are-support-vector-machines-svms" title="Permalink to this heading">#</a></h2>
 <p>SVMs are a set of supervised learning methods used that can be used for classifcation, regression and outliers detection (for further information click here). The basic idea is to find an optimal separating line (or hyperplane) as output that separates the data into two classes. The SVM algorithm looks for the data points that are the clostest to the line from both classes. These points are called support vectors. Then, the distance between the support vectors and the hyperplane which is called the margin is computed. To find the best and optimal hyperplane, the margin should be maximized.</p>
@@ -461,9 +461,10 @@ document.write(`
 </section>
 <section id="macro-structural-data-cortical-thickness-ct">
 <h2>2. Macro-structural data: Cortical Thickness (CT)<a class="headerlink" href="#macro-structural-data-cortical-thickness-ct" title="Permalink to this heading">#</a></h2>
-<p>In this section, a SVM pipeline will be computed for the macro-structual data <strong>CT</strong>. Firstly, the data is loaded and prepared for the analysis part. Secondly, the SVM model is built containing the analysis. Finally, we evaluate our model and have a look at how it performs.</p>
+<p>In this section, a SVM pipeline will be computed for the <strong>macro-structual data: CT</strong>. Firstly, the data is loaded and prepared for the analysis part. Secondly, the SVM model is built containing the analysis. Finally, we evaluate our model and have a look at how it performs.</p>
 <section id="data-preparation">
 <h3>2.1 Data preparation<a class="headerlink" href="#data-preparation" title="Permalink to this heading">#</a></h3>
+<p>Relevant modules are imported that are neccessary to perfrom the analyses.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#import relevant modules</span>
@@ -475,9 +476,10 @@ document.write(`
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="o">%</span><span class="k">matplotlib</span> inline
 
-<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span><span class="p">,</span> <span class="n">GridSearchCV</span>
 <span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">svm</span>
 <span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">metrics</span>
+<span class="kn">from</span> <span class="nn">sklearn.svm</span> <span class="kn">import</span> <span class="n">SVC</span>
 </pre></div>
 </div>
 </div>
@@ -492,6 +494,7 @@ document.write(`
 </div>
 </div>
 </div>
+<p>The dataframe is adjusted accordingly, droping irrelevant variables for the classification.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#adjust dataframe</span>
@@ -510,68 +513,16 @@ document.write(`
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#print the names of the 308 features</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Features: &quot;</span><span class="p">,</span> <span class="n">CT_Dublin_adj</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">308</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Features:  Index([&#39;lh_bankssts_part2_thickness&#39;,
-       &#39;lh_caudalanteriorcingulate_part1_thickness&#39;,
-       &#39;lh_caudalmiddlefrontal_part1_thickness&#39;,
-       &#39;lh_caudalmiddlefrontal_part2_thickness&#39;,
-       &#39;lh_caudalmiddlefrontal_part3_thickness&#39;,
-       &#39;lh_caudalmiddlefrontal_part4_thickness&#39;, &#39;lh_cuneus_part1_thickness&#39;,
-       &#39;lh_cuneus_part2_thickness&#39;, &#39;lh_entorhinal_part1_thickness&#39;,
-       &#39;lh_fusiform_part1_thickness&#39;,
-       ...
-       &#39;rh_supramarginal_part4_thickness&#39;, &#39;rh_supramarginal_part5_thickness&#39;,
-       &#39;rh_supramarginal_part6_thickness&#39;, &#39;rh_supramarginal_part7_thickness&#39;,
-       &#39;rh_frontalpole_part1_thickness&#39;, &#39;rh_temporalpole_part1_thickness&#39;,
-       &#39;rh_transversetemporal_part1_thickness&#39;, &#39;rh_insula_part1_thickness&#39;,
-       &#39;rh_insula_part2_thickness&#39;, &#39;rh_insula_part3_thickness&#39;],
-      dtype=&#39;object&#39;, length=306)
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#print the names of the labels</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Labels: &quot;</span><span class="p">,</span> <span class="n">CT_Dublin_adj</span><span class="p">[</span><span class="s1">&#39;Group&#39;</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Labels:  0      0
-1      0
-2      0
-3      1
-4      1
-      ..
-103    1
-104    1
-105    1
-106    1
-107    1
-Name: Group, Length: 108, dtype: int64
-</pre></div>
-</div>
-</div>
-</div>
+<p>Here, 0 stands for “Control” and 1 for “Patient”.</p>
 </section>
 <section id="build-the-model">
 <h3>2.2 Build the model<a class="headerlink" href="#build-the-model" title="Permalink to this heading">#</a></h3>
-<p>As in the Data.analysis notebook, as a first step the input and output data should be defined. It is analogous to the Logistic Regression input and output since it is the identical <strong>CT</strong> data.</p>
+<p>As in the Logistic regression, as a first step the input and output variables should be defined. It is analogous to the Logistic Regression input and output since it is the identical <strong>CT</strong> data.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#define data and target</span>
 
-<span class="n">X_CT</span> <span class="o">=</span> <span class="n">CT_Dublin_adj</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">1</span><span class="p">:</span><span class="mi">308</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="n">X_CT</span> <span class="o">=</span> <span class="n">CT_Dublin_adj</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">1</span><span class="p">:</span><span class="mi">309</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
 <span class="n">y_CT</span> <span class="o">=</span> <span class="n">CT_Dublin_adj</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,[</span><span class="mi">0</span><span class="p">]]</span><span class="o">.</span><span class="n">values</span>
 </pre></div>
 </div>
@@ -584,13 +535,13 @@ Name: Group, Length: 108, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[2.18 , 2.382, 2.346, ..., 3.62 , 2.776, 3.282],
-       [2.394, 1.973, 2.534, ..., 3.588, 2.654, 3.124],
-       [2.551, 2.567, 1.954, ..., 3.657, 2.495, 2.669],
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[2.18 , 2.382, 2.346, ..., 2.776, 3.282, 3.347],
+       [2.394, 1.973, 2.534, ..., 2.654, 3.124, 3.214],
+       [2.551, 2.567, 1.954, ..., 2.495, 2.669, 2.886],
        ...,
-       [2.273, 2.559, 2.578, ..., 3.48 , 2.294, 2.571],
-       [1.94 , 2.438, 2.272, ..., 3.187, 2.51 , 2.759],
-       [2.108, 2.269, 2.145, ..., 3.192, 2.551, 2.855]])
+       [2.273, 2.559, 2.578, ..., 2.294, 2.571, 2.875],
+       [1.94 , 2.438, 2.272, ..., 2.51 , 2.759, 2.838],
+       [2.108, 2.269, 2.145, ..., 2.551, 2.855, 2.985]])
 </pre></div>
 </div>
 </div>
@@ -721,13 +672,10 @@ Name: Group, Length: 108, dtype: int64
 </div>
 </div>
 </div>
+<p>In the following, we build the SVM model using GridSearch to identify the best Value of C for the best possible accuracy. The C hyperparamter “adds a penalty for each misclassified data point. If c is small, the penalty for misclassified points is low so a decision boundary with a large margin is chosen at the expense of a greater number of misclassifications. If c is large, SVM tries to minimize the number of misclassified examples due to high penalty which results in a decision boundary with a smaller margin” (<a class="reference external" href="https://towardsdatascience.com/hyperparameter-tuning-for-support-vector-machines-c-and-gamma-parameters-6a5097416167">see here</a>).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">datasets</span>
-<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span><span class="p">,</span> <span class="n">GridSearchCV</span>
-<span class="kn">from</span> <span class="nn">sklearn.svm</span> <span class="kn">import</span> <span class="n">SVC</span>
-
-<span class="c1"># Split the dataset into training and testing sets</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Split the dataset into training and testing sets</span>
 <span class="n">X_train_CT</span><span class="p">,</span> <span class="n">X_test_CT</span><span class="p">,</span> <span class="n">y_train_CT</span><span class="p">,</span> <span class="n">y_test_CT</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X_CT</span><span class="p">,</span> <span class="n">y_CT</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
 
 <span class="c1"># Create a SVM classifier</span>
@@ -758,9 +706,11 @@ Accuracy:  0.9090909090909091
 </div>
 </div>
 </div>
+<p>As we can see, according to GridSearch the best Value for the C parameter is 1. The <strong>accuracy</strong> of our model is around 91%. However, let us check other performance measures!</p>
 </section>
 <section id="model-evaluation">
 <h3>2.3 Model evaluation<a class="headerlink" href="#model-evaluation" title="Permalink to this heading">#</a></h3>
+<p>As in the Logistic Regression, we can have a look at different measurements to gain insight of how the model performs.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_pred_CT</span> <span class="o">=</span> <span class="n">svm_best</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test_CT</span><span class="p">)</span>
@@ -786,14 +736,17 @@ F1-Score: 0.7692307692307692
 </div>
 </div>
 </div>
+<p>The results show that all except for <strong>Recall</strong>, all other measures seem to be higher compared to the logistic regression.</p>
 </section>
 </section>
 <section id="micro-structural-data">
 <h2>3. Micro-structural data<a class="headerlink" href="#micro-structural-data" title="Permalink to this heading">#</a></h2>
+<p>In the following the same routine is applied to the <strong>microstructural</strong> data. First, we begin with <strong>MD</strong>.</p>
 <section id="mean-diffusivity">
 <h3>3.1 Mean Diffusivity<a class="headerlink" href="#mean-diffusivity" title="Permalink to this heading">#</a></h3>
 <section id="id1">
 <h4>3.1.1 Data preparation<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h4>
+<p>First, the data is prepared for the analysis.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#read data</span>
@@ -1143,11 +1096,12 @@ F1-Score: 0.7692307692307692
 </section>
 <section id="id2">
 <h4>3.1.2 Build the model<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h4>
+<p>Again, we define the input and output variables. Here, we now have <strong>MD</strong> for each brain region as our input.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#define input and output</span>
 
-<span class="n">X_MD</span> <span class="o">=</span> <span class="n">MD_Dublin_adj</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">1</span><span class="p">:</span><span class="mi">308</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="n">X_MD</span> <span class="o">=</span> <span class="n">MD_Dublin_adj</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">1</span><span class="p">:</span><span class="mi">309</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
 <span class="n">y_MD</span> <span class="o">=</span> <span class="n">MD_Dublin_adj</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,[</span><span class="mi">0</span><span class="p">]]</span><span class="o">.</span><span class="n">values</span>
 </pre></div>
 </div>
@@ -1160,13 +1114,10 @@ F1-Score: 0.7692307692307692
 </div>
 </div>
 </div>
+<p>We run the same SVM pipeline for the <strong>MD</strong> data.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">datasets</span>
-<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span><span class="p">,</span> <span class="n">GridSearchCV</span>
-<span class="kn">from</span> <span class="nn">sklearn.svm</span> <span class="kn">import</span> <span class="n">SVC</span>
-
-<span class="c1"># Split the dataset into training and testing sets</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Split the dataset into training and testing sets</span>
 <span class="n">X_train_MD</span><span class="p">,</span> <span class="n">X_test_MD</span><span class="p">,</span> <span class="n">y_train_MD</span><span class="p">,</span> <span class="n">y_test_MD</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X_MD</span><span class="p">,</span> <span class="n">y_MD</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span><span class="n">random_state</span><span class="o">=</span><span class="mi">109</span><span class="p">)</span>
 
 <span class="c1"># Create a SVM classifier</span>
@@ -1197,9 +1148,10 @@ Accuracy:  0.8285714285714286
 </div>
 </div>
 </div>
+<p>The model seems to perform less well than the model for <strong>CT</strong>, but still the <strong>accuracy</strong> is good. Let’s have a look at the other measures.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_pred_MD</span> <span class="o">=</span> <span class="n">svm_best_MD</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">MD_X_test</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_pred_MD</span> <span class="o">=</span> <span class="n">svm_best_MD</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test_MD</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1225,12 +1177,15 @@ F1-Score: 0.625
 </div>
 </div>
 </div>
+<p>Compared to the logistic regression, this model for <strong>MD</strong> has higher <strong>Accuracy and Precision</strong> but a lower <strong>Recall</strong></p>
 </section>
 </section>
 <section id="fractional-anisotropy">
 <h3>3.2 Fractional Anisotropy<a class="headerlink" href="#fractional-anisotropy" title="Permalink to this heading">#</a></h3>
+<p>Let’s see how <strong>FA</strong> values might perfrom in terms of informativeness for accurate classification.</p>
 <section id="id4">
 <h4>3.2.1 Data preparation<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h4>
+<p>First, the data is prepared for the analyis.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#read data</span>
@@ -1262,11 +1217,12 @@ F1-Score: 0.625
 </section>
 <section id="id5">
 <h4>3.2.2 Build the model<a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h4>
+<p>This time, as input we choose the <strong>FA</strong> values for the 308 brain regions.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#define input and output</span>
 
-<span class="n">X_FA</span> <span class="o">=</span> <span class="n">FA_Dublin_adj</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">1</span><span class="p">:</span><span class="mi">308</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="n">X_FA</span> <span class="o">=</span> <span class="n">FA_Dublin_adj</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">1</span><span class="p">:</span><span class="mi">309</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
 <span class="n">y_FA</span> <span class="o">=</span> <span class="n">FA_Dublin_adj</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,[</span><span class="mi">0</span><span class="p">]]</span><span class="o">.</span><span class="n">values</span>
 </pre></div>
 </div>
@@ -1279,13 +1235,10 @@ F1-Score: 0.625
 </div>
 </div>
 </div>
+<p>We again run the same pipeline for the <strong>FA</strong> values!</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">datasets</span>
-<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span><span class="p">,</span> <span class="n">GridSearchCV</span>
-<span class="kn">from</span> <span class="nn">sklearn.svm</span> <span class="kn">import</span> <span class="n">SVC</span>
-
-<span class="c1"># Split the dataset into training and testing sets</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Split the dataset into training and testing sets</span>
 <span class="n">X_train_FA</span><span class="p">,</span> <span class="n">X_test_FA</span><span class="p">,</span> <span class="n">y_train_FA</span><span class="p">,</span> <span class="n">y_test_FA</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X_FA</span><span class="p">,</span> <span class="n">y_FA</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span><span class="n">random_state</span><span class="o">=</span><span class="mi">109</span><span class="p">)</span>
 
 <span class="c1"># Create a SVM classifier</span>
@@ -1344,6 +1297,7 @@ F1-Score: 0.4285714285714285
 </div>
 </div>
 </div>
+<p>In comparison to the Logistic Regression Model, the <strong>accuracy and precision</strong> are higher again, but the <strong>recall</strong> score is way lower.</p>
 </section>
 </section>
 </section>
