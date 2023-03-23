@@ -161,6 +161,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../general_information/TheoreticalBackground.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../general_information/DataProjectManagement.html">Data- and Projectmanagement</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Data exploration</a></li>
+
 <li class="toctree-l1 has-children"><a class="reference internal" href="../general_information/Tasktype.html">Data analysis</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="Data_analysis.html">Logistic Regression</a></li>
 <li class="toctree-l2"><a class="reference internal" href="SVM.html">Support Vector Machine (SVM)</a></li>
@@ -417,6 +418,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Data exploration</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#demographic-data">1. Demographic data</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-and-adjusting-the-macro-and-microstructural-data">1.1 Reading and adjusting the macro- and microstructural data</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comparing-demographic-variables-for-the-macro-and-microstructural-data">1.2 Comparing demographic variables for the macro- and microstructural data</a><ul class="nav section-nav flex-column">
@@ -426,12 +428,15 @@ document.write(`
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exploring-the-different-mri-metrics">2. Exploring the different MRI metrics</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#macro-structural-data-cortical-thickness-ct">2.1 Macro-structural data: cortical thickness (CT)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#micro-structural-data-mean-diffusivity-md-and-fractional-anisotropy-fa">2.2 Micro-structural data: mean diffusivity (MD) and fractional anisotropy (FA)</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#exploring-the-different-mri-metrics">2. Exploring the different MRI metrics</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#macro-structural-data-cortical-thickness-ct">2.1 Macro-structural data: cortical thickness (CT)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#micro-structural-data-mean-diffusivity-md-and-fractional-anisotropy-fa">2.2 Micro-structural data: mean diffusivity (MD) and fractional anisotropy (FA)</a></li>
 </ul>
 </li>
 </ul>
+
             </nav>
         </div>
     </div>
@@ -865,8 +870,9 @@ Name: Age, dtype: float64
 </section>
 </section>
 </section>
-<section id="exploring-the-different-mri-metrics">
-<h2>2. Exploring the different MRI metrics<a class="headerlink" href="#exploring-the-different-mri-metrics" title="Permalink to this heading">#</a></h2>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="exploring-the-different-mri-metrics">
+<h1>2. Exploring the different MRI metrics<a class="headerlink" href="#exploring-the-different-mri-metrics" title="Permalink to this heading">#</a></h1>
 <p>In the following chapter, the different MRI metrics are explored. Before getting a deeper look at the data, the derived form of the Desikan-Killiany Atlas with 308 cortical regions that is used for the <strong>macro- and micro-structural data</strong> is visualized.
 There is a <a class="reference external" href="https://github.com/RafaelRomeroGarcia/subParcellation">github repository</a> for that specific atlas with the required files therein. Since there is a poor documentation of the files and their content, it might be confusing which of them is actually required for visualization purposes.</p>
 <p>If you click on the repository link, the first folder with the title “500mm parcellation (308 regions)” is the relevant one. In the folder itself, there are two text files (.txt) with the coordinates and names of the 308 regions and the NIFTI file called “500.aparc_cortical_consecutive.nii”. These are the files used for visualization. For that, I used the nibabel and nilearn modules.</p>
@@ -1252,7 +1258,7 @@ There is a <a class="reference external" href="https://github.com/RafaelRomeroGa
 <p>As we can see above, the 308 cortical region names are displayed in a chronological order from 1 to 308 for both left and right hemisphere. Each of the regions mostly consists of several parts as the names indicate.
 Now, having visualized the used atlas with its regions and according labels, we can explore our first MRI metric.</p>
 <section id="macro-structural-data-cortical-thickness-ct">
-<h3>2.1 Macro-structural data: cortical thickness (CT)<a class="headerlink" href="#macro-structural-data-cortical-thickness-ct" title="Permalink to this heading">#</a></h3>
+<h2>2.1 Macro-structural data: cortical thickness (CT)<a class="headerlink" href="#macro-structural-data-cortical-thickness-ct" title="Permalink to this heading">#</a></h2>
 <p><strong>Cortical thickness (CT)</strong> is a measurement of the <em>width of gray matter</em> of the cerebral cortex, whereas <em>gray matter</em> marks the area from the pial surface to the internal surface (where <em>white matter</em> begins). It has been shown that <strong>CT</strong> correlates with the diagnosis and prognosis of several psychiatric and neurological conditions <a class="reference external" href="https://translational-medicine.biomedcentral.com/articles/10.1186/s12967-020-02317-9">(Tahedl, 2020)</a>.</p>
 <p>First, the <strong>CT</strong> dataframe is adjusted in a way that it only involves the different brain areas and the Group.</p>
 <div class="cell docutils container">
@@ -2022,7 +2028,7 @@ dtype: float64
 <p>The brain region is just one out of nine parts of the precentral gyrus in the right hemisphere. Looking at the difference, it just seems very little. However, for the <strong>macro-structural</strong> data we can conclude that there is a loss of <strong>CT</strong> towards psychosis.</p>
 </section>
 <section id="micro-structural-data-mean-diffusivity-md-and-fractional-anisotropy-fa">
-<h3>2.2 Micro-structural data: mean diffusivity (MD) and fractional anisotropy (FA)<a class="headerlink" href="#micro-structural-data-mean-diffusivity-md-and-fractional-anisotropy-fa" title="Permalink to this heading">#</a></h3>
+<h2>2.2 Micro-structural data: mean diffusivity (MD) and fractional anisotropy (FA)<a class="headerlink" href="#micro-structural-data-mean-diffusivity-md-and-fractional-anisotropy-fa" title="Permalink to this heading">#</a></h2>
 <p>In general, Diffusion MRI measures white matter fibres which makes it feasible to examine connections between different regions. For that, we look at how water diffuses in the brain which again provides information of the brain itself. The diffusion of water can be visualized as cloud if points which again can be approximated with a tensor model. Since there is a distinction in isotropic (characteristics are similar in all directions) vs anisotropic (characteristics e.g. faster in a given direction) diffusion, the tensor model might differ.</p>
 <p><strong>MD</strong> and <strong>FA</strong> are central characteristics of tensors. <strong>MD</strong> indicates how much diffusion there is inside a voxel. <strong>FA</strong> is a measurement of the anisotropy of diffusion with a value range between 0 and 1. While the a <strong>FA</strong> value of 0 stands for isotropic diffusion, the <strong>FA</strong> value of 1 indicates anisotropic diffusion.</p>
 <p>In the following, the same procedure is done as for the <strong>CT</strong> data. First, we adjust the dataframes, compute the means and plot the differences between control and patients.</p>
@@ -2790,7 +2796,6 @@ rh_superiorparietal_part6_thickness  1.088402  1.066879    0.021524
 <p>This was the data exploration section analyzing basic demographic variables and the distribution of differences in brain areas between controls and patients. The following pages deal with the application of machine learning algorithms to our data.</p>
 </section>
 </section>
-</section>
 
     <script type="text/x-thebe-config">
     {
@@ -2853,6 +2858,7 @@ rh_superiorparietal_part6_thickness  1.088402  1.066879    0.021524
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Data exploration</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#demographic-data">1. Demographic data</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-and-adjusting-the-macro-and-microstructural-data">1.1 Reading and adjusting the macro- and microstructural data</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comparing-demographic-variables-for-the-macro-and-microstructural-data">1.2 Comparing demographic variables for the macro- and microstructural data</a><ul class="nav section-nav flex-column">
@@ -2862,12 +2868,15 @@ rh_superiorparietal_part6_thickness  1.088402  1.066879    0.021524
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exploring-the-different-mri-metrics">2. Exploring the different MRI metrics</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#macro-structural-data-cortical-thickness-ct">2.1 Macro-structural data: cortical thickness (CT)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#micro-structural-data-mean-diffusivity-md-and-fractional-anisotropy-fa">2.2 Micro-structural data: mean diffusivity (MD) and fractional anisotropy (FA)</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#exploring-the-different-mri-metrics">2. Exploring the different MRI metrics</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#macro-structural-data-cortical-thickness-ct">2.1 Macro-structural data: cortical thickness (CT)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#micro-structural-data-mean-diffusivity-md-and-fractional-anisotropy-fa">2.2 Micro-structural data: mean diffusivity (MD) and fractional anisotropy (FA)</a></li>
 </ul>
 </li>
 </ul>
+
   </nav></div>
 
 </div></div>
