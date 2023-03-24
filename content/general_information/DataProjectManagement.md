@@ -4,7 +4,7 @@ This section provides a description on the dataset and its evaluation. Further, 
 
 ## Dataset description and evaluation 
 
-The underlying data of this project originates from the study "Functional MRI connectivity accurately distinguishes cases with psychotic disorders from healthy controls, based on cortical features associated with brain network development" by [Morgan et al. (2020)] (https://doi.org/10.1101/19009894). It can be accessed on [figshare]( (https://figshare.com/articles/dataset/Data_for_Functional_MRI_connectivity_accurately_distinguishes_cases_with_psychotic_disorders_from_healthy_controls_based_on_cortical_features_associated_with_brain_network_development_/12361550), the respective github repository can be found [here](https://github.com/jmyoung36/fMRI_connectivity_accurately_distinguishes_cases) where everything is well documented and provided clearly. All the data is preprocessed and analyses were run with Matlab. 
+The underlying data of this project originates from the study "Functional MRI connectivity accurately distinguishes cases with psychotic disorders from healthy controls, based on cortical features associated with brain network development" by [Morgan et al. (2020)](https://doi.org/10.1101/19009894). It can be accessed on [figshare](https://figshare.com/articles/dataset/Data_for_Functional_MRI_connectivity_accurately_distinguishes_cases_with_psychotic_disorders_from_healthy_controls_based_on_cortical_features_associated_with_brain_network_development_/12361550), the respective github repository can be found [here](https://github.com/jmyoung36/fMRI_connectivity_accurately_distinguishes_cases) where everything is well documented and provided clearly. All the data is preprocessed and analyses were run with Matlab. 
 
 ### Five different MRI metrics
 
@@ -20,7 +20,7 @@ In the following, the assessment of each metric is briefly explained.
 
 #### Macrostructural MRI: cortical thickness (CT)
 
-For the **macro-structural data**, T1-weighted MPRAGE images were used. The images were aquired with MPRAGE sequences, capturing high tissue contrast and providing high spatial resolution with whole brain coverage in a short scan time [(Wang et al.,2014)](https://doi.org/10.1371/journal.pone.0096899). These were already preprocessed by a prior pipeline [(Withtaker et al., 2016)](https://pubmed.ncbi.nlm.nih.gov/27457931/), using the command from FreeSurfer called "recon-all" [(Dale et al., 1999)](https://pubmed.ncbi.nlm.nih.gov/9931268/). The surface was parcellated according to the Desikan-Killiany atlas (Desikan et al, 2006)](https://www.sciencedirect.com/science/article/abs/pii/S1053811906000437?via%3Dihub) (also see [here](https://mello-y.github.io/MSc5_research_project/code/Data_exploration.html#demographic-data). For each of those regions cortical thickness was estimated.
+For the **macro-structural data**, T1-weighted MPRAGE images were used. The images were aquired with MPRAGE sequences, capturing high tissue contrast and providing high spatial resolution with whole brain coverage in a short scan time [(Wang et al.,2014)](https://doi.org/10.1371/journal.pone.0096899). These were already preprocessed by a prior pipeline [(Withtaker et al., 2016)](https://pubmed.ncbi.nlm.nih.gov/27457931/), using the command from FreeSurfer called "recon-all" [(Dale et al., 1999)](https://pubmed.ncbi.nlm.nih.gov/9931268/). The surface was parcellated according to the Desikan-Killiany atlas [(Desikan et al., 2006)](https://www.sciencedirect.com/science/article/abs/pii/S1053811906000437?via%3Dihub) (also see [here](https://mello-y.github.io/MSc5_research_project/code/Data_exploration.html#demographic-data)). For each of those regions cortical thickness was estimated.
 
 
 
@@ -30,7 +30,7 @@ Cortical measures of MD and FA were estimated for all brain regions from diffusi
 
 #### Functional MRI (fMRI)
 
-FMRI data were acquired using EPI sequences. For more concrete information on the EPI sequence parameters and the fMRI images for each sample consult “Functional MRI” [Morgan et al. (2020), p. 2] (https://doi.org/10.1101/19009894) . 
+FMRI data were acquired using EPI sequences. For more concrete information on the EPI sequence parameters and the fMRI images for each sample consult “Functional MRI” ([Morgan et al. (2020), p. 2](https://doi.org/10.1101/19009894)). 
 
 #### fMRI Connectivity and Network Analysis
 
@@ -45,7 +45,7 @@ Parcellated T1-weighted MRI images were registered to corrected DWI images, a di
 For each sample demographic data such as age and gender are also provided.
 
 
-For this project, however, only the **macro and micro-structural** data will be used (also see [reflection on the research process](https://mello-y.github.io/MSc5_research_project/general_information/Discussion.html). On top of that, the data for only Dublin is going to be explored since it provides the best image quality (see Table 1 in [Young et al., 2020)](https://doi.org/10.1101/19009894) and not every modality was measured for the Cobre dataset.
+For this project, however, only the **macro and micro-structural** data will be used (also see [reflection on the research process](https://mello-y.github.io/MSc5_research_project/general_information/Discussion.html). On top of that, the data for only Dublin is going to be explored since it provides the best image quality (see Table 1 in [Young et al., 2020)](https://doi.org/10.1101/19009894)) and not every modality was measured for the Cobre dataset.
 
 ## Projectmanagement
 
@@ -60,7 +60,7 @@ In this project, Git is used for version control and Github as an online platfor
 
 To ensure the reproducibility of this project and code, there is a requirements_code.txt file in the content/code folder of repository. This file contains all the packages and modules that are needed to run the code. To install the modules, the file can be downloaded from the repository. To create the same computational environment, create a new conda environment (for further information on conda environments see [here](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html)). When the conda environment is created, activate it and run the following command in the terminal:
 
-```bash pip install -r requirements_code.txt ```
+```pip install -r requirements_code.txt ```
 
 Now, you should be set up with all the neccessary modules and packages to run the code. 
 
