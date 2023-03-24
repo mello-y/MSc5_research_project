@@ -159,6 +159,7 @@ const thebe_selector_output = ".output, .cell_output"
         </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Introduction</a></li>
+
 <li class="toctree-l1"><a class="reference internal" href="DataProjectManagement.html">Data- and Projectmanagement</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../code/Data_exploration.html">Data exploration</a></li>
 
@@ -365,7 +366,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -381,6 +384,16 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Introduction</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -399,6 +412,31 @@ Many studies have employed machine learning (ML) algorhitms to identify or diagn
 <p>However, functional MRI and diffusion tensor imaging studies of psychotic disorders show aberrant functional and structural connectivity, stressing networks and dysfunctional connectivity rather than brain regions acting in isolation (<a class="reference external" href="https://jamanetwork.com/journals/jamapsychiatry/article-abstract/208512">Meyer- Lindenberg et al., 2005</a>, <a class="reference external" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2878961/">Bassett et al., 2008</a>, <a class="reference external" href="https://pubmed.ncbi.nlm.nih.gov/20631176/">Lynall et al., 2010</a>). For example, resting state functional MRI (rsfMRI) studies reveal reduced connectivity within and between large-scale cortical networks, especially those involving frontal and temporal cortex (<a class="reference external" href="https://pubmed.ncbi.nlm.nih.gov/30988201/">Baker et al., 2019</a>).Studies reveal that disprutions in strucutral connectivity related to psychotic disorder as measured by Diffusion Tensor Imaging (DTI) show brain-wide reductions in fractional anisotropy (FA) (<a class="reference external" href="https://pubmed.ncbi.nlm.nih.gov/16023676/">Kubicki et al., 2007</a>). Addiotionally, mean diffusivity (MD) has been found to be increased in several brain regions, including the frontal lobe, temporal lobe, and corpus callosum, indicating increased water diffusion and potentially disrupted white matter microstructure.</p>
 <p>Due to those finding, these MRI metrics has been discussed multiple times in the literature as potential biomarkers for psychotic disorders. However, the results of the studies using machine learning to predict psychotic disorder based on different MRI metrics reveal a great variability in the accuracies (<a class="reference external" href="https://www.sciencedirect.com/science/article/abs/pii/S105381191600210X">Arbabshirani et al., 2017)</a> and ML has been described as a “black box”, indicating that is is not clear which of the MRI metrics are most informative for achieving accurate machine classification.</p>
 <p>While the majority of studies have focused on functional MRI (fMRI),diffusion tensor imaging (DTI) measures have been underrepresented in the literature (<a class="reference external" href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2896986/#bib34">Ardekani et al., 2017</a>) in predicting psychotic disorder. This research project aims to gain more insights in the predicting psychotic disorder specifically using <strong>macrostructural</strong> MRI data (cortical thickness (CT)) and <strong>microstructural</strong> MRI data (mean diffusivity (MD) and fractional anisotropy (FA)) with respect to their accuracies. So the main research question that follows is: <strong>Which of the MRI metrics (CT, MD, FA) are most informative for achieving accurate machine classification of psychotic disorder?</strong>.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="references">
+<h1>References<a class="headerlink" href="#references" title="Permalink to this heading">#</a></h1>
+<p>Arbabshirani, M. R., Plis, S. M., Sui, J., &amp; Calhoun, V. D. (2017). Single subject prediction of brain disorders in neuroimaging: Promises and pitfalls. NeuroImage, 145, 137–165. <a class="reference external" href="https://doi.org/10.1016/j.neuroimage.2016.02.079">https://doi.org/10.1016/j.neuroimage.2016.02.079</a></p>
+<p>Arciniegas, D. B. (2015). Psychosis. Continuum, 21, 715–736. <a class="reference external" href="https://doi.org/10.1212/01.con.0000466662.89908.e7">https://doi.org/10.1212/01.con.0000466662.89908.e7</a></p>
+<p>Ardekani, B. A., Tabesh, A., Sevy, S., Robinson, D., Bilder, R. M., &amp; Szeszko, P. R. (2011). Diffusion tensor imaging reliably differentiates patients with schizophrenia from healthy volunteers. Human Brain Mapping, 32(1), 1–9. <a class="reference external" href="https://doi.org/10.1002/hbm.20995">https://doi.org/10.1002/hbm.20995</a></p>
+<p>Asmal, L., Du Plessis, S. S., Vink, M., Chiliza, B., Kilian, S., &amp; Emsley, R. (2018). Symptom attribution and frontal cortical thickness in first-episode schizophrenia. Early Intervention in Psychiatry, 12(4), 652–659. <a class="reference external" href="https://doi.org/10.1111/eip.12358">https://doi.org/10.1111/eip.12358</a></p>
+<p>American Association (2013). Diagnostic and Statistical Manual of Mental Disorders. <a class="reference external" href="https://doi.org/10.1176/appi.books.9780890425596">https://doi.org/10.1176/appi.books.9780890425596</a></p>
+<p>Azimi, P., Mohammadi, H. R., Benzel, E. C., Shahzadi, S., Azhari, S., &amp; Montazeri, A. (2015). Artificial neural networks in neurosurgery. Journal of Neurology, Neurosurgery, and Psychiatry, 86(3), 251–256. <a class="reference external" href="https://doi.org/10.1136/jnnp-2014-307807">https://doi.org/10.1136/jnnp-2014-307807</a></p>
+<p>Baker, J. N., Dillon, D. G., Patrick, L. M., Roffman, J. L., Brady, R. O., Pizzagalli, D. A., Öngür, D., &amp; Holmes, A. J. (2019). Functional connectomics of affective and psychotic pathology. Proceedings of the National Academy of Sciences of the United States of America, 116(18), 9050–9059. <a class="reference external" href="https://doi.org/10.1073/pnas.1820780116">https://doi.org/10.1073/pnas.1820780116</a></p>
+<p>Bassett, D. S., Bullmore, E. T., Verchinski, B. A., Mattay, V. S., Weinberger, D. R., &amp; Meyer-Lindenberg, A. (2008). Hierarchical Organization of Human Cortical Networks in Health and Schizophrenia. The Journal of Neuroscience, 28(37), 9239–9248. <a class="reference external" href="https://doi.org/10.1523/jneurosci.1929-08.2008">https://doi.org/10.1523/jneurosci.1929-08.2008</a></p>
+<p>Correll, C. U., Hauser, M., Auther, A. M., &amp; Cornblatt, B. A. (2010). Research in people with psychosis risk syndrome: a review of the current evidence and future directions. Journal of Child Psychology and Psychiatry, 51(4), 390–431. <a class="reference external" href="https://doi.org/10.1111/j.1469-7610.2010.02235.x">https://doi.org/10.1111/j.1469-7610.2010.02235.x</a></p>
+<p>Del Casale, A., Espagnet, M. C. R., Napolitano, A., Lucignani, M., Bonanni, L., Kotzalidis, G. D., Buscajoni, A., Manelfi, L., Perrone, V., Gualtieri, I., Brugnoli, R., De Pisa, E., Girardi, P., Romano, A., Ferracuti, S., Bozzao, A., &amp; Pompili, M. (2021). Cerebral cortical thickness and gyrification changes in first-episode psychoses and multi-episode schizophrenia. Archives Italiennes De Biologie, 1, 3–20. <a class="reference external" href="https://doi.org/10.12871/00039829202111">https://doi.org/10.12871/00039829202111</a></p>
+<p>Dwyer, D. E., Cabral, C., Kambeitz-Ilankovic, L., Sanfelici, R., Kambeitz, J., Calhoun, V. D., Falkai, P., Pantelis, C., Meisenzahl, E. M., &amp; Koutsouleris, N. (2018). Brain Subtyping Enhances The Neuroanatomical Discrimination of Schizophrenia. Schizophrenia Bulletin, 44(5), 1060–1069. <a class="reference external" href="https://doi.org/10.1093/schbul/sby008">https://doi.org/10.1093/schbul/sby008</a></p>
+<p>Jung, W. H., Kim, J. M., Jang, J. H., Choi, J., Jung, M. H., Park, J., Han, J. W., Choi, C. K., Kang, D. H., Chung, C. K., &amp; Kwon, J. S. (2011). Cortical Thickness Reduction in Individuals at Ultra-High-Risk for Psychosis. Schizophrenia Bulletin, 37(4), 839–849. <a class="reference external" href="https://doi.org/10.1093/schbul/sbp151">https://doi.org/10.1093/schbul/sbp151</a></p>
+<p>Kubicki, M., McCarley, R. W., Westin, C., Park, H., Maier, S. E., Kikinis, R., Jolesz, F. A., &amp; Shenton, M. E. (2007). A review of diffusion tensor imaging studies in schizophrenia. Journal of Psychiatric Research, 41(1–2), 15–30. <a class="reference external" href="https://doi.org/10.1016/j.jpsychires.2005.05.005">https://doi.org/10.1016/j.jpsychires.2005.05.005</a></p>
+<p>Kuperberg, G. R., Broome, M. R., McGuire, P., David, A. S., Eddy, M. D., Ozawa, F., Goff, D. C., West, W. C., Williams, S., Van Der Kouwe, A., Salat, D. H., Dale, A. M., &amp; Fischl, B. (2003). Regionally Localized Thinning of the Cerebral Cortex in Schizophrenia. Archives of General Psychiatry, 60(9), 878. <a class="reference external" href="https://doi.org/10.1001/archpsyc.60.9.878">https://doi.org/10.1001/archpsyc.60.9.878</a></p>
+<p>Lei, D., Pinaya, W. H. L., Van Amelsvoort, T., Marcelis, M., Donohoe, G., Mothersill, D., Corvin, A., Gill, M., Vieira, S. M. G., Huang, X., Lui, S., Scarpazza, C., Young, J. A., Arango, C., Bullmore, E. T., Qiyong, G., McGuire, P., &amp; Mechelli, A. (2020). Detecting schizophrenia at the level of the individual: relative diagnostic value of whole-brain images, connectome-wide functional connectivity and graph-based metrics. Psychological Medicine, 50(11), 1852–1861. <a class="reference external" href="https://doi.org/10.1017/s0033291719001934">https://doi.org/10.1017/s0033291719001934</a></p>
+<p>Lynall, M., Bassett, D. S., Kerwin, R., McKenna, P. J., Kitzbichler, M. G., Müller, U., &amp; Bullmore, E. T. (2010). Functional Connectivity and Brain Networks in Schizophrenia. The Journal of Neuroscience, 30(28), 9477–9487. <a class="reference external" href="https://doi.org/10.1523/jneurosci.0333-10.2010">https://doi.org/10.1523/jneurosci.0333-10.2010</a></p>
+<p>Meyer-Lindenberg, A., Olsen, R. K., Kohn, P., Brown, T. M., Egan, M. F., Weinberger, D. R., &amp; Berman, K. F. (2005). Regionally Specific Disturbance of Dorsolateral Prefrontal–Hippocampal Functional Connectivity in Schizophrenia. Archives of General Psychiatry, 62(4), 379. <a class="reference external" href="https://doi.org/10.1001/archpsyc.62.4.379">https://doi.org/10.1001/archpsyc.62.4.379</a></p>
+<p>Noble, W. S. (2006). What is a support vector machine? Nature Biotechnology, 24(12), 1565–1567. <a class="reference external" href="https://doi.org/10.1038/nbt1206-1565">https://doi.org/10.1038/nbt1206-1565</a></p>
+<p>Rezaii, N., Walker, E. F., &amp; Wolff, P. (2019). A machine learning approach to predicting psychosis using semantic density and latent content analysis. Npj Schizophrenia, 5(1). <a class="reference external" href="https://doi.org/10.1038/s41537-019-0077-9">https://doi.org/10.1038/s41537-019-0077-9</a></p>
+<p>Rimol, L. M., Hartberg, C. B., Nesvåg, R., Fennema-Notestine, C., Hagler, D. J., Pung, C. J., Jennings, R. G., Haukvik, U. K., Lange, E., Nakstad, P. H., Melle, I., Andreassen, O. A., Dale, A. M., &amp; Agartz, I. (2010). Cortical Thickness and Subcortical Volumes in Schizophrenia and Bipolar Disorder. Biological Psychiatry, 68(1), 41–50. <a class="reference external" href="https://doi.org/10.1016/j.biopsych.2010.03.036">https://doi.org/10.1016/j.biopsych.2010.03.036</a></p>
+<p>Stamate, D., Katrinecz, A., Stahl, D., Verhagen, S. J. W., Delespaul, P., Van Os, J., &amp; Guloksuz, S. (2019). Identifying psychosis spectrum disorder from experience sampling data using machine learning approaches. Schizophrenia Research, 209, 156–163. <a class="reference external" href="https://doi.org/10.1016/j.schres.2019.04.028">https://doi.org/10.1016/j.schres.2019.04.028</a></p>
+<p>Vieira, S. M. G., Gong, Q., Pinaya, W. H. L., Scarpazza, C., Tognin, S., Crespo-Facorro, B., Tordesillas-Gutiérrez, D., Ortiz-García, V., Setién-Suero, E., Scheepers, F. E., Van Haren, N. E., Marques, T. R., Murray, R. M., David, A. S., Dazzan, P., McGuire, P., &amp; Mechelli, A. (2020). Using Machine Learning and Structural Neuroimaging to Detect First Episode Psychosis: Reconsidering the Evidence. Schizophrenia Bulletin, 46(1), 17–26. <a class="reference external" href="https://doi.org/10.1093/schbul/sby189">https://doi.org/10.1093/schbul/sby189</a></p>
 </section>
 
     <script type="text/x-thebe-config">
@@ -453,6 +491,22 @@ Many studies have employed machine learning (ML) algorhitms to identify or diagn
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Introduction</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
               
             
           </div>
