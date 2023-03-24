@@ -15,12 +15,10 @@ The data at hand originates from the paper "Functional MRI connectivity accurate
 
  ### Structure and content
  
- This repository contains the three folders code, data and open_lab_notebook.
- The code folder carries a description of the used code and its structure for the project. The data folder consists of an Atlas folder containing the files for a  derived version of the Desikian-Killiany atlas [(Desikan et al, 2006)](https://www.sciencedirect.com/science/article/abs/pii/S1053811906000437?via%3Dihub). Also, there is a Jupyter Notebook for accessing, reading and explroring the data. The open_lab_notebook folder carries protocol information regarding the project. 
- 
+ The theoretical background and derivation of the research question can be found in the content/general_information folder. Exploration and analysis of the dataset can be found in the content/code folder and the respective data in the content/data folder. 
 
- ### Further resources
+ The project is also available as a Jupyter Book and can be accessed [here](https://mello-y.github.io/MSc5_research_project/). In the content/static folder, graphics and images used in the Jupyter Book are stored.
 
+If something remains unclear about the repository, please open an issue on github. 
 
- ### Acknowledgements
 
