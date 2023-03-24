@@ -1,1 +1,1 @@
-# Home of GORELLA related graphics
+# Home of project related graphics
