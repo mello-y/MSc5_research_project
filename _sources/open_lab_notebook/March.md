@@ -15,3 +15,5 @@ What I did today:
 - cross-validated SVM for macro- and microstructural data
 
 
+## From 20/03/2023 to 24/03/2023
+- continious work on creating the jupyter Book!
