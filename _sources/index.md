@@ -41,10 +41,14 @@ You can use the following sections to navigate through the content of the book:
 
    Tracking the progress of the project
 
+## Google presentation
+
+A presentation was created for this project in the summer semester 2022, with the inital ideas for this project. It can be accessed [here](https://https://docs.google.com/presentation/d/1ysx6PTcWwJ-qW31qVTir6UY8tXUepbc21LoUitTZg9U/edit). 
+
 
 ## I've got a question!
 
-In case you have any questions or difficulties regarding the content of this Jupyter Book, please don’t hesitate a single second to get in touch with me. A great way to do this is to open an issue on the [GitHub](https://github.com/mello-y/MSc5_research_project). You can of course further contact me via [E-mail](Mevluet.yaglu@psych.uni-frankfurt.de). Every feedback or idea you might have is highly appreciated and valued.
+In case you have any questions or difficulties regarding the content of this Jupyter Book, please don’t hesitate a single second to get in touch with me. A great way to do this is to open an issue on the [GitHub](https://github.com/mello-y/MSc5_research_project). You can of course further contact me via E-mail (Mevluet.yaglu@psych.uni-frankfurt.de). Every feedback or idea you might have is highly appreciated and valued.
 
 ## Acknowledgements
 
