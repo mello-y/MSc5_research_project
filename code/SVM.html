@@ -441,6 +441,7 @@ document.write(`
 </li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">4 Summary</a></li>
 </ul>
             </nav>
         </div>
@@ -495,7 +496,7 @@ document.write(`
 </div>
 </div>
 </div>
-<p>The dataframe is adjusted accordingly, droping irrelevant variables for the classification.</p>
+<p>The dataframe is adjusted accordingly, removing irrelevant variables for the classification.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#adjust dataframe</span>
@@ -666,6 +667,7 @@ document.write(`
 </div>
 </div>
 </div>
+<p>As in the Logistic Regression we have to use the <code class="docutils literal notranslate"><span class="pre">.ravel</span></code> function fur further analyses.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_CT</span> <span class="o">=</span> <span class="n">y_CT</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
@@ -673,16 +675,16 @@ document.write(`
 </div>
 </div>
 </div>
-<p>In the following, we build the SVM model using GridSearch to identify the best Value of C for the best possible accuracy. The C hyperparamter “adds a penalty for each misclassified data point. If c is small, the penalty for misclassified points is low so a decision boundary with a large margin is chosen at the expense of a greater number of misclassifications. If c is large, SVM tries to minimize the number of misclassified examples due to high penalty which results in a decision boundary with a smaller margin” (<a class="reference external" href="https://towardsdatascience.com/hyperparameter-tuning-for-support-vector-machines-c-and-gamma-parameters-6a5097416167">see here</a>).</p>
+<p>In the following, we build the SVM model using GridSearch to identify the best value of C for the best possible accuracy. The C hyperparameter “adds a penalty for each misclassified data point. If C is small, the penalty for misclassified points is low so a decision boundary with a large margin is chosen at the expense of a greater number of misclassifications. If C is large, SVM tries to minimize the number of misclassified examples due to high penalty which results in a decision boundary with a smaller margin” (<a class="reference external" href="https://towardsdatascience.com/hyperparameter-tuning-for-support-vector-machines-c-and-gamma-parameters-6a5097416167">see here</a>). Also, we are using a 5-fold cross validation as indicated by <code class="docutils literal notranslate"><span class="pre">cv</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Split the dataset into training and testing sets</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Split dataset into training and testing sets</span>
 <span class="n">X_train_CT</span><span class="p">,</span> <span class="n">X_test_CT</span><span class="p">,</span> <span class="n">y_train_CT</span><span class="p">,</span> <span class="n">y_test_CT</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X_CT</span><span class="p">,</span> <span class="n">y_CT</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
 
-<span class="c1"># Create a SVM classifier</span>
+<span class="c1"># Create linear SVM classifier</span>
 <span class="n">svm</span> <span class="o">=</span> <span class="n">SVC</span><span class="p">(</span><span class="n">kernel</span> <span class="o">=</span> <span class="s1">&#39;linear&#39;</span><span class="p">)</span>
 
-<span class="c1"># Define the range of values for the C hyperparameter</span>
+<span class="c1"># Define  range of values for the C hyperparameter</span>
 <span class="n">param_grid</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;C&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">]}</span>
 
 <span class="c1"># Perform a grid search cross-validation to find the best value of C</span>
@@ -737,7 +739,7 @@ F1-Score: 0.7692307692307692
 </div>
 </div>
 </div>
-<p>The results show that all except for <strong>Recall</strong>, all other measures seem to be higher compared to the logistic regression.</p>
+<p>As the results reveal, our SVM model for <strong>cortical thickness</strong> makes 90.91% of the time correct predictions. 83.33% represent the proportion of the model’s prediction of psychosis where psychosis is actually present and 71.43% relate to the proportion of all cases of psychosis that the model accurately predicted.</p>
 </section>
 </section>
 <section id="micro-structural-data">
@@ -1178,7 +1180,7 @@ F1-Score: 0.625
 </div>
 </div>
 </div>
-<p>Compared to the logistic regression, this model for <strong>MD</strong> has higher <strong>Accuracy and Precision</strong> but a lower <strong>Recall</strong></p>
+<p>As the results reveal, our SVM model for <strong>mean diffusivity</strong> makes 82.86% of the time correct predictions. 83.33% represent the proportion of the model’s prediction of psychosis where psychosis is actually present and 50% relate to the proportion of all cases of psychosis that the model accurately predicted.</p>
 </section>
 </section>
 <section id="fractional-anisotropy">
@@ -1298,9 +1300,48 @@ F1-Score: 0.4285714285714285
 </div>
 </div>
 </div>
-<p>In comparison to the Logistic Regression Model, the <strong>accuracy and precision</strong> are higher again, but the <strong>recall</strong> score is way lower.</p>
+<p>As the results reveal, our SVM model for <strong>fractional anisotropy</strong> makes 77.14% of the time correct predictions. 75% represent the proportion of the model’s prediction of psychosis where psychosis is actually present and 30% relate to the proportion of all cases of psychosis that the model accurately predicted.</p>
 </section>
 </section>
+</section>
+<section id="summary">
+<h2>4 Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h2>
+<p>We can again summarize the finding in a table for a better overview. First import <code class="docutils literal notranslate"><span class="pre">tabulate</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tabulate</span> <span class="kn">import</span> <span class="n">tabulate</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#create data</span>
+<span class="n">data_SVM</span> <span class="o">=</span> <span class="p">[[</span><span class="s2">&quot;Accuracy&quot;</span><span class="p">,</span> <span class="n">metrics</span><span class="o">.</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test_CT</span><span class="p">,</span> <span class="n">y_pred_CT</span><span class="p">),</span> <span class="n">metrics</span><span class="o">.</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test_MD</span><span class="p">,</span> <span class="n">y_pred_MD</span><span class="p">),</span> <span class="n">metrics</span><span class="o">.</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test_FA</span><span class="p">,</span> <span class="n">y_pred_FA</span><span class="p">)],</span> 
+        <span class="p">[</span><span class="s2">&quot;Precision&quot;</span><span class="p">,</span> <span class="n">metrics</span><span class="o">.</span><span class="n">precision_score</span><span class="p">(</span><span class="n">y_test_CT</span><span class="p">,</span> <span class="n">y_pred_CT</span><span class="p">),</span> <span class="n">metrics</span><span class="o">.</span><span class="n">precision_score</span><span class="p">(</span><span class="n">y_test_MD</span><span class="p">,</span> <span class="n">y_pred_MD</span><span class="p">),</span><span class="n">metrics</span><span class="o">.</span><span class="n">precision_score</span><span class="p">(</span><span class="n">y_test_FA</span><span class="p">,</span> <span class="n">y_pred_FA</span><span class="p">)],</span> 
+        <span class="p">[</span><span class="s2">&quot;Recall&quot;</span><span class="p">,</span> <span class="n">metrics</span><span class="o">.</span><span class="n">recall_score</span><span class="p">(</span><span class="n">y_test_CT</span><span class="p">,</span> <span class="n">y_pred_CT</span><span class="p">),</span> <span class="n">metrics</span><span class="o">.</span><span class="n">recall_score</span><span class="p">(</span><span class="n">y_test_MD</span><span class="p">,</span> <span class="n">y_pred_MD</span><span class="p">),</span><span class="n">metrics</span><span class="o">.</span><span class="n">recall_score</span><span class="p">(</span><span class="n">y_test_FA</span><span class="p">,</span> <span class="n">y_pred_FA</span><span class="p">)],</span> 
+        <span class="p">[</span><span class="s2">&quot;F1-Score&quot;</span><span class="p">,</span> <span class="n">metrics</span><span class="o">.</span><span class="n">f1_score</span><span class="p">(</span><span class="n">y_test_CT</span><span class="p">,</span> <span class="n">y_pred_CT</span><span class="p">),</span> <span class="n">metrics</span><span class="o">.</span><span class="n">f1_score</span><span class="p">(</span><span class="n">y_test_MD</span><span class="p">,</span> <span class="n">y_pred_MD</span><span class="p">),</span> <span class="n">metrics</span><span class="o">.</span><span class="n">f1_score</span><span class="p">(</span><span class="n">y_test_FA</span><span class="p">,</span> <span class="n">y_pred_FA</span><span class="p">)]]</span>
+  
+<span class="c1">#define header names</span>
+<span class="n">col_names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Measure&quot;</span><span class="p">,</span> <span class="s2">&quot;Cortical Thickness&quot;</span><span class="p">,</span> <span class="s2">&quot;Mean Diffusivity&quot;</span><span class="p">,</span> <span class="s2">&quot;Fractional Anisotropy&quot;</span><span class="p">]</span>
+  
+<span class="c1">#display table</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">tabulate</span><span class="p">(</span><span class="n">data_SVM</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">col_names</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Measure      Cortical Thickness    Mean Diffusivity    Fractional Anisotropy
+---------  --------------------  ------------------  -----------------------
+Accuracy               0.909091            0.828571                 0.771429
+Precision              0.833333            0.833333                 0.75
+Recall                 0.714286            0.5                      0.3
+F1-Score               0.769231            0.625                    0.428571
+</pre></div>
+</div>
+</div>
+</div>
+<p>What can be seen for the <strong>SVM</strong> model is that <strong>CT</strong> has the highest <strong>accuracy</strong> and <strong>reval</strong> score. <strong>MD</strong> has the highest <strong>precision</strong> score. Precision and Recall values are inversely related. Again, when we relate to the <strong>F1-Score</strong>, this time the classifier seems to perform better for <strong>CT</strong>.</p>
 </section>
 </section>
 
@@ -1387,6 +1428,7 @@ F1-Score: 0.4285714285714285
 </li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">4 Summary</a></li>
 </ul>
   </nav></div>
 
