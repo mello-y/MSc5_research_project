@@ -43,7 +43,7 @@ You can use the following sections to navigate through the content of the book:
 
 ## Google presentation
 
-A presentation was created for this project in the summer semester 2022, with the inital ideas for this project. It can be accessed [here](https://https://docs.google.com/presentation/d/1ysx6PTcWwJ-qW31qVTir6UY8tXUepbc21LoUitTZg9U/edit). 
+A presentation was created for this project in the summer semester 2022, with the inital ideas for this project. It can be accessed [here](https://docs.google.com/presentation/d/1ysx6PTcWwJ-qW31qVTir6UY8tXUepbc21LoUitTZg9U/edit#slide=id.g13cb615320d_1_25). 
 
 
 ## I've got a question!
