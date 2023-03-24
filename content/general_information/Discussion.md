@@ -29,3 +29,22 @@ In retrospect, I would have done many things differently. First, I would have tr
 
 Nevertheless, it was a very educational experience. I liked the combination of theoretical input and practical implementation. I am very happy to have learned how useful it is to work with version control and what it actually means to set up a machine learning algorithm and the functionality behind these methods and having gained more knowledge regarding micro- and macrostructural data. I would like to take this opportunity to thank the people from the Fiebach Lab once again for this great module and the wonderful time!
 
+# References
+
+Ardekani, B. A., Bappal, A., D’Angelo, D., Ashtari, M., Lencz, T., Szeszko, P. R., Butler, P. D., Javitt, D. C., Lim, K. O., Hrabe, J., Nierenberg, J., Branch, C. A., & Hoptman, M. J. (2005a). Brain morphometry using diffusion-weighted magnetic resonance imaging: application to schizophrenia. Neuroreport, 16(13), 1455–1459. https://doi.org/10.1097/01.wnr.0000177001.27569.06
+
+Caan, M. W., Vermeer, K. A., Van Vliet, L. J., Majoie, C. B. L. M., Peters, B. D., Heeten, G. J. D., & Vos, F. M. (2006). Shaving diffusion tensor images in discriminant analysis: A study into schizophrenia. Medical Image Analysis, 10(6), 841–849. https://doi.org/10.1016/j.media.2006.07.006
+
+Caprihan, A., Pearlson, G. D., & Calhoun, V. D. (2008). Application of principal component analysis to distinguish patients with schizophrenia from healthy controls based on fractional anisotropy measurements. NeuroImage, 42(2), 675–682. https://doi.org/10.1016/j.neuroimage.2008.04.255
+
+Davatzikos, C., Shen, D., Gur, R. C., Wu, X., Liu, D., Fan, Y., Hughett, P., Turetsky, B. I., & Gur, R. E. (2005). Whole-Brain Morphometric Study of Schizophrenia Revealing a Spatially Complex Set of Focal Abnormalities. Archives of General Psychiatry, 62(11), 1218. https://doi.org/10.1001/archpsyc.62.11.1218
+
+Ingalhalikar, M., Kanterakis, S., Gur, R. C., Roberts, T. P., & Verma, R. (2010). DTI Based Diagnostic Prediction of a Disease via Pattern Classification. Lecture Notes in Computer Science, 558–565. https://doi.org/10.1007/978-3-642-15705-9_68
+
+Kubicki, M., McCarley, R. W., Westin, C., Park, H., Maier, S. E., Kikinis, R., Jolesz, F. A., & Shenton, M. E. (2007). A review of diffusion tensor imaging studies in schizophrenia. Journal of Psychiatric Research, 41(1–2), 15–30. https://doi.org/10.1016/j.jpsychires.2005.05.005
+
+Lee, K., Yoshida, T., Kubicki, M., Bouix, S., Westin, C., Kindlmann, G., Niznikiewicz, M. A., Cohen, A. F., McCarley, R. W., & Shenton, M. E. (2009). Increased diffusivity in superior temporal gyrus in patients with schizophrenia: A Diffusion Tensor Imaging study. Schizophrenia Research, 108(1–3), 33–40. https://doi.org/10.1016/j.schres.2008.11.024
+
+Narr, K. L., Hageman, N., Woods, R. P., Hamilton, L. S., Clark, K. A., Phillips, O. R., Shattuck, D. W., Asarnow, R. F., Toga, A. W., & Nuechterlein, K. H. (2009). Mean diffusivity: A biomarker for CSF-related disease and genetic liability effects in schizophrenia. Psychiatry Research: Neuroimaging, 171(1), 20–32. https://doi.org/10.1016/j.pscychresns.2008.03.008
+
+Szeszko, P. R., Robinson, D., Ashtari, M., Vogel, J. P., Betensky, J. D., Sevy, S., Ardekani, B. A., Lencz, T., Malhotra, A. K., McCormack, J., Miller, R. L., Lim, K. O., Gunduz-Bruce, H., Kane, J. M., & Bilder, R. M. (2008). Clinical and Neuropsychological Correlates of White Matter Abnormalities in Recent Onset Schizophrenia. Neuropsychopharmacology, 33(5), 976–984. https://doi.org/10.1038/sj.npp.1301480
