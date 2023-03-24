@@ -54,7 +54,7 @@ In the following, information on projectmanagement-related aspects are provided.
 ### Version control
 
 Version control makes it feasible to monitor and track the progress in projects. Changes made with progress, version control allows to access different versions of the files. 
-In this project, Git is used for version control and Github as an online platform to document this project. The respective repository can be accessed [here](https://github.com/mello-y/MSc5_research_project). The project is also documented on [OSF](https://osf.io/g8j2c/).
+In this project, Git is used for version control and Github as an online platform to document this project. The respective repository can be accessed [here](https://github.com/mello-y/MSc5_research_project). The project is also documented on [OSF](https://osf.io/g8j2c/). The literature used for this project is documented in [Zotero](https://www.mendeley.com/library/).
 
 ### Computational Environment
 
