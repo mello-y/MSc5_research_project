@@ -421,40 +421,38 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#macro-structural-data-cortical-thickness-ct">1. Macro-structural data: Cortical Thickness (CT)</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-preperation">1.1 Data preperation</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#building-the-model">2.1.2 Building the model</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#model-evaluation">2.1.3 Model evaluation</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#confusion-matrix">2.1.3.1 Confusion Matrix</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#model-accuracy-precision-and-recall">2.1.3.2 Model accuracy, precision and recall</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#receiver-operating-characteristic-roc-curve">2.1.3.3 Receiver operating characteristic (ROC-Curve)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#building-the-model">1.2 Building the model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#model-evaluation">1.3 Model evaluation</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#confusion-matrix">1.3.1 Confusion Matrix</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#model-accuracy-precision-recall-f1-score">1.3.2 Model accuracy, precision, recall F1-Score</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#micro-structural-data-mean-diffusivity-and-fractional-anisotropy">2.2 Micro-structural data: mean diffusivity and fractional anisotropy</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mean-diffusivity">2.2.1 Mean diffusivity</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#data-preparation">2.2.1.1 Data preparation</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#build-the-model">2.2.1.2 Build the model</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">2.2.1.3 Model evaluation</a><ul class="nav section-nav flex-column">
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">2.2.1.3.1 Confusion matrix</a></li>
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">2.2.1.3.2  Model accuracy, precision and recall</a></li>
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#roc-curve">2.2.1.3.3 ROC-curve</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#micro-structural-data-mean-diffusivity-md-and-fractional-anisotropy-fa">2. Micro-structural data: mean diffusivity (MD) and fractional anisotropy (FA)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mean-diffusivity">2.1 Mean diffusivity</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#data-preparation">2.1.1 Data preparation</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#build-the-model">2.1.2 Build the model</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">2.1.3 Model evaluation</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">2.1.3.1 Confusion matrix</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#model-accuracy-precision-recall-and-f1-score">2.1.3.2  Model accuracy, precision, recall and F1-Score</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fractional-anisotropy">2.2.2 Fractional anisotropy</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">2.2.2.1 Data preparation</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">2.2.2.2 Build the model</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">2.2.2.3 Model evaluation</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">2.2.2.3.1 Confusion matrix</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">2.2.2.3.2 Model accuracy, precision and recall</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">2.2.2.3.3 ROC-curve</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fractional-anisotropy">2.2 Fractional anisotropy</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">2.2.1 Data preparation</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">2.2.2 Build the model</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">2.2.3 Model evaluation</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">2.2.3.1 Confusion matrix</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">2.2.3.2 Model accuracy, precision, recall and F1-Score</a></li>
 </ul>
 </li>
 </ul>
 </li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">3. Summary</a></li>
 </ul>
             </nav>
         </div>
@@ -1518,7 +1516,7 @@ document.write(`
 </div>
 </section>
 <section id="building-the-model">
-<h3>2.1.2 Building the model<a class="headerlink" href="#building-the-model" title="Permalink to this heading">#</a></h3>
+<h3>1.2 Building the model<a class="headerlink" href="#building-the-model" title="Permalink to this heading">#</a></h3>
 <p>In the next steps, the <strong>logistic regression</strong> model is built. Firstly, the input and output should be defined. Our input contains the <strong>CT</strong> for all of the 308 brain regions, meaning that there are n=308 features in total. The output is within the Group variable containing label information.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1722,7 +1720,7 @@ document.write(`
 <p>Now having defined our input and ouput data, to build the logistic regression model we need to split our data into train and test sets. For this, we use the train_test_split splitter function from Sklearn. The training set is the dataset on which the model is trained. This data is seen and learned by the model. The test set is a a subset of the training set and utilized for an accurate evaluation of a final model fit.
 With that function, the data gets divided into X_train, X_test, y_train and y_test. X_train and y_train are used for training and fitting the model. The X_test and y_test sets, however, are used for training the model if the correct labels were predicted.</p>
 <p>But before splitting the data into training and testing set, we use the StandardScaler() function to standardize our data. The function standardizes every feature (each column) indivudally by substracting the mean and then scaling to unit variance (dividing all the values by the standard deviation). As a result, we get a distribution with a mean equal to 0 and with a standard deviation equal to 1.</p>
-<p>Also, with such a small sample, the N=27 participants (108 * 25%) in the testing sample could differ considerably from the training sample by chance. To tackle this problem, we can run the cross validation for multiple iterations.</p>
+<p>Also, with such a small sample, the N=27 participants (108 * 25%) in the testing sample could differ considerably from the training sample by chance. To tackle this problem, we can run the cross validation for 5000 iterations.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n_iter</span> <span class="o">=</span> <span class="mi">5000</span>
@@ -1739,7 +1737,6 @@ With that function, the data gets divided into X_train, X_test, y_train and y_te
     <span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X_sc</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span> <span class="o">=</span> <span class="mf">0.25</span><span class="p">,</span> <span class="n">random_state</span> <span class="o">=</span> <span class="n">i</span><span class="p">)</span>
     <span class="n">y_tests</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">y_test</span><span class="p">)</span>  <span class="c1"># store the y_test sample</span>
  
-    
     <span class="c1"># fit the logistic regression</span>
     <span class="n">classifier</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">random_state</span> <span class="o">=</span> <span class="n">i</span><span class="p">,</span> <span class="n">solver</span> <span class="o">=</span><span class="s1">&#39;liblinear&#39;</span><span class="p">)</span>
     <span class="n">classifier</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
@@ -1798,8 +1795,7 @@ With that function, the data gets divided into X_train, X_test, y_train and y_te
 <p>In the following, we can concatenate the the y_pred and y_test results from each iteration and use this to compute the confusion matrix.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_preds</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">y_preds</span><span class="p">],</span><span class="n">axis</span> <span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_preds</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">y_preds</span><span class="p">])</span>
 <span class="n">y_preds</span>
 </pre></div>
 </div>
@@ -1812,71 +1808,43 @@ With that function, the data gets divided into X_train, X_test, y_train and y_te
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_tests</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">y_tests</span><span class="p">],</span><span class="n">axis</span> <span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_tests</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">y_tests</span><span class="p">])</span>
 <span class="n">y_tests</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1, 0, 0, ..., 0, 1, 0],
-       [1, 1, 1, ..., 0, 0, 0],
-       [0, 1, 0, ..., 0, 1, 0],
-       ...,
-       [0, 1, 0, ..., 0, 1, 0],
-       [0, 0, 0, ..., 0, 1, 0],
-       [0, 1, 0, ..., 1, 0, 1]])
-</pre></div>
-</div>
-</div>
-</div>
-<p>We also concateante our X_tests values as it is needed for the <strong>ROC</strong> curve (see further below).</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_tests</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">X_tests</span><span class="p">])</span>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1, 0, 0, ..., 1, 0, 1])
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="model-evaluation">
-<h3>2.1.3 Model evaluation<a class="headerlink" href="#model-evaluation" title="Permalink to this heading">#</a></h3>
-<p>In the next section, we will have a look at how the logistic regression model performs and evaluate it. To evaluate the model, a look at different measurements such as the <strong>confusion matrix</strong>, <strong>accuracy, precision and recall</strong> and the <strong>receiver operation characteristic curve (ROC-curve)</strong> is helpful.</p>
+<h3>1.3 Model evaluation<a class="headerlink" href="#model-evaluation" title="Permalink to this heading">#</a></h3>
+<p>In the next section, we will have a look at how the logistic regression model performs and evaluate it. To evaluate the model, a look at different measurements such as the <strong>confusion matrix</strong>, <strong>accuracy, precision and recall</strong> is helpful.</p>
 <section id="confusion-matrix">
-<h4>2.1.3.1 Confusion Matrix<a class="headerlink" href="#confusion-matrix" title="Permalink to this heading">#</a></h4>
-<p>The <strong>confusion matrix</strong> provides information on the quality of the logistic regression model since it shows the predicted values from the model compared to the actual values from the test dataset. We scale this by the sum of the array (i.e., cm/np.sum(cm)) to get probabilities for hits, misses, false positives and true negatives.</p>
+<h4>1.3.1 Confusion Matrix<a class="headerlink" href="#confusion-matrix" title="Permalink to this heading">#</a></h4>
+<p>The <strong>confusion matrix</strong> provides information on the quality of the logistic regression model since it shows the predicted values from the model compared to the actual values from the test dataset. We scale this by the sum of the array to get probabilities for <strong>hits, misses, false positives and true negatives</strong>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cm_CT</span> <span class="o">=</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y_tests</span><span class="p">,</span> <span class="n">y_preds</span><span class="p">)</span>
 
 <span class="n">cm_CT_f</span> <span class="o">=</span> <span class="n">cm_CT</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">cm_CT</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Confusion Matrix : </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">cm_f</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Confusion Matrix : </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">cm_CT_f</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">3</span><span class="n">m</span><span class="o">/</span><span class="mi">1</span><span class="n">g132z9j3_14k03_9l9qv2wr0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_44403</span><span class="o">/</span><span class="mf">1504234465.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">cm_CT</span> <span class="o">=</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y_tests</span><span class="p">,</span> <span class="n">y_preds</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> 
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">cm_CT_f</span> <span class="o">=</span> <span class="n">cm_CT</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">cm_CT</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> 
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Confusion Matrix : </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">cm_f</span><span class="p">)</span>
-
-<span class="nn">~/miniconda3/envs/neuro_ai/lib/python3.7/site-packages/sklearn/metrics/_classification.py</span> in <span class="ni">confusion_matrix</span><span class="nt">(y_true, y_pred, labels, sample_weight, normalize)</span>
-<span class="g g-Whitespace">    </span><span class="mi">307</span>     <span class="n">y_type</span><span class="p">,</span> <span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span> <span class="o">=</span> <span class="n">_check_targets</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">308</span>     <span class="k">if</span> <span class="n">y_type</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;binary&quot;</span><span class="p">,</span> <span class="s2">&quot;multiclass&quot;</span><span class="p">):</span>
-<span class="ne">--&gt; </span><span class="mi">309</span>         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2"> is not supported&quot;</span> <span class="o">%</span> <span class="n">y_type</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">310</span> 
-<span class="g g-Whitespace">    </span><span class="mi">311</span>     <span class="k">if</span> <span class="n">labels</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-
-<span class="ne">ValueError</span>: multilabel-indicator is not supported
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Confusion Matrix : 
+ [[0.43165926 0.31014074]
+ [0.00807407 0.25012593]]
 </pre></div>
 </div>
 </div>
 </div>
-<p>To make the confusion matrix visually more appealing, we run the following code.</p>
+<p>To make the confusion matrix visually more appealing and more informative, we run the following code.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">class_names</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
@@ -1895,32 +1863,36 @@ With that function, the data gets divided into X_train, X_test, y_train and y_te
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">3</span><span class="n">m</span><span class="o">/</span><span class="mi">1</span><span class="n">g132z9j3_14k03_9l9qv2wr0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_44403</span><span class="o">/</span><span class="mf">2474941548.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">tick_marks</span><span class="p">,</span> <span class="n">class_names</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">tick_marks</span><span class="p">,</span> <span class="n">class_names</span><span class="p">)</span>
-<span class="ne">----&gt; </span><span class="mi">7</span> <span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">cm_CT_f</span><span class="p">),</span> <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;YlGnBu&quot;</span> <span class="p">,</span><span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;g&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_label_position</span><span class="p">(</span><span class="s2">&quot;top&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-
-<span class="ne">NameError</span>: name &#39;cm_CT_f&#39; is not defined
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 257.44, &#39;Predicted label&#39;)
 </pre></div>
 </div>
-<img alt="../_images/9db8bedb76d3931e521e8f64994f1a4cdc5412d198a04e7ef1eb5cbe8390ae2c.png" src="../_images/9db8bedb76d3931e521e8f64994f1a4cdc5412d198a04e7ef1eb5cbe8390ae2c.png" />
+<img alt="../_images/8bca50afe2545cbafc83aae84891fae3c8fa1d3199449b3c32f9897629a7114d.png" src="../_images/8bca50afe2545cbafc83aae84891fae3c8fa1d3199449b3c32f9897629a7114d.png" />
 </div>
 </div>
-<p>The upper left square in the <strong>confusion matrix</strong> contains all the <strong>true positive</strong> cases meaning that when a participant predicted as control belongs to the control group (hits). Accordingly, the bottom right square carries information on <strong>true negative</strong> cases meaning a participant predicted as patient was a patient. On the contrary, the upper right square contains <strong>false positives</strong> cases (participant predicted as patient but was control) and the bottom left square contains information on <strong>false negative</strong> cases (misses, participant predicted as control but was patient).</p>
-<p>The confusion matrix shows us that the probability for <strong>hits</strong> is around 43%, for <strong>true negatives</strong> around 25%. The probability for <strong>misses</strong> is around 0.8%. The probability for <strong>false positive</strong> cases is around 31%. To get more insight on how the model performs, there are other measures indicating the qualtiy of the model such as <strong>accuracy, precision, recall and F1-Score</strong>.</p>
+<p>The confusion matrix can be interpreted as follows:</p>
+<ul class="simple">
+<li><p>Bottom righ square: <strong>True positives</strong> or <strong>hits</strong> -&gt; predicted a subject to be patient and he is</p></li>
+<li><p>Upper left square: <strong>True negatives</strong> -&gt; predicted a subject to be control and he is</p></li>
+<li><p>Upper right square: <strong>False positive (Type 1 Error)</strong> -&gt; predicted a subject as patient but he is control</p></li>
+<li><p>Bottom left square: <strong>False negative (Type 2 Error)</strong> or <strong>misses</strong> -&gt; predicted a subject as control but he is patient</p></li>
+</ul>
+<p>The results show that the probability for <strong>hits</strong> is around 25%, for <strong>true negatives</strong> around 43%. The probability for <strong>misses</strong> is around 0.8%. The probability for <strong>false positive</strong> cases is around 31%.
+As we can see, the model is better at classifying controls than patients.
+However, based on these values we can compute other measures such as <strong>accuracy, precision, recall and F1-Score</strong> indicating the qualtiy of the model.</p>
 </section>
-<section id="model-accuracy-precision-and-recall">
-<h4>2.1.3.2 Model accuracy, precision and recall<a class="headerlink" href="#model-accuracy-precision-and-recall" title="Permalink to this heading">#</a></h4>
-<p>The <strong>accuracy</strong> measure indicates the percentage of correct predictions. The <strong>precision</strong> measure shows the correct positive predictions relative to total positive predictions. The <strong>recall</strong> measure indicates the correct positive predictions relative to total actual positives. The <strong>F1-Score</strong> is a measure of a test’s accuracy — it is the harmonic mean of precision and recall. Overall, it is a measure of the preciseness and robustness of your model.</p>
+<section id="model-accuracy-precision-recall-f1-score">
+<h4>1.3.2 Model accuracy, precision, recall F1-Score<a class="headerlink" href="#model-accuracy-precision-recall-f1-score" title="Permalink to this heading">#</a></h4>
+<p>The measures indicate the following:</p>
+<ul class="simple">
+<li><p><strong>Accuracy</strong>: percentage of correct predictions</p></li>
+<li><p><strong>Precision</strong>: correct positive predictions relative to total positive predictions. In other words: From all the cases predicted as positive, how many are actually positive.</p></li>
+<li><p><strong>Recall</strong>: the correct positive predictions relative to total actual positives. In other words: From all the positive cases, how many were predicted correctly.</p></li>
+<li><p><strong>F1-Score</strong>: combines the precision and recall of a classifier into a single metric by taking their harmonic mean. It is primarily used to compare the performance of two classifiers.</p></li>
+</ul>
+<p>To compute these measures, we can simply use <code class="docutils literal notranslate"><span class="pre">sklearn.metrics</span> <span class="pre">module</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#compute accuracy, precision, recall</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Accuracy:&quot;</span><span class="p">,</span><span class="n">metrics</span><span class="o">.</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_tests</span><span class="p">,</span> <span class="n">y_preds</span><span class="p">))</span> 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Accuracy:&quot;</span><span class="p">,</span><span class="n">metrics</span><span class="o">.</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_tests</span><span class="p">,</span> <span class="n">y_preds</span><span class="p">))</span> 
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Precision:&quot;</span><span class="p">,</span><span class="n">metrics</span><span class="o">.</span><span class="n">precision_score</span><span class="p">(</span><span class="n">y_tests</span><span class="p">,</span> <span class="n">y_preds</span><span class="p">))</span> 
 
@@ -1931,84 +1903,26 @@ With that function, the data gets divided into X_train, X_test, y_train and y_te
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy: 0.0
-</pre></div>
-</div>
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">3</span><span class="n">m</span><span class="o">/</span><span class="mi">1</span><span class="n">g132z9j3_14k03_9l9qv2wr0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_44403</span><span class="o">/</span><span class="mf">673072659.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Accuracy:&quot;</span><span class="p">,</span><span class="n">metrics</span><span class="o">.</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_tests</span><span class="p">,</span> <span class="n">y_preds</span><span class="p">))</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> 
-<span class="ne">----&gt; </span><span class="mi">5</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Precision:&quot;</span><span class="p">,</span><span class="n">metrics</span><span class="o">.</span><span class="n">precision_score</span><span class="p">(</span><span class="n">y_tests</span><span class="p">,</span> <span class="n">y_preds</span><span class="p">))</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> 
-<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Recall:&quot;</span><span class="p">,</span><span class="n">metrics</span><span class="o">.</span><span class="n">recall_score</span><span class="p">(</span><span class="n">y_tests</span><span class="p">,</span> <span class="n">y_preds</span><span class="p">))</span>
-
-<span class="nn">~/miniconda3/envs/neuro_ai/lib/python3.7/site-packages/sklearn/metrics/_classification.py</span> in <span class="ni">precision_score</span><span class="nt">(y_true, y_pred, labels, pos_label, average, sample_weight, zero_division)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1763</span>         <span class="n">warn_for</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;precision&quot;</span><span class="p">,),</span>
-<span class="g g-Whitespace">   </span><span class="mi">1764</span>         <span class="n">sample_weight</span><span class="o">=</span><span class="n">sample_weight</span><span class="p">,</span>
-<span class="ne">-&gt; </span><span class="mi">1765</span>         <span class="n">zero_division</span><span class="o">=</span><span class="n">zero_division</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1766</span>     <span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1767</span>     <span class="k">return</span> <span class="n">p</span>
-
-<span class="nn">~/miniconda3/envs/neuro_ai/lib/python3.7/site-packages/sklearn/metrics/_classification.py</span> in <span class="ni">precision_recall_fscore_support</span><span class="nt">(y_true, y_pred, beta, labels, pos_label, average, warn_for, sample_weight, zero_division)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1542</span>     <span class="k">if</span> <span class="n">beta</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1543</span>         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;beta should be &gt;=0 in the F-beta score&quot;</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">1544</span>     <span class="n">labels</span> <span class="o">=</span> <span class="n">_check_set_wise_labels</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">average</span><span class="p">,</span> <span class="n">labels</span><span class="p">,</span> <span class="n">pos_label</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1545</span> 
-<span class="g g-Whitespace">   </span><span class="mi">1546</span>     <span class="c1"># Calculate tp_sum, pred_sum, true_sum ###</span>
-
-<span class="nn">~/miniconda3/envs/neuro_ai/lib/python3.7/site-packages/sklearn/metrics/_classification.py</span> in <span class="ni">_check_set_wise_labels</span><span class="nt">(y_true, y_pred, average, labels, pos_label)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1365</span>             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">1366</span>                 <span class="s2">&quot;Target is </span><span class="si">%s</span><span class="s2"> but average=&#39;binary&#39;. Please &quot;</span>
-<span class="ne">-&gt; </span><span class="mi">1367</span>                 <span class="s2">&quot;choose another average setting, one of </span><span class="si">%r</span><span class="s2">.&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">y_type</span><span class="p">,</span> <span class="n">average_options</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1368</span>             <span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1369</span>     <span class="k">elif</span> <span class="n">pos_label</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span>
-
-<span class="ne">ValueError</span>: Target is multilabel-indicator but average=&#39;binary&#39;. Please choose another average setting, one of [None, &#39;micro&#39;, &#39;macro&#39;, &#39;weighted&#39;, &#39;samples&#39;].
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy: 0.6817851851851852
+Precision: 0.446440848273309
+Recall: 0.9687293800384428
+F1-Score: 0.6112061397554596
 </pre></div>
 </div>
 </div>
 </div>
-</section>
-<section id="receiver-operating-characteristic-roc-curve">
-<h4>2.1.3.3 Receiver operating characteristic (ROC-Curve)<a class="headerlink" href="#receiver-operating-characteristic-roc-curve" title="Permalink to this heading">#</a></h4>
-<p>Another measure that provides information on the diagnostic ability of a binary classifier is a <strong>Receiver Operator Characteristic (ROC) curve</strong>. A ROC curve plots the true positiv rate (proportion of observations that were correctly predicted to be positive out of all positive observations) on the y-axis against the false positive rate (proportion of observations that are incorrectly predicted to be positiv out of all negative observations)on the x-axis</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">roc_auc_score</span>
-<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">roc_curve</span>
-
-<span class="n">logit_roc_auc</span> <span class="o">=</span> <span class="n">roc_auc_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">classifier</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">))</span>
-<span class="n">fpr</span><span class="p">,</span> <span class="n">tpr</span><span class="p">,</span> <span class="n">thresholds</span> <span class="o">=</span> <span class="n">roc_curve</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">classifier</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X_test</span><span class="p">)[:,</span><span class="mi">1</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">fpr</span><span class="p">,</span> <span class="n">tpr</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Logistic Regression (area = </span><span class="si">%0.2f</span><span class="s1">)&#39;</span> <span class="o">%</span> <span class="n">logit_roc_auc</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span><span class="s1">&#39;r--&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.05</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;False Positive Rate&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;True Positive Rate&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Receiver operating characteristic&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;lower right&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/cdadd307e3024c508adb026467b5c81d85b91aca34020b6bab99558ee9a3b80e.png" src="../_images/cdadd307e3024c508adb026467b5c81d85b91aca34020b6bab99558ee9a3b80e.png" />
-</div>
-</div>
-<p>Curves closer to the top-left corner indicate a better performance of the classifier. The closer the curve comes to the 45-degree diagonal of the ROC space, the less acurate the classifier is. As the plot shows, our model does not perform very well.</p>
+<p>So as the values show, our logistic regression model for <strong>cortical thickness</strong> makes 68.18% of the time correct predictions. 44.64% represent the proportion of the model’s prediction of psychosis where psychosis is actually present and 96.87% relate to the proportion of all cases of psychosis that the model accurately predicted.</p>
 </section>
 </section>
 </section>
-<section id="micro-structural-data-mean-diffusivity-and-fractional-anisotropy">
-<h2>2.2 Micro-structural data: mean diffusivity and fractional anisotropy<a class="headerlink" href="#micro-structural-data-mean-diffusivity-and-fractional-anisotropy" title="Permalink to this heading">#</a></h2>
-<p>In the following section, the logistic regression model is computed for micro-structural data in an analogous way as for the macro-structural data.</p>
+<section id="micro-structural-data-mean-diffusivity-md-and-fractional-anisotropy-fa">
+<h2>2. Micro-structural data: mean diffusivity (MD) and fractional anisotropy (FA)<a class="headerlink" href="#micro-structural-data-mean-diffusivity-md-and-fractional-anisotropy-fa" title="Permalink to this heading">#</a></h2>
+<p>In the following section, the logistic regression model is computed for <strong>micro-structural</strong> data in an analogous way as for the macro-structural data. We first start with <strong>MD</strong>.</p>
 <section id="mean-diffusivity">
-<h3>2.2.1 Mean diffusivity<a class="headerlink" href="#mean-diffusivity" title="Permalink to this heading">#</a></h3>
+<h3>2.1 Mean diffusivity<a class="headerlink" href="#mean-diffusivity" title="Permalink to this heading">#</a></h3>
 <p>First, we prepare our data to use it in the code efficiently and adjust it for the logistic regression accordingly.</p>
 <section id="data-preparation">
-<h4>2.2.1.1 Data preparation<a class="headerlink" href="#data-preparation" title="Permalink to this heading">#</a></h4>
+<h4>2.1.1 Data preparation<a class="headerlink" href="#data-preparation" title="Permalink to this heading">#</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#read data</span>
@@ -2355,6 +2269,7 @@ With that function, the data gets divided into X_train, X_test, y_train and y_te
 <p>115 rows × 309 columns</p>
 </div></div></div>
 </div>
+<p>Very important is, not to forget to convert the dataframe into an numpy array!</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#dataframe as numpy array </span>
@@ -2377,7 +2292,7 @@ With that function, the data gets divided into X_train, X_test, y_train and y_te
 </div>
 </section>
 <section id="build-the-model">
-<h4>2.2.1.2 Build the model<a class="headerlink" href="#build-the-model" title="Permalink to this heading">#</a></h4>
+<h4>2.1.2 Build the model<a class="headerlink" href="#build-the-model" title="Permalink to this heading">#</a></h4>
 <p>In the next step, the input and output for our model is defined. For that, we use the <strong>MD</strong> for each 308 cortical region as input and the label whether a participant belongs to the control or patient group as output.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2436,13 +2351,13 @@ With that function, the data gets divided into X_train, X_test, y_train and y_te
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.911, 0.931, 0.891, ..., 1.166, 0.9  , 0.907],
-       [0.861, 0.913, 0.846, ..., 1.143, 0.917, 0.923],
-       [0.817, 0.827, 0.828, ..., 1.059, 0.794, 0.834],
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.911, 0.931, 0.891, ..., 0.9  , 0.907, 0.937],
+       [0.861, 0.913, 0.846, ..., 0.917, 0.923, 0.96 ],
+       [0.817, 0.827, 0.828, ..., 0.794, 0.834, 0.86 ],
        ...,
-       [0.89 , 0.899, 0.886, ..., 1.265, 0.981, 0.975],
-       [0.92 , 0.986, 0.883, ..., 1.444, 0.947, 1.047],
-       [0.97 , 0.868, 0.94 , ..., 1.284, 1.125, 1.11 ]])
+       [0.89 , 0.899, 0.886, ..., 0.981, 0.975, 0.972],
+       [0.92 , 0.986, 0.883, ..., 0.947, 1.047, 1.085],
+       [0.97 , 0.868, 0.94 , ..., 1.125, 1.11 , 1.139]])
 </pre></div>
 </div>
 </div>
@@ -2476,23 +2391,36 @@ With that function, the data gets divided into X_train, X_test, y_train and y_te
 <p>In the following steps, we again concatenate the values to compute the confusion matrix.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_preds_MD</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span><span class="n">y_preds_MD</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_preds_MD</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">y_preds_MD</span><span class="p">])</span>
+<span class="n">y_preds_MD</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1, 0, 0, ..., 1, 0, 1])
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_tests_MD</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span><span class="n">y_tests_MD</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_tests_MD</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">y_tests_MD</span><span class="p">])</span>
+<span class="n">y_tests_MD</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0, 0, 0, ..., 0, 0, 1])
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="id1">
-<h4>2.2.1.3 Model evaluation<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h4>
+<h4>2.1.3 Model evaluation<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h4>
+<p>Next, we will again have a look at the confusion matrix and then compute the evaluation measures as for the <strong>CT</strong>. To get probabilities in the confusion matrix, we again scale the confusion matrix by the sum of the array.</p>
 <section id="id2">
-<h5>2.2.1.3.1 Confusion matrix<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h5>
+<h5>2.1.3.1 Confusion matrix<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h5>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#confusion matrix</span>
@@ -2538,10 +2466,10 @@ With that function, the data gets divided into X_train, X_test, y_train and y_te
 <img alt="../_images/fc0bad0d27fd941e9809bd2aed4d3ee56fa20b85fbfcc564a0e163baa1d4b150.png" src="../_images/fc0bad0d27fd941e9809bd2aed4d3ee56fa20b85fbfcc564a0e163baa1d4b150.png" />
 </div>
 </div>
-<p>The confusion matrix reveals the probability for <strong>hits</strong> is around 54%, for <strong>true negatives</strong> around 22%. The probability for <strong>misses</strong> is around 7%. The probability for <strong>false positive</strong> cases is around 17%.</p>
+<p>The confusion matrix reveals that the probability for <strong>hits</strong> is around 22%, for <strong>true negatives</strong> around 54%. The probability for <strong>misses</strong> is around 7% and for <strong>false positive</strong> cases around 17%.</p>
 </section>
-<section id="id3">
-<h5>2.2.1.3.2  Model accuracy, precision and recall<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h5>
+<section id="model-accuracy-precision-recall-and-f1-score">
+<h5>2.1.3.2  Model accuracy, precision, recall and F1-Score<a class="headerlink" href="#model-accuracy-precision-recall-and-f1-score" title="Permalink to this heading">#</a></h5>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#compute accuracy, precision, recall</span>
@@ -2565,41 +2493,15 @@ F1-Score: 0.6352642018003356
 </div>
 </div>
 </div>
-</section>
-<section id="roc-curve">
-<h5>2.2.1.3.3 ROC-curve<a class="headerlink" href="#roc-curve" title="Permalink to this heading">#</a></h5>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">roc_auc_score</span>
-<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">roc_curve</span>
-<span class="n">logit_roc_auc</span> <span class="o">=</span> <span class="n">roc_auc_score</span><span class="p">(</span><span class="n">y_test_MD</span><span class="p">,</span> <span class="n">classifier_MD</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test_MD</span><span class="p">))</span>
-<span class="n">fpr</span><span class="p">,</span> <span class="n">tpr</span><span class="p">,</span> <span class="n">thresholds</span> <span class="o">=</span> <span class="n">roc_curve</span><span class="p">(</span><span class="n">y_test_MD</span><span class="p">,</span> <span class="n">classifier_MD</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X_test_MD</span><span class="p">)[:,</span><span class="mi">1</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">fpr</span><span class="p">,</span> <span class="n">tpr</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Logistic Regression (area = </span><span class="si">%0.2f</span><span class="s1">)&#39;</span> <span class="o">%</span> <span class="n">logit_roc_auc</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span><span class="s1">&#39;r--&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.05</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;False Positive Rate&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;True Positive Rate&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Receiver operating characteristic&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;lower right&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/695d9e9c96748395ba76a976ee186d51c76095ce58b6b22972a6ce7385117326.png" src="../_images/695d9e9c96748395ba76a976ee186d51c76095ce58b6b22972a6ce7385117326.png" />
-</div>
-</div>
-<p>As the plot reveals, the model performs worse than for <strong>CT</strong>.</p>
+<p>As the values reveal, our logistic regression model for <strong>mean diffusivity</strong> makes 75.26% of the time correct predictions. 55.20% represent the proportion of the model’s prediction of psychosis where psychosis is actually present and 74.82% relate to the proportion of all cases of psychosis that the model accurately predicted.</p>
 </section>
 </section>
 </section>
 <section id="fractional-anisotropy">
-<h3>2.2.2 Fractional anisotropy<a class="headerlink" href="#fractional-anisotropy" title="Permalink to this heading">#</a></h3>
+<h3>2.2 Fractional anisotropy<a class="headerlink" href="#fractional-anisotropy" title="Permalink to this heading">#</a></h3>
 <p>Now, the same procedure is applied for <strong>FA</strong>.</p>
-<section id="id4">
-<h4>2.2.2.1 Data preparation<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h4>
+<section id="id3">
+<h4>2.2.1 Data preparation<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h4>
 <p>First, the data is adjusted accordingly.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2650,8 +2552,8 @@ F1-Score: 0.6352642018003356
 </div>
 </div>
 </section>
-<section id="id5">
-<h4>2.2.2.2 Build the model<a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h4>
+<section id="id4">
+<h4>2.2.2 Build the model<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h4>
 <p>Again, the input and output variables are defined. Here, we take the <strong>FA</strong> values for every brain region as input.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2678,6 +2580,7 @@ F1-Score: 0.6352642018003356
 </div>
 </div>
 </div>
+<p>And finally run the model.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n_iter_FA</span> <span class="o">=</span> <span class="mi">5000</span>
@@ -2703,26 +2606,39 @@ F1-Score: 0.6352642018003356
 </div>
 </div>
 </div>
+<p>Concatenate the values from each iteration to compute our confusion matrix!</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_preds_FA</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span><span class="n">y_preds_FA</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_preds_FA</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">y_preds_FA</span><span class="p">])</span>
+<span class="n">y_preds_FA</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1, 0, 0, ..., 1, 0, 1])
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_tests_FA</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span><span class="n">y_tests_FA</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_tests_FA</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">y_tests_FA</span><span class="p">])</span>
+<span class="n">y_tests_FA</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0, 0, 0, ..., 0, 0, 1])
 </pre></div>
 </div>
 </div>
 </div>
 </section>
-</section>
+<section id="id5">
+<h4>2.2.3 Model evaluation<a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h4>
+<p>Again, to get the probabilites we scale the confusion matrix with sum of its array.</p>
 <section id="id6">
-<h3>2.2.2.3 Model evaluation<a class="headerlink" href="#id6" title="Permalink to this heading">#</a></h3>
-<section id="id7">
-<h4>2.2.2.3.1 Confusion matrix<a class="headerlink" href="#id7" title="Permalink to this heading">#</a></h4>
+<h5>2.2.3.1 Confusion matrix<a class="headerlink" href="#id6" title="Permalink to this heading">#</a></h5>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#confusion matrix</span>
@@ -2737,32 +2653,17 @@ F1-Score: 0.6352642018003356
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">3</span><span class="n">m</span><span class="o">/</span><span class="mi">1</span><span class="n">g132z9j3_14k03_9l9qv2wr0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_44403</span><span class="o">/</span><span class="mf">1759283093.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1">#confusion matrix</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> 
-<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">cm_FA</span> <span class="o">=</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y_tests_FA</span><span class="p">,</span> <span class="n">y_preds_FA</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> 
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">cm_FA_f</span> <span class="o">=</span> <span class="n">cm_FA</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">cm_FA</span><span class="p">)</span>
-
-<span class="nn">~/miniconda3/envs/neuro_ai/lib/python3.7/site-packages/sklearn/metrics/_classification.py</span> in <span class="ni">confusion_matrix</span><span class="nt">(y_true, y_pred, labels, sample_weight, normalize)</span>
-<span class="g g-Whitespace">    </span><span class="mi">307</span>     <span class="n">y_type</span><span class="p">,</span> <span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span> <span class="o">=</span> <span class="n">_check_targets</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">308</span>     <span class="k">if</span> <span class="n">y_type</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;binary&quot;</span><span class="p">,</span> <span class="s2">&quot;multiclass&quot;</span><span class="p">):</span>
-<span class="ne">--&gt; </span><span class="mi">309</span>         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2"> is not supported&quot;</span> <span class="o">%</span> <span class="n">y_type</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">310</span> 
-<span class="g g-Whitespace">    </span><span class="mi">311</span>     <span class="k">if</span> <span class="n">labels</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-
-<span class="ne">ValueError</span>: multilabel-indicator is not supported
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Confusion Matrix : 
+ [[0.44015862 0.272     ]
+ [0.05826897 0.22957241]]
 </pre></div>
 </div>
 </div>
 </div>
+<p>To have a nicer plot, again we run the following code!</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># plot the confusion matrix visually more appealing</span>
-
-<span class="n">class_names</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">class_names</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
 
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span> 
 <span class="n">tick_marks</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">class_names</span><span class="p">))</span> 
@@ -2781,13 +2682,13 @@ F1-Score: 0.6352642018003356
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 257.44, &#39;Predicted label&#39;)
 </pre></div>
 </div>
-<img alt="../_images/f2ed57b413f6ae19371239028f4142359a18872c41a8ab852eb913f353e655be.png" src="../_images/f2ed57b413f6ae19371239028f4142359a18872c41a8ab852eb913f353e655be.png" />
+<img alt="../_images/25e132d4b87a50910b7badcb22be93f1f4da6bfc8f518c72bb466d753a5aced4.png" src="../_images/25e132d4b87a50910b7badcb22be93f1f4da6bfc8f518c72bb466d753a5aced4.png" />
 </div>
 </div>
-<p>The confusion matrix shows that the probability for <strong>hits</strong> is around 44%, for <strong>true negatives</strong> around 23%. The probability for <strong>misses</strong> is around 6%. The probability for <strong>false positive</strong> cases is around 27%.</p>
+<p>The confusion matrix shows that the probability for <strong>hits</strong> is around 23%, for <strong>true negatives</strong> around 44%. The probability for <strong>misses</strong> is around 6%. The probability for <strong>false positive</strong> cases is around 27%.</p>
 </section>
-<section id="id8">
-<h4>2.2.2.3.2 Model accuracy, precision and recall<a class="headerlink" href="#id8" title="Permalink to this heading">#</a></h4>
+<section id="id7">
+<h5>2.2.3.2 Model accuracy, precision, recall and F1-Score<a class="headerlink" href="#id7" title="Permalink to this heading">#</a></h5>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#compute accuracy, precision, recall</span>
@@ -2797,77 +2698,68 @@ F1-Score: 0.6352642018003356
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Precision:&quot;</span><span class="p">,</span><span class="n">metrics</span><span class="o">.</span><span class="n">precision_score</span><span class="p">(</span><span class="n">y_tests_FA</span><span class="p">,</span> <span class="n">y_preds_FA</span><span class="p">))</span> 
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Recall:&quot;</span><span class="p">,</span><span class="n">metrics</span><span class="o">.</span><span class="n">recall_score</span><span class="p">(</span><span class="n">y_tests_FA</span><span class="p">,</span> <span class="n">y_preds_FA</span><span class="p">))</span> 
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;F1-Score:&quot;</span><span class="p">,</span> <span class="n">metrics</span><span class="o">.</span><span class="n">f1_score</span><span class="p">(</span><span class="n">y_tests_FA</span><span class="p">,</span> <span class="n">y_preds_FA</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy: 0.0
-</pre></div>
-</div>
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">3</span><span class="n">m</span><span class="o">/</span><span class="mi">1</span><span class="n">g132z9j3_14k03_9l9qv2wr0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_44403</span><span class="o">/</span><span class="mf">3087685093.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Accuracy:&quot;</span><span class="p">,</span><span class="n">metrics</span><span class="o">.</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_tests_FA</span><span class="p">,</span> <span class="n">y_preds_FA</span><span class="p">))</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> 
-<span class="ne">----&gt; </span><span class="mi">5</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Precision:&quot;</span><span class="p">,</span><span class="n">metrics</span><span class="o">.</span><span class="n">precision_score</span><span class="p">(</span><span class="n">y_tests_FA</span><span class="p">,</span> <span class="n">y_preds_FA</span><span class="p">))</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> 
-<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Recall:&quot;</span><span class="p">,</span><span class="n">metrics</span><span class="o">.</span><span class="n">recall_score</span><span class="p">(</span><span class="n">y_tests_FA</span><span class="p">,</span> <span class="n">y_preds_FA</span><span class="p">))</span>
-
-<span class="nn">~/miniconda3/envs/neuro_ai/lib/python3.7/site-packages/sklearn/metrics/_classification.py</span> in <span class="ni">precision_score</span><span class="nt">(y_true, y_pred, labels, pos_label, average, sample_weight, zero_division)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1763</span>         <span class="n">warn_for</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;precision&quot;</span><span class="p">,),</span>
-<span class="g g-Whitespace">   </span><span class="mi">1764</span>         <span class="n">sample_weight</span><span class="o">=</span><span class="n">sample_weight</span><span class="p">,</span>
-<span class="ne">-&gt; </span><span class="mi">1765</span>         <span class="n">zero_division</span><span class="o">=</span><span class="n">zero_division</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1766</span>     <span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1767</span>     <span class="k">return</span> <span class="n">p</span>
-
-<span class="nn">~/miniconda3/envs/neuro_ai/lib/python3.7/site-packages/sklearn/metrics/_classification.py</span> in <span class="ni">precision_recall_fscore_support</span><span class="nt">(y_true, y_pred, beta, labels, pos_label, average, warn_for, sample_weight, zero_division)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1542</span>     <span class="k">if</span> <span class="n">beta</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1543</span>         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;beta should be &gt;=0 in the F-beta score&quot;</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">1544</span>     <span class="n">labels</span> <span class="o">=</span> <span class="n">_check_set_wise_labels</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">average</span><span class="p">,</span> <span class="n">labels</span><span class="p">,</span> <span class="n">pos_label</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1545</span> 
-<span class="g g-Whitespace">   </span><span class="mi">1546</span>     <span class="c1"># Calculate tp_sum, pred_sum, true_sum ###</span>
-
-<span class="nn">~/miniconda3/envs/neuro_ai/lib/python3.7/site-packages/sklearn/metrics/_classification.py</span> in <span class="ni">_check_set_wise_labels</span><span class="nt">(y_true, y_pred, average, labels, pos_label)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1365</span>             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">1366</span>                 <span class="s2">&quot;Target is </span><span class="si">%s</span><span class="s2"> but average=&#39;binary&#39;. Please &quot;</span>
-<span class="ne">-&gt; </span><span class="mi">1367</span>                 <span class="s2">&quot;choose another average setting, one of </span><span class="si">%r</span><span class="s2">.&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">y_type</span><span class="p">,</span> <span class="n">average_options</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1368</span>             <span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1369</span>     <span class="k">elif</span> <span class="n">pos_label</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span>
-
-<span class="ne">ValueError</span>: Target is multilabel-indicator but average=&#39;binary&#39;. Please choose another average setting, one of [None, &#39;micro&#39;, &#39;macro&#39;, &#39;weighted&#39;, &#39;samples&#39;].
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy: 0.6697310344827586
+Precision: 0.45770542294577055
+Recall: 0.7975657090830678
+F1-Score: 0.5816275717468222
 </pre></div>
 </div>
 </div>
 </div>
+<p>As the values reveal, our logistic regression model for <strong>fractional anisotropy</strong> makes 66.97% of the time correct predictions. 45.77% represent the proportion of the model’s prediction of psychosis where psychosis is actually present and 79.75% relate to the proportion of all cases of psychosis that the model accurately predicted.</p>
 </section>
-<section id="id9">
-<h4>2.2.2.3.3 ROC-curve<a class="headerlink" href="#id9" title="Permalink to this heading">#</a></h4>
+</section>
+</section>
+</section>
+<section id="summary">
+<h2>3. Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h2>
+<p>To summarize the performance measures of our logistic regression models for <strong>CT</strong> and <strong>FA and MD</strong>, we can simply create a table with the relevant data.</p>
+<p>For that, we need to import the tabulate function from the tabulate module. However, before this u have to run the  <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">tabulate</span></code>command. Remove the hashtag in the next line, to install it.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">roc_auc_score</span>
-<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">roc_curve</span>
-<span class="n">logit_roc_auc</span> <span class="o">=</span> <span class="n">roc_auc_score</span><span class="p">(</span><span class="n">y_test_FA</span><span class="p">,</span> <span class="n">classifier_FA</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test_FA</span><span class="p">))</span>
-<span class="n">fpr</span><span class="p">,</span> <span class="n">tpr</span><span class="p">,</span> <span class="n">thresholds</span> <span class="o">=</span> <span class="n">roc_curve</span><span class="p">(</span><span class="n">y_test_FA</span><span class="p">,</span> <span class="n">classifier_FA</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X_test_FA</span><span class="p">)[:,</span><span class="mi">1</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">fpr</span><span class="p">,</span> <span class="n">tpr</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Logistic Regression (area = </span><span class="si">%0.2f</span><span class="s1">)&#39;</span> <span class="o">%</span> <span class="n">logit_roc_auc</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span><span class="s1">&#39;r--&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.05</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;False Positive Rate&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;True Positive Rate&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Receiver operating characteristic&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;lower right&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="ch">#!pip install tabulate</span>
+
+<span class="kn">from</span> <span class="nn">tabulate</span> <span class="kn">import</span> <span class="n">tabulate</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Next, we define our data and the column names and print the table.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#create data</span>
+<span class="n">data_LR</span> <span class="o">=</span> <span class="p">[[</span><span class="s2">&quot;Accuracy&quot;</span><span class="p">,</span> <span class="n">metrics</span><span class="o">.</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_tests</span><span class="p">,</span> <span class="n">y_preds</span><span class="p">),</span> <span class="n">metrics</span><span class="o">.</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_tests_MD</span><span class="p">,</span> <span class="n">y_preds_MD</span><span class="p">),</span> <span class="n">metrics</span><span class="o">.</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_tests_FA</span><span class="p">,</span> <span class="n">y_preds_FA</span><span class="p">)],</span> 
+        <span class="p">[</span><span class="s2">&quot;Precision&quot;</span><span class="p">,</span> <span class="n">metrics</span><span class="o">.</span><span class="n">precision_score</span><span class="p">(</span><span class="n">y_tests</span><span class="p">,</span> <span class="n">y_preds</span><span class="p">),</span> <span class="n">metrics</span><span class="o">.</span><span class="n">precision_score</span><span class="p">(</span><span class="n">y_tests_MD</span><span class="p">,</span> <span class="n">y_preds_MD</span><span class="p">),</span><span class="n">metrics</span><span class="o">.</span><span class="n">precision_score</span><span class="p">(</span><span class="n">y_tests_FA</span><span class="p">,</span> <span class="n">y_preds_FA</span><span class="p">)],</span> 
+        <span class="p">[</span><span class="s2">&quot;Recall&quot;</span><span class="p">,</span> <span class="n">metrics</span><span class="o">.</span><span class="n">recall_score</span><span class="p">(</span><span class="n">y_tests</span><span class="p">,</span> <span class="n">y_preds</span><span class="p">),</span> <span class="n">metrics</span><span class="o">.</span><span class="n">recall_score</span><span class="p">(</span><span class="n">y_tests_MD</span><span class="p">,</span> <span class="n">y_preds_MD</span><span class="p">),</span><span class="n">metrics</span><span class="o">.</span><span class="n">recall_score</span><span class="p">(</span><span class="n">y_tests_FA</span><span class="p">,</span> <span class="n">y_preds_FA</span><span class="p">)],</span> 
+        <span class="p">[</span><span class="s2">&quot;F1-Score&quot;</span><span class="p">,</span> <span class="n">metrics</span><span class="o">.</span><span class="n">f1_score</span><span class="p">(</span><span class="n">y_tests</span><span class="p">,</span> <span class="n">y_preds</span><span class="p">),</span> <span class="n">metrics</span><span class="o">.</span><span class="n">f1_score</span><span class="p">(</span><span class="n">y_tests_MD</span><span class="p">,</span> <span class="n">y_preds_MD</span><span class="p">),</span> <span class="n">metrics</span><span class="o">.</span><span class="n">f1_score</span><span class="p">(</span><span class="n">y_tests_FA</span><span class="p">,</span> <span class="n">y_preds_FA</span><span class="p">)]]</span>
+  
+<span class="c1">#define header names</span>
+<span class="n">col_names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Measure&quot;</span><span class="p">,</span> <span class="s2">&quot;Cortical Thickness&quot;</span><span class="p">,</span> <span class="s2">&quot;Mean Diffusivity&quot;</span><span class="p">,</span> <span class="s2">&quot;Fractional Anisotropy&quot;</span><span class="p">]</span>
+  
+<span class="c1">#display table</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">tabulate</span><span class="p">(</span><span class="n">data_LR</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">col_names</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/5ba2d4e728a4a89a56f7c5b05d09f21129b98f46b3cbfa6243fe52f336b84d92.png" src="../_images/5ba2d4e728a4a89a56f7c5b05d09f21129b98f46b3cbfa6243fe52f336b84d92.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Measure      Cortical Thickness    Mean Diffusivity    Fractional Anisotropy
+---------  --------------------  ------------------  -----------------------
+Accuracy               0.681785            0.752697                 0.669731
+Precision              0.446441            0.551946                 0.457705
+Recall                 0.968729            0.748209                 0.797566
+F1-Score               0.611206            0.635264                 0.581628
+</pre></div>
 </div>
 </div>
-<p>In the next pages, a different algorithm is applied to the data.</p>
-</section>
-</section>
+</div>
+<p>What can be seen is, that <strong>CT</strong> has the highest <strong>accuracy</strong> score, <strong>MD</strong> has the highest <strong>precision</strong> score, <strong>CT</strong> the highest <strong>recall</strong> and <strong>MD</strong> the highest <strong>F1-Score</strong>. <strong>Precision and Recall</strong> values are inversely related. As one increases, the other decreases. So when we relate to the <strong>F1-Score</strong>, <strong>MD</strong> is performs better.</p>
+<p>In the next pages, a different algorithm is applied to the same data.</p>
 </section>
 </section>
 
@@ -2934,40 +2826,38 @@ F1-Score: 0.6352642018003356
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#macro-structural-data-cortical-thickness-ct">1. Macro-structural data: Cortical Thickness (CT)</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-preperation">1.1 Data preperation</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#building-the-model">2.1.2 Building the model</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#model-evaluation">2.1.3 Model evaluation</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#confusion-matrix">2.1.3.1 Confusion Matrix</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#model-accuracy-precision-and-recall">2.1.3.2 Model accuracy, precision and recall</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#receiver-operating-characteristic-roc-curve">2.1.3.3 Receiver operating characteristic (ROC-Curve)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#building-the-model">1.2 Building the model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#model-evaluation">1.3 Model evaluation</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#confusion-matrix">1.3.1 Confusion Matrix</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#model-accuracy-precision-recall-f1-score">1.3.2 Model accuracy, precision, recall F1-Score</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#micro-structural-data-mean-diffusivity-and-fractional-anisotropy">2.2 Micro-structural data: mean diffusivity and fractional anisotropy</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mean-diffusivity">2.2.1 Mean diffusivity</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#data-preparation">2.2.1.1 Data preparation</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#build-the-model">2.2.1.2 Build the model</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">2.2.1.3 Model evaluation</a><ul class="nav section-nav flex-column">
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">2.2.1.3.1 Confusion matrix</a></li>
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">2.2.1.3.2  Model accuracy, precision and recall</a></li>
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#roc-curve">2.2.1.3.3 ROC-curve</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#micro-structural-data-mean-diffusivity-md-and-fractional-anisotropy-fa">2. Micro-structural data: mean diffusivity (MD) and fractional anisotropy (FA)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mean-diffusivity">2.1 Mean diffusivity</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#data-preparation">2.1.1 Data preparation</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#build-the-model">2.1.2 Build the model</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">2.1.3 Model evaluation</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">2.1.3.1 Confusion matrix</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#model-accuracy-precision-recall-and-f1-score">2.1.3.2  Model accuracy, precision, recall and F1-Score</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fractional-anisotropy">2.2.2 Fractional anisotropy</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">2.2.2.1 Data preparation</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">2.2.2.2 Build the model</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">2.2.2.3 Model evaluation</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">2.2.2.3.1 Confusion matrix</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">2.2.2.3.2 Model accuracy, precision and recall</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">2.2.2.3.3 ROC-curve</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fractional-anisotropy">2.2 Fractional anisotropy</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">2.2.1 Data preparation</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">2.2.2 Build the model</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">2.2.3 Model evaluation</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">2.2.3.1 Confusion matrix</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">2.2.3.2 Model accuracy, precision, recall and F1-Score</a></li>
 </ul>
 </li>
 </ul>
 </li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">3. Summary</a></li>
 </ul>
   </nav></div>
 
